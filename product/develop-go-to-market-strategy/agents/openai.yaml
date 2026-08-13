@@ -1,0 +1,14 @@
+interface:
+  display_name: Develop Go-to-Market Strategy
+  short_description: Build evidence-based go-to-market strategies
+  default_prompt: Use $develop-go-to-market-strategy to create or assess a go-to-market
+    strategy for this product.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
