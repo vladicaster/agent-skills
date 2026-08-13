@@ -8,13 +8,13 @@ Each subdirectory is an independently installable skill. You do not need to inst
 
 | Skill | Status | Purpose |
 | --- | --- | --- |
-| [GitHub Issue to Draft PR](github-issue-to-draft-pr/) | Available | Creates a scoped issue and feature branch, waits for explicit approval, then implements, validates, commits, pushes, and opens a linked draft pull request. |\n| [Manage Coding-Agent Harness](manage-coding-agent-harness/) | Available | Bootstraps, creates, audits, updates, repairs, validates, explains, and reconciles technology-neutral coding-agent harnesses from a repository or greenfield PRD. |
+| [GitHub Issue to Draft PR](github-issue-to-draft-pr/) | Available | Creates a scoped issue and feature branch, waits for explicit approval, then implements, validates, commits, pushes, and opens a linked draft pull request. |
+| [Manage Coding-Agent Harness](manage-coding-agent-harness/) | Available | Bootstraps, creates, audits, updates, repairs, validates, explains, and reconciles technology-neutral coding-agent harnesses from a repository or greenfield PRD. |
 
 ## Planned areas
 
 Future engineering skills may cover:
 
-- Coding-agent harness creation
 - Product specification and acceptance-criteria development
 - Spec-to-implementation planning
 - Architecture and modernization reviews
