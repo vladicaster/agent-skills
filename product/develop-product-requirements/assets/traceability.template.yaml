@@ -1,0 +1,14 @@
+prd_id: PRD-EXAMPLE-001
+requirements:
+  PRD-EXAMPLE-001-FR-001:
+    title: Example requirement
+    acceptance:
+      - PRD-EXAMPLE-001-AC-001
+    issues:
+      - repository: owner/repository
+        number: 123
+        role: implementation
+        status: planned
+    pull_requests: []
+    tests: []
+    evidence: []
