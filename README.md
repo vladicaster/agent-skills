@@ -10,10 +10,17 @@ The repository starts with engineering workflows and is designed to grow into ad
 agent-skills/
 ├── engineering/
 │   ├── README.md
-│   └── github-issue-to-draft-pr/
+│   ├── github-issue-to-draft-pr/
+│   │   ├── SKILL.md
+│   │   ├── README.md
+│   │   ├── agents/
+│   │   └── assets/
+│   └── manage-coding-agent-harness/
 │       ├── SKILL.md
 │       ├── README.md
 │       ├── agents/
+│       ├── references/
+│       ├── scripts/
 │       └── assets/
 └── README.md
 ```
@@ -30,7 +37,8 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
-| [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |\n| [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
+| [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
+| [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 
 ## Compatibility
 
