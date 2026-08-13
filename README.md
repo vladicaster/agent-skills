@@ -11,26 +11,11 @@ agent-skills/
 ├── engineering/
 │   ├── README.md
 │   ├── github-issue-to-draft-pr/
-│   │   ├── SKILL.md
-│   │   ├── README.md
-│   │   ├── agents/
-│   │   └── assets/
 │   └── manage-coding-agent-harness/
-│       ├── SKILL.md
-│       ├── README.md
-│       ├── agents/
-│       ├── references/
-│       ├── scripts/
-│       └── assets/
 ├── product/
 │   ├── README.md
-│   └── develop-go-to-market-strategy/
-│       ├── SKILL.md
-│       ├── README.md
-│       ├── agents/
-│       ├── references/
-│       ├── scripts/
-│       └── assets/
+│   ├── develop-go-to-market-strategy/
+│   └── develop-product-requirements/
 └── README.md
 ```
 
@@ -50,6 +35,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
+| [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
 
 ## Compatibility
 
