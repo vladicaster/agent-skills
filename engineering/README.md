@@ -55,6 +55,10 @@ Open the desired skill directory and follow its README. Installation differs by 
 
 GitHub authentication, connector authorization, and repository permissions must be configured separately.
 
+## Updating installed skills
+
+Installed copies do not automatically follow source changes. Use the repository's [versioning and update policy](../README.md#versioning-and-updates), then follow the selected skill's README for ChatGPT Work, symbolic-link, or copied-installation instructions.
+
 ## Adding an engineering skill
 
 Create a self-contained directory:
