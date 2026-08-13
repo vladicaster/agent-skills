@@ -24,6 +24,10 @@ Product skills should:
 - Preserve approval gates before external communication, publication, spending, production changes, or commercial commitments.
 - Define measurable learning and decision criteria.
 
+## Updating installed skills
+
+Installed copies do not automatically follow source changes. Use the repository's [versioning and update policy](../README.md#versioning-and-updates), then follow the selected skill's README for ChatGPT Work, symbolic-link, or copied-installation instructions.
+
 ## Planned areas
 
 Future product skills may cover:
