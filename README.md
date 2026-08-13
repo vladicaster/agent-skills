@@ -22,6 +22,15 @@ agent-skills/
 │       ├── references/
 │       ├── scripts/
 │       └── assets/
+├── product/
+│   ├── README.md
+│   └── develop-go-to-market-strategy/
+│       ├── SKILL.md
+│       ├── README.md
+│       ├── agents/
+│       ├── references/
+│       ├── scripts/
+│       └── assets/
 └── README.md
 ```
 
