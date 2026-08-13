@@ -37,6 +37,44 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
 
+
+## From product conception to delivery
+
+These skills can be used independently or together as an end-to-end product-development system. The lifecycle is iterative rather than strictly linear: market evidence informs requirements, requirements establish engineering needs, delivery produces new evidence, and that evidence may change the go-to-market strategy or product scope.
+
+```mermaid
+flowchart TD
+    A["Product conception<br/>Problem, audience, opportunity"]
+    B["Develop GTM Strategy<br/>Validate market and positioning"]
+    C["Develop Product Requirements<br/>Define PRDs and delivery scope"]
+    D["Manage Coding-Agent Harness<br/>Establish architecture and standards"]
+    E["GitHub Issue to Draft PR<br/>Implement approved increments"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -->|Release evidence and feedback| B
+    E -->|Requirement changes| C
+```
+
+| Lifecycle stage | Primary skill | Outcome |
+| --- | --- | --- |
+| Opportunity discovery | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | ICP, problem evidence, positioning, offer, and market hypotheses. |
+| Product definition | [Develop Product Requirements](product/develop-product-requirements/) | Product hierarchy, PRDs, requirements, acceptance criteria, and issue-decomposition plans. |
+| Engineering readiness | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Stack decisions, architecture guidance, standards, repository instructions, and validation requirements. |
+| Incremental delivery | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Approved issue, feature branch, implementation, validation, and linked draft pull request. |
+| Launch and learning | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) and [Develop Product Requirements](product/develop-product-requirements/) | Launch experiments and evidence translated into strategy or requirement changes. |
+
+The skills support both greenfield and existing-product work:
+
+- A product concept or existing product can begin with market and customer evidence.
+- One platform may contain multiple products or subproducts, each with its own PRD.
+- A greenfield project PRD can provide the foundation for creating a coding-agent harness.
+- One PRD may decompose into multiple approved GitHub issues across one or more repositories.
+- Each approved issue can move independently through implementation and draft-PR review.
+- Launch results, delivery discoveries, and customer feedback can trigger GTM changes, PRD changes, or additional delivery work.
+
 ## Compatibility
 
 Skills use a `SKILL.md` entry point and follow the open Agent Skills structure whenever practical.
