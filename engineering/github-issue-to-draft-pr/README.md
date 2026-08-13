@@ -127,12 +127,14 @@ Claude Code reads `SKILL.md` and its referenced supporting resources. The OpenAI
 - `assets/icon.svg` — OpenAI skill icon.
 - `README.md` — platform-specific requirements and installation guidance.
 
-## Updating an installation
+## Updating this skill
 
-If the skill was installed with a symbolic link, pull the latest repository changes:
+Installed copies are snapshots and do not automatically follow source changes.
 
-```bash
-git -C /path/to/agent-skills pull
-```
+- **ChatGPT Work:** Ask ChatGPT: `Update my installed github-issue-to-draft-pr skill from https://github.com/vladicaster/agent-skills/tree/main/engineering/github-issue-to-draft-pr`. The update should retrieve and validate the complete directory, report meaningful changes or local conflicts, and replace the installed copy. Refresh or reopen the Skills page if necessary.
+- **Codex or Claude Code, symbolic link:** Run `git -C /path/to/agent-skills pull`. The linked installation then uses the updated checkout.
+- **Codex or Claude Code, copied directory:** Pull the source repository, compare any local customizations, and copy the complete skill directory into the personal or project skills location again.
+- **Pinned installation:** Use a Git tag rather than `main` when reproducibility matters, and move to a newer tag deliberately.
 
-If the skill was copied into a personal or project skill directory, pull the repository and copy the directory again.
+See the repository's [versioning and update policy](../../README.md#versioning-and-updates) for release guidance.
+
