@@ -49,6 +49,27 @@ A skill may also contain platform-specific metadata. For example, `agents/openai
 
 See each skill's README for exact prerequisites, installation commands, invocation syntax, and platform notes.
 
+## Versioning and updates
+
+An installed skill is a snapshot of its source at installation time. Source changes do not automatically replace installed copies, except when a host is intentionally using a symbolic link to a local checkout.
+
+- Use the `main` branch for the latest stable skill source.
+- Use Git tags and GitHub releases when an installation must remain reproducible.
+- Treat updates as explicit operations so users can review workflow or permission changes before adopting them.
+- Compare an installed copy with the new source before replacement when it may contain local customizations.
+- Keep version information in repository tags and release notes. Keep `SKILL.md` frontmatter limited to the supported `name` and `description` fields.
+
+For ChatGPT Work, ask ChatGPT to update the installed skill from the same source URL:
+
+```text
+Update my installed <skill-name> skill from:
+https://github.com/vladicaster/agent-skills/tree/main/<category>/<skill-name>
+```
+
+ChatGPT should retrieve the current source, validate the complete skill directory, identify meaningful changes or local conflicts, and replace the installed copy. Refresh or reopen the Skills page if the updated skill is not immediately visible.
+
+For Codex or Claude Code, pull the source checkout. Symbolic-link installations immediately use the updated checkout; copied installations must be copied again after the pull. See each skill README for exact commands.
+
 ## Design principles
 
 Every skill should:

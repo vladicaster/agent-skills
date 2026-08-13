@@ -158,3 +158,15 @@ It does not independently select frameworks, databases, deployment topology, ser
 Invoke with `$develop-product-requirements` in Codex or `/develop-product-requirements` in Claude Code.
 
 Installing the skill does not grant GitHub, repository, analytics, customer-data, or stakeholder access.
+
+## Updating this skill
+
+Installed copies are snapshots and do not automatically follow source changes.
+
+- **ChatGPT Work:** Ask ChatGPT: `Update my installed develop-product-requirements skill from https://github.com/vladicaster/agent-skills/tree/main/product/develop-product-requirements`. The update should retrieve and validate the complete directory, report meaningful changes or local conflicts, and replace the installed copy. Refresh or reopen the Skills page if necessary.
+- **Codex or Claude Code, symbolic link:** Run `git -C /path/to/agent-skills pull`. The linked installation then uses the updated checkout.
+- **Codex or Claude Code, copied directory:** Pull the source repository, compare any local customizations, and copy the complete skill directory into the personal or project skills location again.
+- **Pinned installation:** Use a Git tag rather than `main` when reproducibility matters, and move to a newer tag deliberately.
+
+See the repository's [versioning and update policy](../../README.md#versioning-and-updates) for release guidance.
+
