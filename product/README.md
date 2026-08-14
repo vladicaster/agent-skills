@@ -59,3 +59,4 @@ Open the desired skill directory and follow its README.
 
 External research, analytics, CRM, email, advertising, website, and other permissions must be configured separately.
 
+GitHub is optional for product work. GTM strategy, PRD authoring, issue planning, and product-preparation artifacts can be produced without it. Creating repositories or approved GitHub issues is a separate operation requiring authorization, destination selection, and the checks in the [GitHub and repository readiness guide](../docs/github-repository-readiness.md).

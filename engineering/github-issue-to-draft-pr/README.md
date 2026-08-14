@@ -37,6 +37,8 @@ The core `SKILL.md` follows the open Agent Skills structure and can be used by C
 
 The authenticated identity must have permission to create issues, branches, commits, and pull requests in the target repository.
 
+This skill requires an existing destination repository; it does not create one. Before invocation, confirm the authenticated identity can access the intended personal or organization repository and that issues and pull requests are enabled. The skill discovers the actual default branch and respects branch protections. See the shared [GitHub and repository readiness guide](../../docs/github-repository-readiness.md).
+
 ## Install for ChatGPT Work
 
 For reusable distribution in ChatGPT Work across supported web, desktop, and mobile surfaces, package this skill in an OpenAI plugin. Installing the plugin makes its bundled skill available to ChatGPT Work.
@@ -137,4 +139,3 @@ Installed copies are snapshots and do not automatically follow source changes.
 - **Pinned installation:** Use a Git tag rather than `main` when reproducibility matters, and move to a newer tag deliberately.
 
 See the repository's [versioning and update policy](../../README.md#versioning-and-updates) for release guidance.
-

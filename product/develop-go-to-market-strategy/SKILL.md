@@ -22,9 +22,10 @@ Default to Audit or Diagnose when the user asks why an existing effort is underp
 ## Phase 1: Establish the decision context
 
 1. Confirm the product, maturity, business model, geography, revenue objective, timeline, team, budget, delivery capacity, and definition of success.
-2. Gather available evidence: PRD, website, pitch deck, customer interviews, usage data, sales results, competitor list, current messaging, and existing GTM plan.
-3. Identify missing decisions. Ask only questions that materially affect segmentation, offer, motion, or economics.
-4. When current market facts matter, research authoritative and recent sources. Cite factual claims and label inference.
+2. Confirm the output destination. GitHub is not required; use a document or portable artifact unless the user approves a repository-backed destination. Before repository writes, verify the authenticated identity, repository, visibility compatibility, and required permissions. Report missing access as **Blocked** for that write without blocking the strategy itself.
+3. Gather available evidence: PRD, website, pitch deck, customer interviews, usage data, sales results, competitor list, current messaging, and existing GTM plan.
+4. Identify missing decisions. Ask only questions that materially affect segmentation, offer, motion, or economics.
+5. When current market facts matter, research authoritative and recent sources. Cite factual claims and label inference.
 
 ## Phase 2: Assess readiness and market
 

@@ -30,7 +30,7 @@ Treat existing approval as valid unless provenance is missing, evidence material
 
 ### 1. Establish scope and evidence
 
-Record the product boundary, business objective, owners, decision deadline, and requested mode. Inventory source material with provenance and classify each item as fact, inference, assumption, decision, or unknown. Do not silently fill evidence gaps.
+Record the product boundary, business objective, owners, decision deadline, requested mode, and approved output destination. Inventory source material with provenance and classify each item as fact, inference, assumption, decision, or unknown. Do not silently fill evidence gaps. GitHub is optional; a local or document-based planning package is valid.
 
 Use `assets/evidence-register-template.md` and `assets/decision-log-template.md` when equivalent records do not already exist.
 
@@ -48,7 +48,7 @@ Require explicit PRD approval. If issue decomposition is requested, preserve the
 
 ### 4. Govern the planning repository
 
-Create or normalize the structure in `references/planning-repository.md`. Keep market, product, evidence, decisions, and readiness artifacts distinct. Confirm repository privacy before uploading confidential source material. Never place secrets in the repository.
+Create or normalize the structure in `references/planning-repository.md`. Keep market, product, evidence, decisions, and readiness artifacts distinct. For repository-backed output, verify the authenticated identity, repository existence, ownership, visibility, confidentiality compatibility, and required permissions. If no repository exists, keep portable artifacts unless repository creation is separately authorized with an explicit owner and visibility. Report missing repository prerequisites as **Blocked** for the write while preserving completed planning work. Never place secrets in the repository or request pasted credentials.
 
 ### 5. Assess build readiness
 

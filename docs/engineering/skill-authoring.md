@@ -74,6 +74,12 @@ Planning and read-only analysis do not authorize consequential writes. State whe
 
 Never treat silence as approval. Never fabricate evidence, validation, ownership, or approval.
 
+## GitHub and repository prerequisites
+
+For every skill, state whether GitHub and an existing repository are required, conditional, or unnecessary. Repository-backed workflows must follow the shared [GitHub and repository readiness guide](../github-repository-readiness.md) and keep their runtime checks in `SKILL.md`.
+
+Do not force GitHub on read-only, document-only, or portable-artifact workflows. Before a GitHub write, confirm the authenticated identity, source and destination repositories, repository existence, ownership and visibility when relevant, least required permissions, and required repository capabilities. Missing prerequisites must produce a **Blocked** result with an exact next action. Repository creation and visibility selection require separate authorization.
+
 ## Catalog and lifecycle propagation
 
 When a skill is added, renamed, moved, or removed:

@@ -95,6 +95,22 @@ A skill may also contain platform-specific metadata. For example, `agents/openai
 
 See each skill's README for exact prerequisites, installation commands, invocation syntax, and platform notes.
 
+## GitHub and repository prerequisites
+
+Not every skill requires GitHub. Some can return documents or portable artifacts without any repository, while delivery workflows require an authenticated GitHub identity and an existing destination repository.
+
+| Skill | GitHub needed? | Repository needed? |
+| --- | --- | --- |
+| GitHub Issue to Draft PR | Yes | Existing destination repository required |
+| Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
+| Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
+| Prepare Product for Engineering | Optional | Can use a local or document-based planning package |
+| Develop Go-to-Market Strategy | No | Output destination is selected separately |
+
+Before repository operations, confirm the GitHub identity and authorization method, source and destination repositories, repository ownership and visibility when relevant, required permissions, actual default branch, and required issue or pull-request capabilities. If a prerequisite is missing, the skill should stop the affected operation and state the exact setup action needed.
+
+See [GitHub and repository readiness](docs/github-repository-readiness.md) for the complete first-run checklist and blocked-state behavior.
+
 ## Versioning and updates
 
 An installed skill is a snapshot of its source at installation time. Source changes do not automatically replace installed copies, except when a host is intentionally using a symbolic link to a local checkout.
@@ -152,4 +168,3 @@ When proposing a skill:
 7. Preserve explicit approval gates around writes, deployments, merges, external communications, and other consequential actions.
 
 Repository maintainers review and merge contributions. Public visibility does not grant direct write access.
-
