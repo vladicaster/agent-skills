@@ -1,0 +1,7 @@
+interface:
+  display_name: "Prepare Product for Engineering"
+  short_description: "Govern product planning through engineering readiness"
+  default_prompt: "Use $prepare-product-for-engineering to turn the available product evidence, GTM work, and requirements into an approved, traceable engineering-readiness package without starting implementation."
+
+policy:
+  allow_implicit_invocation: true
