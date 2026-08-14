@@ -62,7 +62,8 @@ Ask the user to **approve**, **revise**, **defer**, or **cancel**. Do not treat 
 4. Support multiple repositories and identify dependencies, sequencing, validation, migration, documentation, and operational work.
 5. Check for orphaned requirements, unapproved scope, oversized issues, and missing acceptance evidence.
 6. Present the complete issue plan and ask for separate approval before creating GitHub issues.
-7. After approval, hand each issue to an authorized GitHub workflow. Do not begin implementation.
+7. After approval, confirm each destination repository exists, identify its personal or organization owner, verify the authenticated identity and issue-creation permission, and confirm issues are enabled. If any prerequisite is missing, report that issue path as **Blocked** with the exact setup action. Repository creation requires separate authorization.
+8. Hand each issue to an authorized GitHub workflow. Do not begin implementation.
 
 ## Phase 5: Manage change and reconciliation
 

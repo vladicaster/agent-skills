@@ -115,6 +115,8 @@ Invoke with `$develop-go-to-market-strategy` in Codex or `/develop-go-to-market-
 
 Installing the skill does not grant research subscriptions, CRM, email, advertising, website, analytics, or other external access.
 
+GitHub is not required. Strategy outputs can be returned directly, saved as local or document artifacts, or written to an existing repository only when that destination and access are approved. Repository-backed output follows the shared [GitHub and repository readiness guide](../../docs/github-repository-readiness.md).
+
 ## Updating this skill
 
 Installed copies are snapshots and do not automatically follow source changes.
@@ -125,4 +127,3 @@ Installed copies are snapshots and do not automatically follow source changes.
 - **Pinned installation:** Use a Git tag rather than `main` when reproducibility matters, and move to a newer tag deliberately.
 
 See the repository's [versioning and update policy](../../README.md#versioning-and-updates) for release guidance.
-

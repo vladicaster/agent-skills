@@ -146,6 +146,8 @@ Separate authorization is required before:
 
 Repository privacy must be confirmed before confidential material is uploaded.
 
+GitHub is optional. The planning package may remain local or use another approved document destination. If an existing repository is selected, confirm the authenticated identity, repository ownership and visibility, confidentiality compatibility, and required permissions. If no repository exists, continue with portable artifacts unless the user separately authorizes creation and specifies the personal or organization owner and public or private visibility. See [GitHub and repository readiness](../../docs/github-repository-readiness.md).
+
 ## Dependency updates
 
 The orchestrator uses the installed or current versions of the GTM and PRD skills rather than copying their methodology.

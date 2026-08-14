@@ -24,11 +24,14 @@ Default to read-only Audit or Explain when the user asks a question rather than 
 
 1. Confirm the requested mode and whether a repository exists.
 2. For an existing repository:
+   - Identify the repository location and required access. If it is remote, verify the authenticated identity, repository existence, and least read or write permissions needed for the selected mode.
+   - If required access is missing, report **Blocked** with the exact setup action; do not request pasted credentials.
    - Read repository and directory-scoped instruction files before acting.
    - Run `scripts/inventory_harness.py` when filesystem access is available.
    - Inspect the actual stack, project layout, build files, tests, CI, documentation, and contribution templates.
    - Determine which instructions apply to which files and identify contradictions or stale paths.
 3. For a greenfield project:
+   - Do not require GitHub. Confirm the approved portable output destination.
    - Read `references/greenfield-bootstrap.md` and `references/stack-selection.md`.
    - Extract functional requirements, nonfunctional requirements, constraints, assumptions, and open decisions from the supplied PRD.
    - Recommend the simplest system shape and stack that satisfy the evidence. Do not select technology by popularity alone.
@@ -57,6 +60,8 @@ Audit, Validate, and Explain remain read-only unless the user separately approve
 7. Review the diff for contradictions, duplication, excessive prescription, secrets, personal data, proprietary content, and obsolete instructions.
 8. Run relevant validation. Distinguish **passed**, **failed**, **blocked**, **manual**, and **not run**.
 9. Report decisions, files changed, meaningful policy changes, validation results, provisional assumptions, and remaining risks.
+
+Repository creation is outside this skill unless separately authorized. Before creating one, confirm the personal or organization owner, public or private visibility, confidentiality compatibility, and required access.
 
 ## Harness design rules
 

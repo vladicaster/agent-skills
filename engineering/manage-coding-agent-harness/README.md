@@ -206,6 +206,8 @@ project-harness/
 
 Architecture, stack, commands, paths, and operational assumptions remain explicitly provisional. Once the real repository exists, Reconcile mode compares the provisional harness with the implemented stack and installs the files in their proper repository locations. It does not keep a `project-harness/` wrapper inside the repository.
 
+Bootstrap does not require GitHub or a pre-existing repository. For Create, Audit, Update, Repair, Validate, Explain, or Reconcile against a remote repository, confirm the authenticated identity, target repository, and permissions needed for the requested reads or writes. Creating a destination repository requires separate authorization and confirmation of its owner and visibility. See [GitHub and repository readiness](../../docs/github-repository-readiness.md).
+
 ## Included resources
 
 | Resource | Purpose |
@@ -269,4 +271,3 @@ Installed copies are snapshots and do not automatically follow source changes.
 - **Pinned installation:** Use a Git tag rather than `main` when reproducibility matters, and move to a newer tag deliberately.
 
 See the repository's [versioning and update policy](../../README.md#versioning-and-updates) for release guidance.
-

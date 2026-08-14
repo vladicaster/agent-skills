@@ -9,21 +9,22 @@ Use GitHub tools for remote repository operations and the repository checkout fo
 
 ## Phase 1: Issue and branch
 
-1. Confirm the target repository and its actual default branch. Treat `master` as the user's normal preference, but do not assume it when repository metadata says otherwise or the user specifies another base.
-2. If the repository, base branch, acceptance criteria, or other material requirements are unclear, ask only the concise questions needed before creating anything.
-3. Inspect enough repository context to write an accurate, scoped issue and implementation plan. Do not modify code.
-4. Draft or create the issue from the user's request, including clear acceptance criteria where appropriate.
-5. Create a branch from the confirmed base branch only after obtaining the issue number. Name it `issue-<number>-<short-slug>` using a concise lowercase hyphenated slug.
-6. Stop. Do not edit files, generate implementation changes, commit code, or open a pull request.
-7. Report:
+1. Require an existing destination repository. Verify the authenticated GitHub identity, repository existence and access, issue and pull-request availability, permissions needed to create issues, branches, commits, and pull requests, and the actual default branch. Respect branch protections. Do not create a repository as part of this workflow.
+2. Confirm the target repository and its actual default branch. Treat `master` as the user's normal preference, but do not assume it when repository metadata says otherwise or the user specifies another base.
+3. If the repository, base branch, acceptance criteria, authorization, or other material requirements are unclear, ask only the concise questions needed before creating anything.
+4. Inspect enough repository context to write an accurate, scoped issue and implementation plan. Do not modify code.
+5. Draft or create the issue from the user's request, including clear acceptance criteria where appropriate.
+6. Create a branch from the confirmed base branch only after obtaining the issue number. Name it `issue-<number>-<short-slug>` using a concise lowercase hyphenated slug.
+7. Stop. Do not edit files, generate implementation changes, commit code, or open a pull request.
+8. Report:
    - issue title
    - issue body
    - issue link
    - branch name
    - proposed implementation plan
-8. Ask the user to **approve**, **edit**, or **cancel**. Treat only an unambiguous approval as authorization to begin Phase 2. If the user requests edits, update the issue or plan as requested and ask again.
+9. Ask the user to **approve**, **edit**, or **cancel**. Treat only an unambiguous approval as authorization to begin Phase 2. If the user requests edits, update the issue or plan as requested and ask again.
 
-If issue creation, repository access, permissions, or branch creation fails, stop and explain exactly what access or action is needed. Do not continue with implementation.
+If identity verification, authorization, repository access, required capabilities, permissions, issue creation, or branch creation fails, report **Blocked**, name the failed operation, and explain the exact setup action needed. Do not continue with implementation or request pasted credentials.
 
 ## Phase 2: Implementation after approval
 

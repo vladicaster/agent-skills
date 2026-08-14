@@ -55,6 +55,8 @@ Open the desired skill directory and follow its README. Installation differs by 
 
 GitHub authentication, connector authorization, and repository permissions must be configured separately.
 
+Use the repository-wide [GitHub and repository readiness guide](../docs/github-repository-readiness.md) before repository operations. `github-issue-to-draft-pr` requires an existing writable destination repository. `manage-coding-agent-harness` can instead bootstrap a portable greenfield package when no repository exists.
+
 ## Updating installed skills
 
 Installed copies do not automatically follow source changes. Use the repository's [versioning and update policy](../README.md#versioning-and-updates), then follow the selected skill's README for ChatGPT Work, symbolic-link, or copied-installation instructions.

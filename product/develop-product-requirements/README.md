@@ -109,6 +109,8 @@ flowchart TD
 
 Issue creation is a separate approval boundary. The PRD skill proposes the full issue plan and coverage map; an authorized GitHub workflow creates the issues and manages implementation.
 
+PRD authoring and issue planning do not require GitHub or an existing repository. Before approved issues are created, confirm every destination repository exists, its personal or organization ownership is correct, the authenticated identity has issue-creation access, and issues are enabled. If a required repository does not exist, stop and obtain separate authorization for repository creation or select another destination. See [GitHub and repository readiness](../../docs/github-repository-readiness.md).
+
 Each issue should reference the PRD ID, requirement IDs, acceptance criteria, scope, dependencies, and validation expectations.
 
 ## Recommended artifact structure
@@ -169,4 +171,3 @@ Installed copies are snapshots and do not automatically follow source changes.
 - **Pinned installation:** Use a Git tag rather than `main` when reproducibility matters, and move to a newer tag deliberately.
 
 See the repository's [versioning and update policy](../../README.md#versioning-and-updates) for release guidance.
-
