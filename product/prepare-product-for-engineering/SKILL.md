@@ -25,13 +25,13 @@ Use `assets/evidence-register-template.md` and `assets/decision-log-template.md`
 
 ### 2. Validate the go-to-market strategy
 
-Invoke the current `develop-go-to-market-strategy` skill. Preserve its evidence standards, segmentation, ICP, positioning, offer, pricing hypotheses, channels, launch plan, experiments, and readiness gaps.
+If approved, compatible GTM work does not exist, invoke the current `develop-go-to-market-strategy` skill. Preserve its evidence standards, segmentation, ICP, positioning, offer, pricing hypotheses, channels, launch plan, experiments, and readiness gaps.
 
 Stop for explicit approval, revision, or cancellation of the GTM strategy. Do not treat silence as approval.
 
 ### 3. Develop product requirements
 
-After GTM approval, invoke the current `develop-product-requirements` skill. Preserve product hierarchy, stable identifiers, journeys, scope, functional and nonfunctional requirements, acceptance criteria, traceability, and validation.
+After GTM approval, if approved, compatible requirements do not exist, invoke the current `develop-product-requirements` skill. Preserve product hierarchy, stable identifiers, journeys, scope, functional and nonfunctional requirements, acceptance criteria, traceability, and validation.
 
 Require explicit PRD approval. If issue decomposition is requested, preserve the PRD skill's separate issue-plan approval gate.
 
