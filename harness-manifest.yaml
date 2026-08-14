@@ -1,0 +1,25 @@
+harness_version: 1
+project_stage: maintained_repository
+scope: reusable-agent-skills
+approval:
+  status: approved
+canonical_policy:
+  root_instructions: AGENTS.md
+  skill_authoring: docs/engineering/skill-authoring.md
+workflow:
+  default_branch: main
+  branch_pattern: agent/<description>
+  pull_request_state: draft
+validation:
+  command: python scripts/validate_repository.py
+  workflow: .github/workflows/validate-skills.yml
+supported_hosts:
+  - chatgpt-work
+  - codex
+  - claude-code
+host_adapters: []
+assumptions:
+  - Skills are independently installable leaf directories beneath category directories.
+  - Python 3 is available for repository validation.
+open_decisions: []
+last_audited: 2026-08-14
