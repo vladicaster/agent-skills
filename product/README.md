@@ -9,7 +9,7 @@ Each subdirectory is independently installable. You do not need to install the c
 | Skill | Status | Purpose |
 | --- | --- | --- |
 | [Develop Go-to-Market Strategy](develop-go-to-market-strategy/) | Available | Develops, audits, refines, diagnoses, launch-plans, and reconciles evidence-based GTM strategies from product inputs and market results. |
-| [Develop Product Requirements](develop-product-requirements/) | Available | Creates and manages hierarchical, traceable PRDs with stable requirements and many-to-many GitHub issue and PR relationships. |
+| [Develop Product Requirements](develop-product-requirements/) | Available | Creates and manages hierarchical, traceable PRDs with stable requirements and many-to-many GitHub issue and PR relationships. |\n| [Prepare Product for Engineering](prepare-product-for-engineering/) | Available | Orchestrates GTM and PRD approval, planning-repository governance, readiness assessment, and controlled engineering handoff. |
 
 ## Product skill conventions
 
@@ -55,3 +55,4 @@ Open the desired skill directory and follow its README.
 | Claude Code, project | `.claude/skills/<skill-name>/` |
 
 External research, analytics, CRM, email, advertising, website, and other permissions must be configured separately.
+
