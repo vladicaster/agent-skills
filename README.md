@@ -15,7 +15,8 @@ agent-skills/
 ├── product/
 │   ├── README.md
 │   ├── develop-go-to-market-strategy/
-│   └── develop-product-requirements/
+│   ├── develop-product-requirements/
+│   └── prepare-product-for-engineering/
 └── README.md
 ```
 
@@ -35,7 +36,8 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
-| [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |\n| [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Product | Orchestrates evidence, GTM and PRD approval, planning governance, readiness assessment, and controlled engineering handoff. |
+| [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
+| [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Product | Orchestrates evidence, GTM and PRD approval, planning governance, readiness assessment, and controlled engineering handoff. |
 
 
 ## From product conception to delivery
@@ -47,22 +49,25 @@ flowchart TD
     A["Product conception<br/>Problem, audience, opportunity"]
     B["Develop GTM Strategy<br/>Validate market and positioning"]
     C["Develop Product Requirements<br/>Define PRDs and delivery scope"]
-    D["Manage Coding-Agent Harness<br/>Establish architecture and standards"]
-    E["GitHub Issue to Draft PR<br/>Implement approved increments"]
+    D["Prepare Product for Engineering<br/>Govern and verify handoff"]
+    E["Manage Coding-Agent Harness<br/>Establish architecture and standards"]
+    F["GitHub Issue to Draft PR<br/>Implement approved increments"]
 
     A --> B
     B --> C
     C --> D
     D --> E
-    E -->|Release evidence and feedback| B
-    E -->|Requirement changes| C
+    E --> F
+    F -->|Release evidence and feedback| B
+    F -->|Requirement changes| C
 ```
 
 | Lifecycle stage | Primary skill | Outcome |
 | --- | --- | --- |
 | Opportunity discovery | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | ICP, problem evidence, positioning, offer, and market hypotheses. |
 | Product definition | [Develop Product Requirements](product/develop-product-requirements/) | Product hierarchy, PRDs, requirements, acceptance criteria, and issue-decomposition plans. |
-| Pre-engineering governance | [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Approved GTM and PRDs, evidence and decision records, readiness classification, and a controlled handoff. |\n| Engineering readiness | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Stack decisions, architecture guidance, standards, repository instructions, and validation requirements. |
+| Pre-engineering governance | [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Approved GTM and PRDs, evidence and decision records, readiness classification, and a controlled handoff. |
+| Engineering readiness | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Stack decisions, architecture guidance, standards, repository instructions, and validation requirements. |
 | Incremental delivery | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Approved issue, feature branch, implementation, validation, and linked draft pull request. |
 | Launch and learning | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) and [Develop Product Requirements](product/develop-product-requirements/) | Launch experiments and evidence translated into strategy or requirement changes. |
 
