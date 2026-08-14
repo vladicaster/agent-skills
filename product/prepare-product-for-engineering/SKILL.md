@@ -15,6 +15,17 @@ Move a product from concept or partial documentation to an approved, traceable, 
 - **Reconcile**: align changed evidence, GTM, PRDs, and readiness decisions.
 - **Handoff**: package approved inputs for engineering without starting the build.
 
+## Select the dependency path
+
+Use the smallest workflow that closes the readiness gaps:
+
+- If neither GTM nor PRD work is approved, orchestrate both in order.
+- If one is approved and compatible with current evidence, reuse it and invoke only the missing skill.
+- If both are approved and compatible, do not rerun them; proceed to governance, readiness, reconciliation, or handoff.
+- If the user requests only assessment or repository bootstrap, do not invoke either dependency unless the assessment shows it is necessary and the user authorizes the expanded scope.
+
+Treat existing approval as valid unless provenance is missing, evidence materially changed, or GTM and PRD decisions conflict.
+
 ## Workflow
 
 ### 1. Establish scope and evidence
@@ -25,13 +36,13 @@ Use `assets/evidence-register-template.md` and `assets/decision-log-template.md`
 
 ### 2. Validate the go-to-market strategy
 
-Invoke the current `develop-go-to-market-strategy` skill. Preserve its evidence standards, segmentation, ICP, positioning, offer, pricing hypotheses, channels, launch plan, experiments, and readiness gaps.
+If approved, compatible GTM work does not exist, invoke the current `develop-go-to-market-strategy` skill. Preserve its evidence standards, segmentation, ICP, positioning, offer, pricing hypotheses, channels, launch plan, experiments, and readiness gaps.
 
 Stop for explicit approval, revision, or cancellation of the GTM strategy. Do not treat silence as approval.
 
 ### 3. Develop product requirements
 
-After GTM approval, invoke the current `develop-product-requirements` skill. Preserve product hierarchy, stable identifiers, journeys, scope, functional and nonfunctional requirements, acceptance criteria, traceability, and validation.
+After GTM approval, if approved, compatible requirements do not exist, invoke the current `develop-product-requirements` skill. Preserve product hierarchy, stable identifiers, journeys, scope, functional and nonfunctional requirements, acceptance criteria, traceability, and validation.
 
 Require explicit PRD approval. If issue decomposition is requested, preserve the PRD skill's separate issue-plan approval gate.
 
