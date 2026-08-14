@@ -12,7 +12,9 @@ Each subdirectory is independently installable. You do not need to install the c
 | [Develop Product Requirements](develop-product-requirements/) | Available | Creates and manages hierarchical, traceable PRDs with stable requirements and many-to-many GitHub issue and PR relationships. |
 | [Prepare Product for Engineering](prepare-product-for-engineering/) | Available | Optionally orchestrates GTM and PRD work—or consumes approved artifacts—then governs readiness and engineering handoff. |
 
-`prepare-product-for-engineering` is optional. Use it as an end-to-end coordinator, ask it to run only a missing GTM or PRD stage, or give it approved artifacts and use only its repository-governance, readiness, reconciliation, or handoff capabilities. The GTM and PRD skills remain independently usable.\n\n## Product skill conventions
+`prepare-product-for-engineering` is optional. Use it as an end-to-end coordinator, ask it to run only a missing GTM or PRD stage, or give it approved artifacts and use only its repository-governance, readiness, reconciliation, or handoff capabilities. The GTM and PRD skills remain independently usable.
+
+## Product skill conventions
 
 Product skills should:
 
