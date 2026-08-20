@@ -1,0 +1,11 @@
+interface:
+  display_name: Develop C4 Architecture
+  short_description: Develop evidence-backed C4 architecture models
+  default_prompt: Use $develop-c4-architecture to brainstorm or derive a C4 architecture model, clearly separating observed, inferred, proposed, and unknown details.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

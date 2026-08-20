@@ -8,6 +8,7 @@ Each subdirectory is an independently installable skill. You do not need to inst
 
 | Skill | Status | Purpose |
 | --- | --- | --- |
+| [Develop C4 Architecture](develop-c4-architecture/) | Available | Brainstorms, discovers, audits, refines, and validates evidence-backed C4 architecture models and diagrams. |
 | [GitHub Issue to Draft PR](github-issue-to-draft-pr/) | Available | Creates a scoped issue and feature branch, waits for explicit approval, then implements, validates, commits, pushes, and opens a linked draft pull request. |
 | [Manage Coding-Agent Harness](manage-coding-agent-harness/) | Available | Bootstraps, creates, audits, updates, repairs, validates, explains, and reconciles technology-neutral coding-agent harnesses from a repository or greenfield PRD. |
 
@@ -17,7 +18,7 @@ Future engineering skills may cover:
 
 - Product specification and acceptance-criteria development
 - Spec-to-implementation planning
-- Architecture and modernization reviews
+- Broader architecture and modernization reviews beyond C4 modeling
 - Pull-request review and feedback resolution
 - Test-strategy generation
 - Observability and operational-readiness reviews

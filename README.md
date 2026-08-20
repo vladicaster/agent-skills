@@ -10,6 +10,7 @@ The repository organizes focused workflows by professional outcome without requi
 agent-skills/
 ├── engineering/
 │   ├── README.md
+│   ├── develop-c4-architecture/
 │   ├── github-issue-to-draft-pr/
 │   └── manage-coding-agent-harness/
 ├── product/
@@ -33,6 +34,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
+| [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
@@ -50,19 +52,24 @@ flowchart TD
     B["Develop GTM Strategy<br/>Validate market and positioning"]
     C["Develop Product Requirements<br/>Define PRDs and delivery scope"]
     D["Prepare Product for Engineering<br/>Govern and verify handoff"]
-    E["Manage Coding-Agent Harness<br/>Establish architecture and standards"]
-    F["GitHub Issue to Draft PR<br/>Implement approved increments"]
+    E["Develop C4 Architecture<br/>Model systems and decisions"]
+    F["Manage Coding-Agent Harness<br/>Establish standards and guidance"]
+    G["GitHub Issue to Draft PR<br/>Implement approved increments"]
 
     A --> B
     B --> C
     A -.->|Optional orchestration| D
     B -.->|Reuse approved GTM| D
     C -.->|Reuse approved PRD| D
-    C -->|Direct path| E
-    D --> E
-    E --> F
-    F -->|Release evidence and feedback| B
-    F -->|Requirement changes| C
+    C -.->|Optional architecture input| E
+    D -.->|Approved handoff evidence| E
+    C -->|Direct path| F
+    D --> F
+    E -.->|Approved architecture artifacts| F
+    F --> G
+    E -.->|Consult during delivery| G
+    G -->|Release evidence and feedback| B
+    G -->|Requirement changes| C
 ```
 
 | Lifecycle stage | Primary skill | Outcome |
@@ -70,6 +77,7 @@ flowchart TD
 | Opportunity discovery | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | ICP, problem evidence, positioning, offer, and market hypotheses. |
 | Product definition | [Develop Product Requirements](product/develop-product-requirements/) | Product hierarchy, PRDs, requirements, acceptance criteria, and issue-decomposition plans. |
 | Optional pre-engineering governance | [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Runs missing GTM or PRD work, reuses approved artifacts, and produces evidence, readiness, and controlled-handoff records. |
+| Optional architecture modeling | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Produces evidence-backed current or proposed C4 models, decision records, and explicit unknowns. |
 | Engineering readiness | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Stack decisions, architecture guidance, standards, repository instructions, and validation requirements. |
 | Incremental delivery | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Approved issue, feature branch, implementation, validation, and linked draft pull request. |
 | Launch and learning | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) and [Develop Product Requirements](product/develop-product-requirements/) | Launch experiments and evidence translated into strategy or requirement changes. |
