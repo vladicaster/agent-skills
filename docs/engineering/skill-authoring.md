@@ -112,4 +112,6 @@ Run changed skill utilities separately. A deterministic validator checks structu
 
 ## Versioning and updates
 
-Source on `main` is the latest stable repository state. Installed copies are snapshots unless deliberately linked to a checkout. Updates must be explicit so users can review workflow and permission changes. Use tags for reproducible installations.
+Source on `main` is the latest stable repository state. Copied standalone skills are snapshots unless deliberately linked to a checkout, and pinned installations remain fixed. Claude marketplace plugins can auto-update when enabled. ChatGPT/Codex repository-marketplace plugins use the documented explicit marketplace refresh path. Never generalize one host's behavior to every installation type. Use tags for reproducible installations.
+
+Every root, category, and leaf-skill README must contain explicit installation and update commands for the complete ChatGPT/Codex and Claude plugin, or the repository validator will fail. Preserve standalone instructions alongside the full-plugin path.

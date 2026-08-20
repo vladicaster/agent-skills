@@ -10,6 +10,7 @@ The repository organizes focused workflows by professional outcome without requi
 agent-skills/
 ├── engineering/
 │   ├── README.md
+│   ├── check-agent-skills-updates/
 │   ├── github-issue-to-draft-pr/
 │   └── manage-coding-agent-harness/
 ├── product/
@@ -33,6 +34,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
+| [Check Agent Skills Updates](engineering/check-agent-skills-updates/) | Engineering | Checks for a newer bundled-plugin release and reports non-blocking, host-specific update instructions. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
@@ -95,6 +97,27 @@ A skill may also contain platform-specific metadata. For example, `agents/openai
 
 See each skill's README for exact prerequisites, installation commands, invocation syntax, and platform notes.
 
+## Install the complete plugin
+
+Install every skill together without using OpenAI's public Plugins Directory review path.
+
+**ChatGPT and Codex:**
+
+```bash
+codex plugin marketplace add vladicaster/agent-skills --ref main
+```
+
+Then install **Vladicaster Agent Skills** from the **Vladicaster Tools** source in the ChatGPT desktop Plugins directory or Codex `/plugins` browser. Start a new chat or session before use.
+
+**Claude Code:**
+
+```bash
+claude plugin marketplace add vladicaster/agent-skills
+claude plugin install vladicaster-agent-skills@vladicaster-tools
+```
+
+See [complete plugin installation, update, additive-skill, duplicate, and rollback instructions](docs/plugin-installation-and-updates.md).
+
 ## GitHub and repository prerequisites
 
 Not every skill requires GitHub. Some can return documents or portable artifacts without any repository, while delivery workflows require an authenticated GitHub identity and an existing destination repository.
@@ -113,11 +136,26 @@ See [GitHub and repository readiness](docs/github-repository-readiness.md) for t
 
 ## Versioning and updates
 
-An installed skill is a snapshot of its source at installation time. Source changes do not automatically replace installed copies, except when a host is intentionally using a symbolic link to a local checkout.
+Update behavior depends on the installation type. A copied standalone skill is a snapshot. A symbolic link follows its checkout. A pinned installation remains fixed. Claude marketplace plugins can auto-update when enabled; ChatGPT/Codex repository-marketplace plugins require the documented marketplace refresh and must not be described as guaranteed background updates.
+
+**Update the complete plugin in ChatGPT or Codex:**
+
+```bash
+codex plugin marketplace upgrade vladicaster-tools
+```
+
+Then refresh or reopen ChatGPT, or start a new Codex session.
+
+**Update the complete plugin in Claude Code:** enable auto-update under `/plugin` → **Marketplaces** → **vladicaster-tools**, or run:
+
+```text
+/plugin marketplace update vladicaster-tools
+/reload-plugins
+```
 
 - Use the `main` branch for the latest stable skill source.
 - Use Git tags and GitHub releases when an installation must remain reproducible.
-- Treat updates as explicit operations so users can review workflow or permission changes before adopting them.
+- Treat standalone, pinned, and ChatGPT/Codex repository-marketplace updates as explicit operations so users can review workflow or permission changes before adopting them.
 - Compare an installed copy with the new source before replacement when it may contain local customizations.
 - Keep version information in repository tags and release notes. Keep `SKILL.md` frontmatter limited to the supported `name` and `description` fields.
 
@@ -131,6 +169,8 @@ https://github.com/vladicaster/agent-skills/tree/main/<category>/<skill-name>
 ChatGPT should retrieve the current source, validate the complete skill directory, identify meaningful changes or local conflicts, and replace the installed copy. Refresh or reopen the Skills page if the updated skill is not immediately visible.
 
 For Codex or Claude Code, pull the source checkout. Symbolic-link installations immediately use the updated checkout; copied installations must be copied again after the pull. See each skill README for exact commands.
+
+New canonical leaf skills are automatically included when the plugin bundle is rebuilt. They become available after the host-specific plugin upgrade and reload; standalone installations do not independently acquire them.
 
 ## Design principles
 

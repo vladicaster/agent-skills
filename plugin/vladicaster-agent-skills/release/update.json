@@ -1,0 +1,29 @@
+{
+  "name": "vladicaster-agent-skills",
+  "version": "0.1.0",
+  "contentHash": "sha256:089a0163ea3d67b3219b193ca2504a474cf1bd5cdbc8b37abd1efd219bf98ef1",
+  "sourceCommit": "set-by-release-workflow",
+  "releaseTimestamp": "set-by-release-workflow",
+  "releaseNotesUrl": "https://github.com/vladicaster/agent-skills/releases/tag/v0.1.0",
+  "latestManifestUrl": "https://github.com/vladicaster/agent-skills/releases/latest/download/update.json",
+  "skills": [
+    "check-agent-skills-updates",
+    "github-issue-to-draft-pr",
+    "manage-coding-agent-harness",
+    "develop-go-to-market-strategy",
+    "develop-product-requirements",
+    "prepare-product-for-engineering"
+  ],
+  "addedSkills": [
+    "check-agent-skills-updates",
+    "develop-go-to-market-strategy",
+    "develop-product-requirements",
+    "github-issue-to-draft-pr",
+    "manage-coding-agent-harness",
+    "prepare-product-for-engineering"
+  ],
+  "updateInstructions": {
+    "chatgptCodex": "Run `codex plugin marketplace upgrade vladicaster-tools`, then refresh ChatGPT or start a new Codex session.",
+    "claudeCode": "Enable marketplace auto-update or run `/plugin marketplace update vladicaster-tools`, then run `/reload-plugins` or start a new session."
+  }
+}

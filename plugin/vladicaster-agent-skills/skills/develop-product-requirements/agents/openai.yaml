@@ -1,0 +1,14 @@
+interface:
+  display_name: Develop Product Requirements
+  short_description: Create traceable product requirements and PRDs
+  default_prompt: Use $develop-product-requirements to develop or assess a product
+    requirements document for this product.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

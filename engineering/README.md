@@ -8,6 +8,7 @@ Each subdirectory is an independently installable skill. You do not need to inst
 
 | Skill | Status | Purpose |
 | --- | --- | --- |
+| [Check Agent Skills Updates](check-agent-skills-updates/) | Available | Checks the installed plugin against the latest release and returns accurate, non-blocking update guidance. |
 | [GitHub Issue to Draft PR](github-issue-to-draft-pr/) | Available | Creates a scoped issue and feature branch, waits for explicit approval, then implements, validates, commits, pushes, and opens a linked draft pull request. |
 | [Manage Coding-Agent Harness](manage-coding-agent-harness/) | Available | Bootstraps, creates, audits, updates, repairs, validates, explains, and reconciles technology-neutral coding-agent harnesses from a repository or greenfield PRD. |
 
@@ -53,13 +54,26 @@ Open the desired skill directory and follow its README. Installation differs by 
 | Claude Code, personal | `~/.claude/skills/<skill-name>/` |
 | Claude Code, project | `.claude/skills/<skill-name>/` |
 
+To install every engineering and product skill as one plugin in ChatGPT/Codex:
+
+```bash
+codex plugin marketplace add vladicaster/agent-skills --ref main
+```
+
+Install **Vladicaster Agent Skills** from **Vladicaster Tools** in the plugin browser. For Claude Code:
+
+```bash
+claude plugin marketplace add vladicaster/agent-skills
+claude plugin install vladicaster-agent-skills@vladicaster-tools
+```
+
 GitHub authentication, connector authorization, and repository permissions must be configured separately.
 
 Use the repository-wide [GitHub and repository readiness guide](../docs/github-repository-readiness.md) before repository operations. `github-issue-to-draft-pr` requires an existing writable destination repository. `manage-coding-agent-harness` can instead bootstrap a portable greenfield package when no repository exists.
 
 ## Updating installed skills
 
-Installed copies do not automatically follow source changes. Use the repository's [versioning and update policy](../README.md#versioning-and-updates), then follow the selected skill's README for ChatGPT Work, symbolic-link, or copied-installation instructions.
+Copied standalone skills do not automatically follow source changes. Symbolic links follow their checkout. Update the ChatGPT/Codex plugin with `codex plugin marketplace upgrade vladicaster-tools`; then refresh the host. In Claude Code, enable marketplace auto-update or run `/plugin marketplace update vladicaster-tools`, followed by `/reload-plugins` when prompted. See the [complete plugin instructions](../docs/plugin-installation-and-updates.md) and the selected skill README.
 
 ## Adding an engineering skill
 

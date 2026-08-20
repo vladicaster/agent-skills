@@ -1,0 +1,11 @@
+id: PRD-EXAMPLE-001
+title: Example Product Requirement
+status: draft
+version: 0.1
+owners: []
+parents:
+  platform: PLATFORM-EXAMPLE
+  product: PRODUCT-EXAMPLE
+  subproduct: SUBPRODUCT-EXAMPLE
+inherits: []
+repositories: []

@@ -1,0 +1,14 @@
+interface:
+  display_name: Manage Coding-Agent Harness
+  short_description: Create and maintain coding-agent harnesses
+  default_prompt: Use $manage-coding-agent-harness to create or assess a coding-agent
+    harness for this project.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

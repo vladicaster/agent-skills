@@ -1,0 +1,4 @@
+interface:
+  display_name: "Check Agent Skills Updates"
+  short_description: "Check for a newer plugin release"
+  default_prompt: "Check whether my Vladicaster Agent Skills plugin has an update and show the correct steps for this host."

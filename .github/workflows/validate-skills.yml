@@ -21,3 +21,5 @@ jobs:
           python-version: "3.12"
       - name: Validate repository
         run: python scripts/validate_repository.py
+      - name: Verify plugin bundle
+        run: python scripts/build_plugin.py --check

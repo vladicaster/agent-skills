@@ -1,0 +1,17 @@
+{
+  "name": "vladicaster-agent-skills",
+  "version": "0.1.0",
+  "description": "Portable product and engineering delivery workflows for ChatGPT, Codex, and Claude Code.",
+  "author": {
+    "name": "Bill Elberg",
+    "url": "https://github.com/vladicaster"
+  },
+  "repository": "https://github.com/vladicaster/agent-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Vladicaster Agent Skills",
+    "shortDescription": "Product and engineering delivery workflows",
+    "developerName": "Bill Elberg",
+    "category": "Developer Tools"
+  }
+}
