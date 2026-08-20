@@ -1,0 +1,9 @@
+platforms:
+  - id: PLATFORM-EXAMPLE
+    title: Example Platform
+    products:
+      - id: PRODUCT-EXAMPLE
+        title: Example Product
+        subproducts:
+          - id: SUBPRODUCT-EXAMPLE
+            title: Example Subproduct

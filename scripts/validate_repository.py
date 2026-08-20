@@ -12,6 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 IGNORED_PARTS = {".git", "__pycache__"}
 REQUIRED_README_HEADINGS = ("## Updating this skill",)
+PLUGIN_GUIDE = "docs/plugin-installation-and-updates.md"
 
 
 def markdown_files() -> list[Path]:
@@ -79,6 +80,17 @@ def validate_skill(directory: Path) -> list[str]:
         for heading in REQUIRED_README_HEADINGS:
             if heading not in text:
                 errors.append(f"{relative}/README.md: missing heading '{heading}'")
+        for required_text in (
+            "codex plugin marketplace add vladicaster/agent-skills",
+            "codex plugin marketplace upgrade vladicaster-tools",
+            "claude plugin marketplace add vladicaster/agent-skills",
+            "/plugin marketplace update vladicaster-tools",
+        ):
+            if required_text not in text:
+                errors.append(
+                    f"{relative}/README.md: missing explicit plugin instruction "
+                    f"'{required_text}'"
+                )
 
     root_readme = (ROOT / "README.md").read_text(encoding="utf-8")
     category_readme_path = directory.parent / "README.md"
@@ -103,6 +115,34 @@ def validate_python() -> list[str]:
     return errors
 
 
+def validate_plugin_surfaces() -> list[str]:
+    errors: list[str] = []
+    required_files = (
+        ".agents/plugins/marketplace.json",
+        ".claude-plugin/marketplace.json",
+        "release/version.json",
+        PLUGIN_GUIDE,
+    )
+    for relative in required_files:
+        if not (ROOT / relative).is_file():
+            errors.append(f"missing {relative}")
+
+    for relative in ("README.md", "engineering/README.md", "product/README.md"):
+        path = ROOT / relative
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for required_text in (
+            "codex plugin marketplace add vladicaster/agent-skills",
+            "codex plugin marketplace upgrade vladicaster-tools",
+            "claude plugin marketplace add vladicaster/agent-skills",
+            "/plugin marketplace update vladicaster-tools",
+        ):
+            if required_text not in text:
+                errors.append(f"{relative}: missing explicit plugin instruction '{required_text}'")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     skills = skill_directories()
@@ -116,6 +156,7 @@ def main() -> int:
             errors.append(f"{path.relative_to(ROOT)}: contains visible escaped newline text")
 
     errors.extend(validate_python())
+    errors.extend(validate_plugin_surfaces())
     if errors:
         print(f"FAILED: {len(errors)} repository validation error(s)")
         for error in errors:

@@ -29,7 +29,7 @@ Product skills should:
 
 ## Updating installed skills
 
-Installed copies do not automatically follow source changes. Use the repository's [versioning and update policy](../README.md#versioning-and-updates), then follow the selected skill's README for ChatGPT Work, symbolic-link, or copied-installation instructions.
+Copied standalone skills do not automatically follow source changes. Symbolic links follow their checkout. Update the ChatGPT/Codex plugin with `codex plugin marketplace upgrade vladicaster-tools`; then refresh the host. In Claude Code, enable marketplace auto-update or run `/plugin marketplace update vladicaster-tools`, followed by `/reload-plugins` when prompted. See the [complete plugin instructions](../docs/plugin-installation-and-updates.md) and the selected skill README.
 
 ## Planned areas
 
@@ -56,6 +56,19 @@ Open the desired skill directory and follow its README.
 | Codex, project | `.agents/skills/<skill-name>/` |
 | Claude Code, personal | `~/.claude/skills/<skill-name>/` |
 | Claude Code, project | `.claude/skills/<skill-name>/` |
+
+To install every product and engineering skill as one plugin in ChatGPT/Codex:
+
+```bash
+codex plugin marketplace add vladicaster/agent-skills --ref main
+```
+
+Install **Vladicaster Agent Skills** from **Vladicaster Tools** in the plugin browser. For Claude Code:
+
+```bash
+claude plugin marketplace add vladicaster/agent-skills
+claude plugin install vladicaster-agent-skills@vladicaster-tools
+```
 
 External research, analytics, CRM, email, advertising, website, and other permissions must be configured separately.
 

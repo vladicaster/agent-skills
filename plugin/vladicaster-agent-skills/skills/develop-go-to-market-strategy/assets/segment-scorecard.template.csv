@@ -1,0 +1,2 @@
+segment,problem_intensity,urgency,willingness_to_pay,reachability,product_fit,proof,expansion,cost_to_serve,notes
+Example segment,1,1,1,1,1,1,1,1,Replace scores with integers from 1 to 5

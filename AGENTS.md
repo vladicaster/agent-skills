@@ -13,7 +13,7 @@ Read [the skill-authoring standard](docs/engineering/skill-authoring.md) before 
 - Keep changes within the approved skill, documentation, or harness scope. Surface materially new work before including it.
 - Preserve existing approval, privacy, security, validation, and external-action boundaries. Never weaken them silently.
 - Keep reusable methodology in the owning skill. Keep client, company, product, credential, and private-repository material out of this public repository.
-- Treat installed skills as snapshots. Do not claim source changes automatically update installed copies.
+- Describe updates by installation type. Copied standalone and pinned skills are snapshots; symbolic links follow their checkout; Claude marketplace plugins can auto-update when enabled; ChatGPT/Codex repository-marketplace plugins require the documented refresh path. Never claim unsupported background updates or notifications.
 
 ## Skill changes
 
@@ -22,6 +22,7 @@ Read [the skill-authoring standard](docs/engineering/skill-authoring.md) before 
 - Keep shared workflow logic in `SKILL.md`; place detailed guidance in `references/`, reusable starting material in `assets/`, and deterministic utilities in `scripts/`.
 - Preserve optional orchestration: reuse approved compatible artifacts and invoke only missing dependencies.
 - When adding, renaming, moving, or removing a skill, update its category README and the root README. Review lifecycle diagrams and cross-skill links for impact.
+- Keep explicit plugin installation and update commands in the root README, both category READMEs, every leaf-skill README, and the plugin README. Run the repository validator to enforce this propagation.
 - Use real Markdown line breaks. Never commit visible escaped newline text such as a backslash followed by `n`.
 
 ## Validation

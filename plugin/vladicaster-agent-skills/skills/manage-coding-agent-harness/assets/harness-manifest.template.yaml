@@ -1,0 +1,15 @@
+harness_version: 1
+project_stage: greenfield
+source:
+  type: prd
+  reference: ""
+approval:
+  status: proposed
+architecture:
+  style: ""
+  status: proposed
+stack: {}
+standards: {}
+assumptions: []
+open_decisions: []
+last_audited: null

@@ -1,0 +1,15 @@
+{
+  "name": "vladicaster-tools",
+  "owner": {
+    "name": "Bill Elberg"
+  },
+  "description": "Portable Vladicaster product and engineering skills",
+  "plugins": [
+    {
+      "name": "vladicaster-agent-skills",
+      "source": "./plugin/vladicaster-agent-skills",
+      "description": "Product and engineering delivery workflows",
+      "version": "0.1.0"
+    }
+  ]
+}
