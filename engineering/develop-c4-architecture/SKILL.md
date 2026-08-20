@@ -92,6 +92,26 @@ Do not call visual inspection or semantic correctness passed merely because synt
 - Treat architecture diagrams as models of evidence and decisions, not proof of runtime behavior, security, performance, or production topology.
 - Report insufficient evidence as Blocked or Unknown rather than fabricating completeness.
 
+## Write architecture artifacts to a repository
+
+When the user explicitly requests and authorizes repository write-back:
+
+1. Confirm the target repository, actual default branch, authenticated identity, required permissions, destination paths, notation, and whether to create new files or update existing artifacts.
+2. Read all applicable repository instructions and follow the shared repository-readiness requirements. Treat missing access, an ambiguous destination, or conflicting instructions as Blocked with an exact next action.
+3. Confirm whether the requested delivery mode is:
+   - **artifact update only:** create or update files on an already approved non-default branch;
+   - **feature-branch delivery:** create a non-default branch, write and validate artifacts, commit, and push;
+   - **draft-PR delivery:** perform feature-branch delivery and open a draft pull request;
+   - **gated issue-to-PR delivery:** use the installed `github-issue-to-draft-pr` workflow when the user requests an issue, approval gate, implementation, and linked draft pull request.
+4. Never commit directly to the default or protected branch. Preserve unrelated user changes and existing diagram notation unless a change is explicitly approved.
+5. Create or update diagram source, supporting narrative, evidence/assumption record, and indexes or architecture documentation whose links would otherwise become stale. Do not silently alter application or infrastructure implementation.
+6. Run the destination repository's relevant checks plus notation parsing or rendering when compatible tooling is available. Inspect the rendered result when possible; otherwise report visual verification as Manual.
+7. Before committing, review the diff for scope, secrets, private or proprietary evidence, broken links, generated clutter, and accidental implementation changes.
+8. Commit and push only within the authorized delivery mode. Open a draft pull request only when requested or when the selected gated workflow requires it.
+9. Report repository, branch, paths, commit, pull request when created, diff summary, checks by status, material unknowns, and remaining manual review.
+
+Approval to generate or discuss diagrams alone is not approval to write them to a repository. Conversely, an explicit request to save, commit, push, or open a draft pull request authorizes only those named actions and their necessary non-destructive prerequisites.
+
 ## Completion
 
 Finish when the requested architecture package is delivered, evidence status is visible, material unknowns are surfaced, relevant validation is reported honestly, and any authorized files are saved at the agreed destination.

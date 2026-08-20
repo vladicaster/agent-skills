@@ -113,6 +113,23 @@ Read-only inspection, brainstorming, and diagram generation do not authorize:
 
 Obtain the authorization appropriate to each consequential action. GitHub is unnecessary for conversational or portable artifacts. For authorized repository writes, follow the repository instructions and the shared [GitHub and repository readiness guide](../../docs/github-repository-readiness.md).
 
+## Repository write-back
+
+When explicitly requested and authorized, the skill can write C4 source files, architecture narratives, evidence records, and necessary catalog or documentation links back to GitHub or another repository destination.
+
+Supported delivery modes are:
+
+| Mode | Behavior |
+| --- | --- |
+| Artifact update only | Update files on an already approved non-default branch |
+| Feature-branch delivery | Create a branch, write and validate artifacts, commit, and push |
+| Draft-PR delivery | Perform feature-branch delivery and open a draft pull request |
+| Gated issue-to-PR delivery | Use `github-issue-to-draft-pr` for issue creation, approval, implementation, and a linked draft PR |
+
+Before writing, the workflow confirms the repository, actual default branch, identity and permissions, destination paths, notation, and whether files are new or existing. It never commits directly to the default or protected branch. It validates the destination repository and diagram notation when compatible tooling exists, reviews the diff for sensitive evidence and unrelated changes, and reports the branch, files, commit, draft PR when created, checks, and remaining manual review.
+
+An instruction to brainstorm or generate a diagram does not authorize repository write-back. An explicit instruction to save, commit, push, or open a draft PR authorizes only the named actions and their necessary non-destructive prerequisites.
+
 ## Included resources
 
 - [`references/architecture-discovery.md`](references/architecture-discovery.md) defines evidence collection for each starting mode.

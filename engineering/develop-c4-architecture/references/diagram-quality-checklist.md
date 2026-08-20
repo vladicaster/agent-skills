@@ -50,6 +50,18 @@ Report each applicable check as **Passed**, **Failed**, **Blocked**, **Manual**,
 - No credentials, private data, or proprietary evidence are exposed in a reusable or public artifact.
 - Generated output contains actual line breaks rather than visible escaped newline sequences.
 
+## Repository delivery
+
+When repository write-back is authorized:
+
+- Target repository, actual default branch, destination paths, and delivery mode are confirmed.
+- Applicable repository instructions and permission prerequisites are satisfied.
+- Work occurs on an approved non-default branch.
+- Existing artifacts and links remain consistent, or necessary related documentation is updated within scope.
+- The diff contains no unrelated implementation changes, secrets, private data, proprietary evidence, or generated clutter.
+- Commit, push, and draft-PR actions do not exceed the user's explicit authorization.
+- The final report identifies branch, paths, commit, pull request when created, diff summary, and validation status.
+
 ## Review result
 
 Summarize:
