@@ -3,8 +3,6 @@ interface:
   short_description: Build imaginative, coherent, evolving story worlds
   default_prompt: Use $develop-creative-worlds to turn my premise into a coherent
     world and living world bible.
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
 policy:
   products:
   - chatgpt
