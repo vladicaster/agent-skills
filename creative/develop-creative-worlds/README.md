@@ -73,6 +73,10 @@ Casual brainstorming remains conversational. Formal status tracking becomes usef
 - [`references/creative-lenses.md`](references/creative-lenses.md) provides targeted prompts for premise, rules, culture, power, history, character, distinctiveness, and continuity.
 - [`references/world-bible-schema.md`](references/world-bible-schema.md) provides a scalable structure for project direction, canon, systems, people, power, history, places, characters, story engines, language, continuity, and adaptation.
 
+## Worked example
+
+[`examples/the-fabulous-unknown/`](examples/the-fabulous-unknown/) follows a one-sentence premise through Explore, Develop, and Document modes into a canon-controlled 20-page graphic-novel script, cover, splash page, and character sheets. The example also distinguishes the worldbuilding workflow from optional image-generation and connected-document capabilities.
+
 ## Approval and execution boundaries
 
 Conversational exploration, read-only analysis, and portable draft generation do not authorize repository or connected-document writes, publication, external sharing, collaborator outreach, purchases, or production changes. Each requires separate authorization and any relevant connector or repository permission.
