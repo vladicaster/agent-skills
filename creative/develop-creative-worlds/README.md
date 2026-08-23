@@ -73,6 +73,12 @@ Casual brainstorming remains conversational. Formal status tracking becomes usef
 - [`references/creative-lenses.md`](references/creative-lenses.md) provides targeted prompts for premise, rules, culture, power, history, character, distinctiveness, and continuity.
 - [`references/world-bible-schema.md`](references/world-bible-schema.md) provides a scalable structure for project direction, canon, systems, people, power, history, places, characters, story engines, language, continuity, and adaptation.
 
+## Approval and execution boundaries
+
+Conversational exploration, read-only analysis, and portable draft generation do not authorize repository or connected-document writes, publication, external sharing, collaborator outreach, purchases, or production changes. Each requires separate authorization and any relevant connector or repository permission.
+
+The workflow preserves private, licensed, client, and unpublished material within the requested scope. A request to brainstorm or audit a world does not authorize adding it to a public repository or replacing an existing world bible.
+
 ## Validation
 
 From the repository root, run:
@@ -103,6 +109,24 @@ https://github.com/vladicaster/agent-skills/tree/main/creative/develop-creative-
 ```
 
 ChatGPT should retrieve and validate the complete skill directory before installing it. Installing the skill does not grant GitHub or other connector permissions. If it is not immediately visible after a confirmed installation, refresh or reopen the Skills page.
+
+### Codex
+
+Personal installation:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -R creative/develop-creative-worlds ~/.agents/skills/develop-creative-worlds
+```
+
+Project-scoped installation, run from the target project's root:
+
+```bash
+mkdir -p .agents/skills
+cp -R /path/to/agent-skills/creative/develop-creative-worlds .agents/skills/develop-creative-worlds
+```
+
+As with Claude, a copied installation is a snapshot. An absolute symbolic link can be used when the installation should follow a maintained source checkout.
 
 ### Claude
 
@@ -145,7 +169,9 @@ https://github.com/vladicaster/agent-skills/tree/main/creative/develop-creative-
 
 ChatGPT should compare the installed copy, validate the complete source, identify meaningful changes or local conflicts, and replace the installed copy only through the supported Skills workflow.
 
-For Claude, pull the source checkout. Symbolic-link installations use the updated source immediately. Copied installations must be replaced by copying the complete directory again after reviewing local changes.
+For Codex or Claude, pull the source checkout. Symbolic-link installations use the updated source immediately. Copied installations must be replaced by copying the complete directory again after reviewing local changes.
+
+For a reproducible installation, check out a repository release tag or commit before copying or linking the directory. Record that revision with the consuming project. The `main` branch represents the latest stable source, not a permanent version pin.
 
 ## Limitations
 
