@@ -8,6 +8,9 @@ The repository organizes focused workflows by professional outcome without requi
 
 ```text
 agent-skills/
+├── creative/
+│   ├── README.md
+│   └── develop-creative-worlds/
 ├── engineering/
 │   ├── README.md
 │   ├── develop-c4-architecture/
@@ -27,6 +30,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Category | Purpose |
 | --- | --- |
+| [Creative](creative/) | Fictional-world design, narrative systems, canon management, continuity, and transmedia-development workflows. |
 | [Engineering](engineering/) | Software-delivery, repository-governance, coding-agent, testing, architecture, and spec-driven-development workflows. |
 | [Product](product/) | Product strategy, market selection, positioning, commercialization, launch, adoption, and evidence-based decision workflows. |
 
@@ -34,6 +38,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
+| [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, expands, documents, audits, and revises coherent fictional worlds and living world bibles. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
@@ -97,7 +102,7 @@ Skills use a `SKILL.md` entry point and follow the open Agent Skills structure w
 
 - **ChatGPT Work:** Use the skill through a supported Skills workflow or an installable OpenAI plugin. GitHub access requires a separately authorized GitHub plugin.
 - **Codex:** Install skills personally under `~/.agents/skills/` or within a project under `.agents/skills/`.
-- **Claude Code:** Install skills personally under `~/.claude/skills/` or within a project under `.claude/skills/`.
+- **Claude:** Install skills personally under `~/.claude/skills/` or within a project under `.claude/skills/`. Keep each complete skill directory together; copied installations are snapshots, while symbolic links follow their source checkout.
 
 A skill may also contain platform-specific metadata. For example, `agents/openai.yaml` configures its OpenAI presentation and invocation behavior without changing the shared `SKILL.md` workflow.
 
@@ -109,6 +114,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 
 | Skill | GitHub needed? | Repository needed? |
 | --- | --- | --- |
+| Develop Creative Worlds | No | No repository required for conversational or document-based worldbuilding |
 | GitHub Issue to Draft PR | Yes | Existing destination repository required |
 | Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
 | Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
@@ -129,7 +135,14 @@ An installed skill is a snapshot of its source at installation time. Source chan
 - Compare an installed copy with the new source before replacement when it may contain local customizations.
 - Keep version information in repository tags and release notes. Keep `SKILL.md` frontmatter limited to the supported `name` and `description` fields.
 
-For ChatGPT Work, ask ChatGPT to update the installed skill from the same source URL:
+For ChatGPT Work, ask ChatGPT to install a skill from its source URL:
+
+```text
+Install the <skill-name> skill from:
+https://github.com/vladicaster/agent-skills/tree/main/<category>/<skill-name>
+```
+
+Ask ChatGPT to update an installed skill from the same source URL:
 
 ```text
 Update my installed <skill-name> skill from:
