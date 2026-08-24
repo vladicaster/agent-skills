@@ -1,6 +1,6 @@
 # Creative Agent Skills
 
-Reusable agent skills for imaginative development, narrative systems, fictional-world design, canon management, and creative continuity.
+Reusable agent skills for imaginative development, narrative systems, fictional-world design, media production, canon management, and creative continuity.
 
 Each subdirectory is independently installable. You do not need to install the complete `agent-skills` repository.
 
@@ -9,6 +9,7 @@ Each subdirectory is independently installable. You do not need to install the c
 | Skill | Status | Purpose |
 | --- | --- | --- |
 | [Develop Creative Worlds](develop-creative-worlds/) | Available | Creates, expands, documents, audits, and revises coherent fictional worlds and living world bibles. |
+| [Produce Reference-Driven Video](produce-reference-driven-video/) | Available | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos. |
 
 ## Creative skill conventions
 
@@ -37,6 +38,7 @@ Future creative skills may cover:
 - Fictional languages and naming systems
 - Interactive narrative and branching continuity
 - Cross-medium adaptation
+- Additional audiovisual production and post-production workflows
 
 A planned area should become a separate skill only when it has a distinct trigger, workflow, and expected output.
 
@@ -52,4 +54,4 @@ Open the desired skill directory and follow its README.
 | Claude, personal | `~/.claude/skills/<skill-name>/` |
 | Claude, project | `.claude/skills/<skill-name>/` |
 
-GitHub is not required for conversational worldbuilding or portable artifacts. Repository access is required only when the user explicitly asks to read or write repository-backed world material.
+GitHub is not required for conversational creative work or portable artifacts. Repository access is required only when the user explicitly asks to read or write repository-backed material.

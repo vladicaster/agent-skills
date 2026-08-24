@@ -10,7 +10,8 @@ The repository organizes focused workflows by professional outcome without requi
 agent-skills/
 ├── creative/
 │   ├── README.md
-│   └── develop-creative-worlds/
+│   ├── develop-creative-worlds/
+│   └── produce-reference-driven-video/
 ├── engineering/
 │   ├── README.md
 │   ├── develop-c4-architecture/
@@ -30,7 +31,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Category | Purpose |
 | --- | --- |
-| [Creative](creative/) | Fictional-world design, narrative systems, canon management, continuity, and transmedia-development workflows. |
+| [Creative](creative/) | Fictional-world design, narrative systems, media production, canon management, continuity, and transmedia-development workflows. |
 | [Engineering](engineering/) | Software-delivery, repository-governance, coding-agent, testing, architecture, and spec-driven-development workflows. |
 | [Product](product/) | Product strategy, market selection, positioning, commercialization, launch, adoption, and evidence-based decision workflows. |
 
@@ -39,6 +40,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | Skill | Category | Purpose |
 | --- | --- | --- |
 | [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, expands, documents, audits, and revises coherent fictional worlds and living world bibles. |
+| [Produce Reference-Driven Video](creative/produce-reference-driven-video/) | Creative | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos, with a first-class Higgsfield and Seedance adapter. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
@@ -115,6 +117,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 | Skill | GitHub needed? | Repository needed? |
 | --- | --- | --- |
 | Develop Creative Worlds | No | No repository required for conversational or document-based worldbuilding |
+| Produce Reference-Driven Video | No | No repository required unless production artifacts are stored or delivered through one |
 | GitHub Issue to Draft PR | Yes | Existing destination repository required |
 | Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
 | Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
