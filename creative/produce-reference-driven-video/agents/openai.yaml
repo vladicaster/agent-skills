@@ -1,0 +1,12 @@
+interface:
+  display_name: Produce Reference-Driven Video
+  short_description: Plan and finish consistent AI-generated videos
+  default_prompt: Use $produce-reference-driven-video to turn my story and reference
+    media into a production-ready video workflow.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
