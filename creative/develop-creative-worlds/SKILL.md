@@ -1,6 +1,6 @@
 ---
 name: develop-creative-worlds
-description: Create, expand, structure, audit, and maintain imaginative fictional worlds for novels, films, television, games, role-playing campaigns, interactive experiences, and transmedia projects. Use when developing a premise, exploring alternate world concepts, building a world bible, defining cultures or systems, creating locations and factions, constructing history and timelines, connecting characters to their setting, establishing canon, checking continuity, resolving contradictions, evaluating downstream consequences, or adapting one world across stories and media.
+description: Create, expand, structure, audit, memorialize, and maintain imaginative fictional worlds for novels, films, television, games, role-playing campaigns, interactive experiences, and transmedia projects. Use when developing a premise, exploring alternate world concepts, building a world bible, preserving creator source material, defining authorship and stewardship, establishing canon and provenance, creating or governing a world repository and its creative harness, checking continuity, resolving contradictions, evaluating downstream consequences, or adapting one world across stories and media.
 ---
 
 # Develop Creative Worlds
@@ -25,6 +25,16 @@ Combine modes when useful, but make transitions explicit.
 
 Treat user-provided facts and constraints as authoritative unless asked to critique them. Preserve the user's voice, themes, and unusual choices. Do not flatten ambiguity, strangeness, or contradiction that may be intentional.
 
+When material is being memorialized or maintained for someone else, distinguish:
+
+- original creator or creators;
+- steward, archivist, memorialization lead, or repository maintainer;
+- authority over source interpretation;
+- authority to approve canon changes;
+- editorial normalization, adaptation, and AI-assisted development.
+
+Repository organization and editorial labor must not imply transfer of creative authorship.
+
 Never silently promote an idea into canon. Label material as:
 
 - **Canon:** Established and authoritative.
@@ -35,6 +45,10 @@ Never silently promote an idea into canon. Label material as:
 - **Deprecated:** Replaced but retained for change history when needed.
 
 When the user is casually brainstorming, keep the exchange fluid; summarize status labels only when choices begin affecting later work.
+
+Track provenance separately from canon status when formal continuity matters. Use project-appropriate labels such as **Original creator source**, **Steward-directed development**, **Editorial normalization**, **Later proposal**, **Adaptation-specific material**, or **In-world disputed artifact**. A canon fact can still be editorially normalized; an original creator's raw idea can still remain proposed or disputed.
+
+Preserve supplied source notes separately from normalized entries. Do not silently rewrite the source archive, infer that every raw note is canon, or erase dated, sensitive, contradictory, or unfinished material. Route such material through explicit preservation, contextualization, and creative-review decisions.
 
 ## Build from the world's creative engine
 
@@ -104,6 +118,42 @@ When revising established material:
 4. Identify contradictions and migration choices.
 5. Update canon only after the change is accepted or clearly requested.
 6. Preserve deliberate uncertainty and unreliable accounts.
+
+Keep story and episode backlogs **Proposed** until explicitly accepted. When a decision changes established material, update the canon register, affected modular entries, contradiction or open-question record, and change history together.
+
+## Create or manage a world repository
+
+GitHub is conditional. Do not require it for conversational exploration, portable artifacts, or a user-approved non-repository destination. When the user requests repository-backed memorialization, read [references/world-repository-harness.md](references/world-repository-harness.md).
+
+Before a GitHub operation:
+
+1. Confirm authenticated identity, destination, repository existence, ownership and visibility when relevant, least required permissions, and the actual default branch.
+2. Confirm that unpublished or sensitive source material is compatible with repository visibility.
+3. Treat repository creation, owner selection, and visibility as separately authorized decisions.
+4. Read repository instructions and preserve their branch, approval, validation, and contribution rules.
+5. Return **Blocked** with the exact next action when a prerequisite is missing; preserve completed read-only work.
+
+An empty Git repository has no commit from which to create a normal feature branch. Explain the initialization dependency accurately. Do not bypass a governing no-default-branch-write rule. If initialization is separately authorized and permitted, create the smallest explicit initial commit; otherwise ask the user to initialize the repository.
+
+For gated issue-to-delivery work, invoke the installed **GitHub Issue to Draft PR** skill when available rather than duplicating its mechanics. Stop at its approval gate before writing world files.
+
+Use a modular repository only when it improves maintenance. A common scalable shape includes a navigable root overview and selected directories for `bible/`, `characters/`, `locations/`, `episodes/` or stories, `mythology/` or history, `continuity/`, `source-material/`, and `templates/`. Omit irrelevant sections and preserve existing conventions.
+
+## Generate and manage the creative harness
+
+Treat a world repository's harness as its effective system of instructions, references, templates, and deterministic enforcement—not as one file. Assess only applicable capabilities:
+
+- root or narrowly scoped `AGENTS.md` instructions;
+- authorship, stewardship, canon-authority, provenance, and source-preservation rules;
+- file-routing and revision-impact rules;
+- a concise harness manifest;
+- character, location, story, artifact, and canon-decision templates;
+- issue and pull-request templates for lore proposals and canon changes;
+- deterministic checks for mechanically verifiable invariants such as required metadata, duplicate identifiers, relative links, and visible escaped newlines.
+
+Support **Bootstrap**, **Create**, **Audit**, **Update**, **Repair**, **Validate**, and **Reconcile** as appropriate. For substantial harness work, invoke the installed **Manage Coding-Agent Harness** skill when available. This skill owns worldbuilding governance; the harness skill owns instruction architecture, precedence, platform adapters, and validation structure.
+
+Use [assets/world-repository-harness/](assets/world-repository-harness/) as an adaptable starter, not a mandatory output. Do not add software-engineering boilerplate, CI, nested instructions, or host-specific adapters without evidence that the creative repository needs them. Prose instructions do not replace branch protection, review, permissions, or executable validation.
 
 ## Audit coherence without sterilizing creativity
 

@@ -1,8 +1,8 @@
 interface:
   display_name: Develop Creative Worlds
-  short_description: Build imaginative, coherent, evolving story worlds
+  short_description: Build and govern coherent, evolving story worlds
   default_prompt: Use $develop-creative-worlds to turn my premise into a coherent
-    world and living world bible.
+    world and provenance-aware living world bible.
 policy:
   products:
   - chatgpt

@@ -1,0 +1,23 @@
+version: 1
+project:
+  title: ""
+  medium: ""
+authority:
+  original_creators: []
+  stewards: []
+  source_interpretation: ""
+  canon_approval: ""
+capabilities:
+  source_archive: planned
+  canon_register: planned
+  provenance_tracking: planned
+  contradiction_tracking: planned
+  change_history: planned
+  entry_templates: planned
+  contribution_templates: optional
+  deterministic_validation: optional
+assumptions: []
+open_decisions: []
+validation:
+  commands: []
+  manual_checks: []
