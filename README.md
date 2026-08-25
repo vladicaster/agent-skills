@@ -102,7 +102,7 @@ The skills support both greenfield and existing-product work:
 
 Skills use a `SKILL.md` entry point and follow the open Agent Skills structure whenever practical.
 
-- **ChatGPT Work:** Use the skill through a supported Skills workflow or an installable OpenAI plugin. GitHub access requires a separately authorized GitHub plugin.
+- **ChatGPT Work:** For the current task, reference the complete skill-directory URL in a chat and ask ChatGPT to use it. A supported Skills workflow or installable OpenAI plugin may provide reusable availability. GitHub access requires separate authorization.
 - **Codex:** Install skills personally under `~/.agents/skills/` or within a project under `.agents/skills/`.
 - **Claude:** Install skills personally under `~/.claude/skills/` or within a project under `.claude/skills/`. Keep each complete skill directory together; copied installations are snapshots, while symbolic links follow their source checkout.
 
@@ -138,7 +138,16 @@ An installed skill is a snapshot of its source at installation time. Source chan
 - Compare an installed copy with the new source before replacement when it may contain local customizations.
 - Keep version information in repository tags and release notes. Keep `SKILL.md` frontmatter limited to the supported `name` and `description` fields.
 
-For ChatGPT Work, ask ChatGPT to install a skill from its source URL:
+For immediate use in a ChatGPT Work conversation, reference the complete skill-directory URL directly in the chat:
+
+```text
+Use the <skill-name> skill from this directory for this task:
+https://github.com/vladicaster/agent-skills/tree/main/<category>/<skill-name>
+```
+
+ChatGPT should retrieve and follow the complete directory, including `SKILL.md` and any referenced supporting files. This makes the source available for the current conversation or task; it does not claim to install the skill persistently.
+
+When a supported Skills workflow or plugin is available, you may separately ask ChatGPT to install the skill for reusable availability:
 
 ```text
 Install the <skill-name> skill from:
