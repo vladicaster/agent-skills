@@ -8,12 +8,14 @@ Use this skill to:
 
 - turn a product, promotional, social, or narrative objective into a causal beat sheet;
 - plan reference frames instead of treating uploads as an unordered mood board;
+- convert storyboard panels into standalone native-ratio scene keyframes before generation;
 - preserve character, wardrobe, location, prop, and brand continuity;
 - generate native landscape and vertical versions of the same story;
 - preflight live model capabilities, workspace balance, and expected credit cost;
 - track provider jobs without duplicate submissions;
+- generate strict timelines as ordered per-scene clips when a provider cannot guarantee multi-reference chronology;
 - review physical interactions, identity, geography, audio, spelling, and platform fit;
-- repair captions, end cards, and exact typography deterministically.
+- keep exact narration independently replaceable and repair transcription-timed captions, end cards, and typography deterministically.
 
 The skill is useful for hero videos, Reels, Shorts, product stories, local-business ads, and other compact multi-scene productions. It is not a general nonlinear editor or a promise that a generative model will produce final typography accurately.
 
@@ -47,22 +49,18 @@ Do not use it as the primary workflow for a faceless narrator-led documentary, a
 flowchart TD
     A[Objective and delivery contract] --> B[Causal beat sheet]
     B --> C[Reference-role and continuity contracts]
-    C --> D[Live provider and cost preflight]
-    D --> E{Paid generation authorized?}
-    E -->|No| F[Return production package]
-    E -->|Yes or no charge| G[Submit once and preserve job ID]
-    G --> H[Verify completed media]
-    H --> I{Defect type}
-    I -->|Story, identity, physics| J[Propose regeneration]
-    I -->|Text, captions, end card| K[Deterministic finish]
-    I -->|Acceptable| L[Deliver verified artifact]
-    J --> D
-    K --> L
+    C --> D[Native keyframes and scene manifest]
+    D --> E[Live provider and full-batch cost preflight]
+    E --> F{Paid generation authorized?}
+    F -->|No| G[Return production package]
+    F -->|Yes or no charge| H[Generate and track ordered scenes]
+    H --> I[Assemble audio, optional captions, and end card]
+    I --> J[Verify and deliver artifact]
 ```
 
 ### 1. Establish the contract
 
-Capture audience, platform, aspect ratio, resolution, duration, audio, exact copy, brand constraints, references, provider preference, destination, and cost limit. A multi-shot video receives a beat sheet before it receives a model prompt.
+Capture audience, platform, aspect ratio, resolution, duration, audio, exact copy, brand constraints, references, provider preference, destination, and cost limit. Confirm whether the user wants burned-in captions or subtitles; if unspecified, ask rather than assuming. A multi-shot video receives a beat sheet before it receives a model prompt.
 
 ### 2. Make cause and geography visible
 
@@ -72,28 +70,32 @@ Each beat states what viewers see, what changes, why it changes, which reference
 
 Every image, video, and audio asset receives a declared role such as identity, location, start frame, end frame, motion, composition, style, or voice. The continuity contract records faces, wardrobe, facade and interior geometry, props, light, logos, and permitted sign behavior.
 
+A storyboard or contact sheet remains a planning artifact. Each generated scene receives its own independently usable reference composed at the delivery ratio. For strict chronology, preserve an ordered scene manifest and generate separate clips when the provider cannot guarantee multi-reference sequencing.
+
 ### 4. Preflight and approve generation
 
-Model availability and price change. Query the selected provider for the current workspace, model catalog, accepted settings, reference constraints, balance, and cost. Show the proposed run before a chargeable submission and obtain approval unless the user's current request already authorized that exact run within a known budget.
+Model availability and price change. Query the selected provider for the current workspace, model catalog, accepted settings, reference constraints, balance, and cost. Quote the complete batch, not only a representative clip. Show the proposed run before a chargeable submission and obtain approval unless the user's current request already authorized that exact run within a known budget.
 
 ### 5. Submit once and track the real job
 
 Preserve the job ID, settings, reference map, prompt revision, cost, and status. Do not start another paid job because a preview is delayed. Distinguish generation from media delivery and return the actual artifact when available.
 
-### 6. Review, repair, and adapt
+### 6. Assemble, review, repair, and adapt
 
-Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
+When narration must be exact or editable, generate silent visual clips and create the selected voice separately. A copy revision creates a new narration asset and rebuilt master, not automatically new visual generations. When the approved contract includes subtitles, derive them from transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Captions are optional and are not implied by the presence of narration. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
+
+The production is complete only after confirming the final duration, dimensions, streams, exact copy, subtitle and end-card layout, upload or save result, and accessibility of the delivered revision.
 
 ## Higgsfield and Seedance support
 
-[`references/higgsfield-seedance.md`](references/higgsfield-seedance.md) is a first-class adapter for Higgsfield. It requires live workspace, balance, model, mode, and cost discovery; covers Seedance 2.0 and 2.5 without assuming either is available; assigns start/end/image/video/audio references; preserves generation job IDs; reuses completed work; and uses an available Higgsfield sandbox or FFmpeg path for deterministic repairs.
+[`references/higgsfield-seedance.md`](references/higgsfield-seedance.md) is a first-class adapter for Higgsfield. It requires live workspace, balance, model, mode, and full-batch cost discovery; covers Seedance 2.0 and 2.5 without assuming either is available; validates native scene references; preserves ordered batch records and generation job IDs; keeps narration replaceable; reuses completed work; and uses an available Higgsfield sandbox or FFmpeg path for deterministic assembly and repairs.
 
 Installing this skill does not install or connect Higgsfield. Provider access, credentials, workspace selection, media uploads, and paid generation remain separately authorized capabilities.
 
 ## Included resources
 
-- [`references/prompt-patterns.md`](references/prompt-patterns.md) contains causal story, reference-role, continuity, physical-interaction, audio, and aspect-ratio patterns.
-- [`references/quality-checklist.md`](references/quality-checklist.md) covers story, geography, identity, physics, audio, typography, safe areas, format, and delivery.
+- [`references/prompt-patterns.md`](references/prompt-patterns.md) contains causal story, reference-role, ordered-scene, continuity, physical-interaction, audio, and aspect-ratio patterns.
+- [`references/quality-checklist.md`](references/quality-checklist.md) covers story, native references, geography, identity, physics, audio revision state, transcription-timed captions, typography, safe areas, format, and delivery.
 - [`references/higgsfield-seedance.md`](references/higgsfield-seedance.md) defines the Higgsfield/Seedance execution adapter.
 - [`scripts/finish_video.py`](scripts/finish_video.py) builds or executes a deterministic FFmpeg caption/end-card command.
 - [`scripts/test_finish_video.py`](scripts/test_finish_video.py) tests parsing, escaping, command construction, and required-work validation.
@@ -111,7 +113,7 @@ python creative/produce-reference-driven-video/scripts/finish_video.py \
   --dry-run
 ```
 
-Remove `--dry-run` to execute. FFmpeg and the input file must be available. The utility re-encodes video with H.264, copies the existing audio stream, and does not verify brand approval, caption timing against speech, licensed font availability, or platform upload behavior.
+Remove `--dry-run` to execute. FFmpeg and the input file must be available. The utility re-encodes video with H.264 and copies the existing audio stream. It accepts caption windows only when their timings already come from a valid external source; it does not transcribe speech. Use an available dedicated subtitle workflow for narration-driven captions so timings come from the final audio or video. The utility does not verify brand approval, licensed font availability, or platform upload behavior.
 
 ## Approval and permission boundaries
 
@@ -201,7 +203,7 @@ For Codex or Claude Code, pull the source checkout and then replace copied insta
 
 - Provider tools, credits, model names, and capabilities can change and require live discovery.
 - Reference-driven generation reduces but does not eliminate identity, geometry, motion, or audio defects.
-- Deterministic typography still requires human spelling, timing, safe-area, and brand review.
+- Deterministic typography still requires human spelling, safe-area, font-fallback, and brand review; subtitle timing requires a transcription-capable workflow.
 - Vertical and landscape adaptations may require separate paid generations.
 - Legal, likeness, music, trademark, and platform-policy review remain human responsibilities.
 - The skill does not publish content or purchase credits.

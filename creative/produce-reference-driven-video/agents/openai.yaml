@@ -1,6 +1,6 @@
 interface:
   display_name: Produce Reference-Driven Video
-  short_description: Plan and finish consistent AI-generated videos
+  short_description: Build ordered, consistent AI-generated videos
   default_prompt: Use $produce-reference-driven-video to turn my story and reference
     media into a production-ready video workflow.
 policy:

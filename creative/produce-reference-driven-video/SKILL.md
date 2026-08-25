@@ -20,7 +20,7 @@ Combine modes when requested, but do not silently turn planning into paid genera
 
 ## Establish the production contract
 
-Record the objective, audience, platform, aspect ratio, resolution, duration, audio expectations, required exact text, brand constraints, available references, provider preference, delivery destination, and known budget or credit limit. Infer low-risk creative details; ask only about choices that materially alter the result or authorize cost.
+Record the objective, audience, platform, aspect ratio, resolution, duration, audio expectations, required exact text, brand constraints, available references, provider preference, delivery destination, and known budget or credit limit. Determine whether burned-in captions or subtitles are required; if the user has not specified them, ask before including them in the production contract. Infer other low-risk creative details; ask only about choices that materially alter the result or authorize cost.
 
 Write a beat sheet before a multi-shot prompt. For every beat, state:
 
@@ -36,6 +36,10 @@ Make causal geography explicit. If a character discovers a place remotely, estab
 
 Assign each asset one or more named roles: identity, wardrobe, location, prop, start frame, end frame, motion, composition, style, or audio. Do not assume the provider interprets upload order as intent.
 
+Treat a storyboard, contact sheet, or multi-panel concept board as a planning artifact. Do not upload it as the scene reference when a model needs a standalone start frame, end frame, or identity image. Before paid video generation, create or extract one independently usable keyframe per scene and verify that every keyframe is natively composed at the target aspect ratio. A tall canvas containing stacked landscape panels is not a set of 9:16 references.
+
+When chronology matters, record an ordered scene manifest with a stable scene number, intended duration, reference roles, prompt, and transition responsibility. If the selected model cannot guarantee that multiple uploaded references control a strict timeline, generate one controlled clip per scene and concatenate the completed clips deterministically in manifest order. Do not rely on filename order, upload order, or a composite board to communicate chronology.
+
 Record continuity invariants for recurring people, wardrobe, storefront geometry, interior layout, lighting progression, props, logos, and permitted sign text. Separate exact requirements from flexible attributes. Use the patterns in [references/prompt-patterns.md](references/prompt-patterns.md).
 
 For a fragile interaction such as opening a door, exchanging an object, or using a phone:
@@ -48,7 +52,7 @@ For a fragile interaction such as opening a door, exchanging an object, or using
 
 ## Preflight the provider
 
-Use live provider evidence when generation is requested. Verify the selected account or workspace, available models, supported aspect ratios, resolutions, durations, audio behavior, reference limits, current credit balance, and estimated cost. Treat model names and capabilities as time-sensitive.
+Use live provider evidence when generation is requested. Verify the selected account or workspace, available models, supported aspect ratios, resolutions, durations, audio behavior, reference limits, current credit balance, and estimated cost. Treat model names and capabilities as time-sensitive. For a multi-scene batch, calculate the complete expected cost across all clips and other chargeable generations rather than quoting only the per-clip price.
 
 If Higgsfield is selected or available, follow [references/higgsfield-seedance.md](references/higgsfield-seedance.md). For another provider, preserve the same preflight, reference-role, approval, job-tracking, and delivery contracts.
 
@@ -59,6 +63,8 @@ Uploading media, spending credits, publishing, and sharing externally are separa
 ## Generate and track without losing state
 
 Translate the beat sheet into the provider's supported reference and prompt structure. Include positive action, continuity constraints, camera behavior, audio direction, and high-value exclusions. Do not ask the model to render exact captions, URLs, product names, or end-card copy when deterministic finishing is available.
+
+When exact narration, a selected voice, subtitles, or later copy revision matters, generate the visual clips without embedded narration and create the voice track separately. Resolve the provider's exact voice identifier and voice type through live discovery or user selection; never invent or silently substitute a voice. If spoken copy changes, regenerate the narration and rebuild every downstream master that contains it.
 
 After submission:
 
@@ -89,9 +95,13 @@ Prefer the least expensive repair that fixes the actual defect. Never spend addi
 
 ## Finish exact text deterministically
 
-Use `scripts/finish_video.py` to build an FFmpeg command for timed captions and an optional end card. Run it first with `--dry-run`, verify exact spelling and timing, then execute only when the local files and FFmpeg are available and the requested write is authorized.
+When the approved production contract requires narration-driven subtitles, invoke an available dedicated subtitle workflow. Derive timings from transcription of the final audio or assembled video. Authored narration may correct recognized wording, brand names, numbers, and punctuation, but it must not supply estimated timestamps. Keep captions short, phone-legible, and inside platform safe zones; reserve a separate visual region for an overlapping end card. If the preferred caption font is unavailable, use a verified compatible fallback and rerun only the deterministic burn step. Do not add captions merely because narration exists.
+
+Use `scripts/finish_video.py` to build an FFmpeg command for an optional end card or captions whose timings were already established by a valid external source. It is not a transcription or subtitle-timing tool. Run it first with `--dry-run`, verify exact spelling and timing, then execute only when the local files and FFmpeg are available and the requested write is authorized.
 
 Keep exact product names, URLs, calls to action, and captions out of model-rendered scenery. Generated signs may be blank, generic, or non-readable unless readable environmental text is itself essential and will be reviewed.
+
+After deterministic assembly, verify the final file rather than only the command exit status. Confirm duration, dimensions, aspect ratio, frame rate, video and audio streams, exact narration and overlay copy, caption timing and safe zones, successful upload or save confirmation, and that the delivered artifact opens and corresponds to the reviewed revision.
 
 ## Respect boundaries
 
