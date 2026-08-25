@@ -12,7 +12,10 @@ Use this skill to:
 - trace first-, second-, and third-order consequences;
 - connect lore to ordinary life, power, identity, relationships, and conflict;
 - create and maintain a structured world bible;
+- preserve original creator material while distinguishing later stewardship and editorial development;
 - distinguish canon from proposals, possibilities, disputed accounts, mysteries, and deprecated material;
+- track provenance independently from canon status;
+- create or manage an optional GitHub-backed world repository and creative harness;
 - audit continuity, causality, narrative usefulness, distinctiveness, and complexity;
 - propagate approved canon changes across affected timelines, characters, institutions, and stories.
 
@@ -28,6 +31,8 @@ Recognizable requests include:
 - "Check this timeline and character history for contradictions."
 - "If we change this rule, what else in the world must change?"
 - "Adapt this story world for a game without losing its thematic identity."
+- "Memorialize these creator notes in a revisable GitHub world repository."
+- "Create or audit the creative harness that governs this world bible."
 
 Do not use it as the primary workflow for writing a complete screenplay or novel, implementing a game, conducting historical research, or managing a software-delivery lifecycle. It can provide setting, canon, continuity, and narrative-system inputs to those activities.
 
@@ -40,6 +45,8 @@ Do not use it as the primary workflow for writing a complete screenplay or novel
 | Document | A navigable world bible scaled to the project |
 | Audit | Classified continuity, causality, distinctiveness, and narrative-yield findings |
 | Revise | Approved canon changes with downstream impact traced and reconciled |
+
+Repository-backed work may additionally Bootstrap, Create, Audit, Update, Repair, Validate, or Reconcile a proportionate creative harness.
 
 Modes may be combined, but transitions should remain explicit.
 
@@ -58,6 +65,8 @@ The workflow does not silently turn brainstorming into canon.
 
 Casual brainstorming remains conversational. Formal status tracking becomes useful when choices affect later work.
 
+Canon status answers whether a claim is authoritative. **Provenance** answers where it came from. Formal projects should track both so original creator material, steward-directed development, editorial normalization, later proposals, adaptation-specific material, and in-world artifacts remain distinguishable.
+
 ## Workflow
 
 1. Establish medium, genre, tone, audience, scale, objective, and existing material.
@@ -68,10 +77,26 @@ Casual brainstorming remains conversational. Formal status tracking becomes usef
 6. Record consequential decisions with appropriate canon status when formal continuity matters.
 7. Audit or revise the world when requested, preserving intentional ambiguity and unreliable accounts.
 
+## Repository-backed memorialization
+
+GitHub is optional. Use a repository when the user wants durable, collaborative, revision-controlled world maintenance—not merely because one is available.
+
+When authorized, the skill can organize a scalable repository with only the useful portions of a root overview, `bible/`, `characters/`, `locations/`, story or episode catalogs, mythology or history, `continuity/`, `source-material/`, and `templates/`. Original notes remain separate from normalized canon and later proposals.
+
+Repository creation, owner, visibility, initialization, world-file writes, harness changes, publication, and merging retain their own approval and permission boundaries. Empty repositories require an initial commit before a normal feature branch can exist. The skill follows repository instructions and can coordinate with **GitHub Issue to Draft PR** for gated delivery.
+
+## Creative repository harness
+
+A proportionate harness can govern authorship, stewardship, canon authority, provenance, source preservation, file routing, revision impact, and contribution workflow. Depending on the project, it may include `AGENTS.md`, a harness manifest, entry and canon-decision templates, GitHub issue and PR templates, and deterministic checks for mechanical invariants.
+
+The skill supports harness Bootstrap, Create, Audit, Update, Repair, Validate, and Reconcile behavior. Substantial harness work can coordinate with **Manage Coding-Agent Harness**. The worldbuilding skill owns creative governance; the harness skill owns general instruction architecture and enforcement structure.
+
 ## Included resources
 
 - [`references/creative-lenses.md`](references/creative-lenses.md) provides targeted prompts for premise, rules, culture, power, history, character, distinctiveness, and continuity.
 - [`references/world-bible-schema.md`](references/world-bible-schema.md) provides a scalable structure for project direction, canon, systems, people, power, history, places, characters, story engines, language, continuity, and adaptation.
+- [`references/world-repository-harness.md`](references/world-repository-harness.md) defines optional repository structure, provenance, source preservation, GitHub readiness, and harness lifecycle.
+- [`assets/world-repository-harness/`](assets/world-repository-harness/) provides an adaptable `AGENTS.md`, harness manifest, canon-decision form, and GitHub contribution templates.
 
 ## Worked example
 
@@ -95,7 +120,7 @@ The validator checks required skill structure, frontmatter, catalog links, Pytho
 
 ## Installation
 
-Install the complete `creative/develop-creative-worlds` directory so `SKILL.md`, `agents/openai.yaml`, and both reference files remain together.
+Install the complete `creative/develop-creative-worlds` directory so `SKILL.md`, `agents/openai.yaml`, references, assets, and examples remain together.
 
 Source:
 
@@ -183,5 +208,6 @@ For a reproducible installation, check out a repository release tag or commit be
 - Internal coherence does not guarantee audience comprehension or emotional impact.
 - Sensitivity review benefits from relevant lived experience and qualified human readers.
 - Large worlds require a durable storage location to preserve canon across separate sessions.
+- Repository and harness generation require separately authorized access and do not make GitHub mandatory.
 - Deliberate mysteries and unreliable accounts should not be mistaken for continuity errors.
 - Installing the skill grants no repository, document, publishing, or external-sharing permissions.

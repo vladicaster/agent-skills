@@ -5,6 +5,9 @@ Use this structure selectively. Omit sections that do not serve the project.
 ## Project compass
 
 - Working title and logline
+- Original creator or creators
+- Steward, archivist, or memorialization lead when different
+- Source-interpretation authority and canon-approval authority
 - Medium, genre, tone, audience, and scope
 - Thematic tension and emotional promise
 - Defining premise or departure
@@ -20,7 +23,8 @@ For consequential facts, record:
 | Fact | Concise claim |
 | Status | Canon, proposed, possibility, disputed, unknown, or deprecated |
 | Scope | Era, region, culture, story, or medium where it applies |
-| Source | User input, source artifact, approved inference, or in-world account |
+| Provenance | Original creator source, steward-directed development, editorial normalization, later proposal, adaptation-specific material, or in-world account |
+| Source reference | Exact artifact, note, conversation decision, or approved inference |
 | Dependencies | Facts or entries this relies on or affects |
 | Notes | Exceptions, ambiguity, or revision history |
 
@@ -76,11 +80,34 @@ For each relevant character: role, desire, fear, contradiction, knowledge limits
 
 ## Continuity and change
 
+- Canon register with status and provenance tracked independently
 - Known contradictions and resolutions
 - Open questions
 - Deliberate mysteries
 - Proposed changes and impact analysis
 - Deprecated canon and replacement mapping
+- Attribution-aware change history
+
+## Source archive
+
+- Original notes preserved without silent rewriting
+- Confidentiality and destination-visibility decision
+- Distinction between raw source, normalized entry, editorial inference, and later proposal
+- Naming conflicts, alternatives, and unresolved source contradictions
+- Contextualization or creative-review decisions for dated or sensitive material
+
+## Modular repository projection
+
+When a durable repository improves maintenance, project the useful sections into modular files rather than forcing one monolithic document. A common shape is:
+
+- root overview, attribution, navigation, and revision guidance;
+- `bible/` for premise, rules, tone, themes, and systems;
+- `characters/`, `locations/`, and story- or medium-specific catalogs;
+- `continuity/` for canon, contradictions, open questions, and change history;
+- `source-material/` for preserved originals;
+- `templates/` for repeatable entries and decisions.
+
+Omit empty or irrelevant directories. Record relationships and dependencies so a revision can be propagated across files.
 
 ## Adaptation notes
 

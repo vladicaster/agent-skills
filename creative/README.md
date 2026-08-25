@@ -8,7 +8,7 @@ Each subdirectory is independently installable. You do not need to install the c
 
 | Skill | Status | Purpose |
 | --- | --- | --- |
-| [Develop Creative Worlds](develop-creative-worlds/) | Available | Creates, expands, documents, audits, and revises coherent fictional worlds and living world bibles. |
+| [Develop Creative Worlds](develop-creative-worlds/) | Available | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
 | [Produce Reference-Driven Video](produce-reference-driven-video/) | Available | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos. |
 
 ## Creative skill conventions
@@ -23,6 +23,7 @@ Creative skills should:
 - Treat unexplained or contradictory material as potentially intentional before classifying it as an error.
 - Scale outputs to the project rather than producing exhaustive questionnaires or generic lore dumps.
 - Preserve approval boundaries before publication, repository writes, external sharing, or other consequential actions.
+- Separate original authorship, stewardship, canon status, provenance, and later editorial development when memorializing existing work.
 
 ## Updating installed skills
 

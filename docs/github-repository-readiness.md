@@ -7,6 +7,7 @@ Installing a skill does not create a GitHub account, authorize a connector, crea
 | Skill | GitHub requirement | Repository requirement |
 | --- | --- | --- |
 | GitHub Issue to Draft PR | Required | An existing accessible destination repository with issues and pull requests enabled |
+| Develop Creative Worlds | Conditional | Conversational and portable worldbuilding need no repository; repository-backed memorialization may use an existing repository or separately authorized new repository |
 | Manage Coding-Agent Harness | Conditional | Existing-repository modes need repository access; Bootstrap can produce a portable package without GitHub |
 | Develop Product Requirements | Conditional | PRD authoring and issue planning can run without GitHub; approved issue creation needs confirmed destination repositories |
 | Prepare Product for Engineering | Conditional | A local or document-based planning package is valid; GitHub repository creation or use is separately authorized |
@@ -24,6 +25,8 @@ Before a GitHub read or write, determine the smallest applicable set of prerequi
 6. Verify the least permissions needed for the requested operations, such as reading contents, writing files, creating issues, creating branches, pushing commits, or opening pull requests.
 7. For delivery work, discover the actual default branch and verify that issues, branches, and pull requests are available. Respect branch protections and required reviews; do not attempt to bypass them.
 8. Confirm source-material confidentiality is compatible with the destination repository visibility before uploading it.
+
+An empty Git repository has no commit from which to create a normal feature branch. If initialization is required, follow repository instructions and approval boundaries. Do not bypass a rule against default-branch writes; return **Blocked** with the exact initialization action when the governing workflow does not authorize that first commit.
 
 Read-only or document-only work should not be blocked merely because GitHub is unavailable. Keep the output local or use another user-approved destination.
 

@@ -39,7 +39,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
-| [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, expands, documents, audits, and revises coherent fictional worlds and living world bibles. |
+| [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
 | [Produce Reference-Driven Video](creative/produce-reference-driven-video/) | Creative | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos, with a first-class Higgsfield and Seedance adapter. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
@@ -116,7 +116,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 
 | Skill | GitHub needed? | Repository needed? |
 | --- | --- | --- |
-| Develop Creative Worlds | No | No repository required for conversational or document-based worldbuilding |
+| Develop Creative Worlds | Only for repository-backed memorialization or maintenance | No repository required for conversational or document-based worldbuilding; an existing or separately authorized new repository may be used |
 | Produce Reference-Driven Video | No | No repository required unless production artifacts are stored or delivered through one |
 | GitHub Issue to Draft PR | Yes | Existing destination repository required |
 | Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
