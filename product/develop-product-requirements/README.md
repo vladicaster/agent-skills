@@ -151,6 +151,16 @@ It does not independently select frameworks, databases, deployment topology, ser
 
 ## Installation
 
+
+For immediate use in the current ChatGPT Work conversation, paste the complete skill-directory URL into the chat:
+
+```text
+Use the develop-product-requirements skill from this directory for this task:
+https://github.com/vladicaster/agent-skills/tree/main/product/develop-product-requirements
+```
+
+ChatGPT should retrieve and follow the complete directory, including `SKILL.md` and its supporting files. Referencing the directory this way applies to the current conversation or task; it does not permanently install the skill. Use a supported Skills workflow or plugin separately when reusable installation is desired.
+
 - **ChatGPT Work:** Install through a supported Skills workflow or OpenAI plugin; invoke with `@develop-product-requirements`.
 - **Codex personal:** `~/.agents/skills/develop-product-requirements/`
 - **Codex project:** `.agents/skills/develop-product-requirements/`
