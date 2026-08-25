@@ -41,6 +41,16 @@ This skill requires an existing destination repository; it does not create one. 
 
 ## Install for ChatGPT Work
 
+
+For immediate use in the current ChatGPT Work conversation, paste the complete skill-directory URL into the chat:
+
+```text
+Use the github-issue-to-draft-pr skill from this directory for this task:
+https://github.com/vladicaster/agent-skills/tree/main/engineering/github-issue-to-draft-pr
+```
+
+ChatGPT should retrieve and follow the complete directory, including `SKILL.md` and its supporting files. Referencing the directory this way applies to the current conversation or task; it does not permanently install the skill. Use a supported Skills workflow or plugin separately when reusable installation is desired.
+
 For reusable distribution in ChatGPT Work across supported web, desktop, and mobile surfaces, package this skill in an OpenAI plugin. Installing the plugin makes its bundled skill available to ChatGPT Work.
 
 Until a plugin package is published, the standalone directory can be used for local authoring and supported desktop workflows:
