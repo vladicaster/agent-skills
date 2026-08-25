@@ -103,6 +103,16 @@ The skill develops strategy, plans, recommendations, and draft assets. It requir
 
 ## Installation
 
+
+For immediate use in the current ChatGPT Work conversation, paste the complete skill-directory URL into the chat:
+
+```text
+Use the develop-go-to-market-strategy skill from this directory for this task:
+https://github.com/vladicaster/agent-skills/tree/main/product/develop-go-to-market-strategy
+```
+
+ChatGPT should retrieve and follow the complete directory, including `SKILL.md` and its supporting files. Referencing the directory this way applies to the current conversation or task; it does not permanently install the skill. Use a supported Skills workflow or plugin separately when reusable installation is desired.
+
 Keep the complete directory together.
 
 - **ChatGPT Work:** Install through a supported Skills workflow or an OpenAI plugin. Invoke with `@develop-go-to-market-strategy`.
