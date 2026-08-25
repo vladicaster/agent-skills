@@ -54,13 +54,13 @@ flowchart TD
     E --> F{Paid generation authorized?}
     F -->|No| G[Return production package]
     F -->|Yes or no charge| H[Generate and track ordered scenes]
-    H --> I[Assemble audio, captions, and end card]
+    H --> I[Assemble audio, optional captions, and end card]
     I --> J[Verify and deliver artifact]
 ```
 
 ### 1. Establish the contract
 
-Capture audience, platform, aspect ratio, resolution, duration, audio, exact copy, brand constraints, references, provider preference, destination, and cost limit. A multi-shot video receives a beat sheet before it receives a model prompt.
+Capture audience, platform, aspect ratio, resolution, duration, audio, exact copy, brand constraints, references, provider preference, destination, and cost limit. Confirm whether the user wants burned-in captions or subtitles; if unspecified, ask rather than assuming. A multi-shot video receives a beat sheet before it receives a model prompt.
 
 ### 2. Make cause and geography visible
 
@@ -82,7 +82,7 @@ Preserve the job ID, settings, reference map, prompt revision, cost, and status.
 
 ### 6. Assemble, review, repair, and adapt
 
-When narration must be exact or editable, generate silent visual clips and create the selected voice separately. A copy revision creates a new narration asset and rebuilt master, not automatically new visual generations. Derive subtitles from transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
+When narration must be exact or editable, generate silent visual clips and create the selected voice separately. A copy revision creates a new narration asset and rebuilt master, not automatically new visual generations. When the approved contract includes subtitles, derive them from transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Captions are optional and are not implied by the presence of narration. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
 
 The production is complete only after confirming the final duration, dimensions, streams, exact copy, subtitle and end-card layout, upload or save result, and accessibility of the delivered revision.
 

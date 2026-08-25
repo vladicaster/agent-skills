@@ -20,7 +20,7 @@ Combine modes when requested, but do not silently turn planning into paid genera
 
 ## Establish the production contract
 
-Record the objective, audience, platform, aspect ratio, resolution, duration, audio expectations, required exact text, brand constraints, available references, provider preference, delivery destination, and known budget or credit limit. Infer low-risk creative details; ask only about choices that materially alter the result or authorize cost.
+Record the objective, audience, platform, aspect ratio, resolution, duration, audio expectations, required exact text, brand constraints, available references, provider preference, delivery destination, and known budget or credit limit. Determine whether burned-in captions or subtitles are required; if the user has not specified them, ask before including them in the production contract. Infer other low-risk creative details; ask only about choices that materially alter the result or authorize cost.
 
 Write a beat sheet before a multi-shot prompt. For every beat, state:
 
@@ -95,7 +95,7 @@ Prefer the least expensive repair that fixes the actual defect. Never spend addi
 
 ## Finish exact text deterministically
 
-For narration-driven subtitles, invoke an available dedicated subtitle workflow. Derive timings from transcription of the final audio or assembled video. Authored narration may correct recognized wording, brand names, numbers, and punctuation, but it must not supply estimated timestamps. Keep captions short, phone-legible, and inside platform safe zones; reserve a separate visual region for an overlapping end card. If the preferred caption font is unavailable, use a verified compatible fallback and rerun only the deterministic burn step.
+When the approved production contract requires narration-driven subtitles, invoke an available dedicated subtitle workflow. Derive timings from transcription of the final audio or assembled video. Authored narration may correct recognized wording, brand names, numbers, and punctuation, but it must not supply estimated timestamps. Keep captions short, phone-legible, and inside platform safe zones; reserve a separate visual region for an overlapping end card. If the preferred caption font is unavailable, use a verified compatible fallback and rerun only the deterministic burn step. Do not add captions merely because narration exists.
 
 Use `scripts/finish_video.py` to build an FFmpeg command for an optional end card or captions whose timings were already established by a valid external source. It is not a transcription or subtitle-timing tool. Run it first with `--dry-run`, verify exact spelling and timing, then execute only when the local files and FFmpeg are available and the requested write is authorized.
 
