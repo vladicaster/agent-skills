@@ -33,6 +33,18 @@ The trigger must be visible enough to explain the transition. If a customer disc
 
 Assign roles explicitly even when one asset has multiple uses. Resolve conflicts before uploading.
 
+## Ordered scene manifest
+
+Use a manifest when multiple references must become a strict timeline:
+
+| Scene | Duration | Standalone reference | Generation role | Transition responsibility |
+| --- | --- | --- | --- | --- |
+| 1 | 4s | `scene-01.png` | start frame | establish the problem |
+| 2 | 4s | `scene-02.png` | start frame | reveal the trigger |
+| 3 | 4s | `scene-03.png` | start frame | deliver the payoff |
+
+Each referenced image must be independently usable at the target ratio. A storyboard or contact sheet may guide production, but it cannot replace the standalone files. If the provider does not guarantee ordered multi-reference storytelling, generate the manifest rows separately and concatenate the finished clips by scene number.
+
 ## Physical interaction
 
 ```text
@@ -56,9 +68,13 @@ No substitutions, duplicate subjects, wardrobe changes, or geometry changes.
 
 Write spoken copy separately from visual direction. Include a pronunciation hint only when the provider supports it. Avoid ambiguous symbols in narration: write the intended spoken form, while reserving exact brand typography for deterministic overlays.
 
+When the words must remain editable, request silent visual generation, select the exact voice through the provider, and generate narration as a separate asset. Treat the narration script as a versioned dependency: any wording change requires a new voice asset and a rebuilt master, while approved visual clips may be reused.
+
 ## Aspect-ratio adaptation
 
 For 16:9, define lateral relationships and safe negative space. For 9:16, stack actions in depth, keep the main subject central, enlarge phone/action details, and reserve upper and lower safe areas for interface overlays and captions. Rebuild shot composition; do not request a crop of the landscape render.
+
+Inspect actual dimensions before generation. A 9:16 storyboard canvas containing several wide panels does not make those panels native 9:16 keyframes.
 
 ## High-value exclusions
 

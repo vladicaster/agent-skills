@@ -24,6 +24,8 @@ Never infer that 2.5 exists in a workspace because it exists publicly, or assume
 
 Before submission, summarize model, mode, duration, resolution, aspect ratio, audio choice, reference set, quoted cost, and remaining balance. If Higgsfield offers paid credits and an unlimited path, surface both with their relevant tradeoffs. Obtain explicit approval before a chargeable generation unless the current request already authorized that exact run and cost envelope.
 
+For a batch, estimate every chargeable item and show the total. For example, three equal-cost scene clips require three cost units; a one-clip estimate is not the batch estimate. Include separately generated narration or other paid assets when they are known before authorization.
+
 Do not purchase credits, switch plans, or retry a failed paid job automatically.
 
 ## 4. Upload and assign references
@@ -38,11 +40,17 @@ Upload only media necessary for the authorized generation. Confirm each upload s
 
 Use the fewest references that establish the contract. Preserve provider asset identifiers privately for job reuse; never publish private storage URLs or customer media in reusable examples.
 
+Do not use a storyboard sheet as a start frame merely because it contains the desired scenes. Produce one standalone image per scene, inspect its actual pixel dimensions, and confirm it is a native composition for the requested aspect ratio before upload. Map every returned media identifier to its stable scene number and role.
+
 ## 5. Submit and preserve the job record
 
 Translate the approved beat sheet into Higgsfield's current parameter schema. Submit once, then store model/version, settings, asset-role map, prompt revision, cost, job ID, and submission time.
 
 Poll or query the provider using the job ID. Report **queued**, **running**, **failed**, or **completed** only when the provider reports that state. A missing widget or delayed preview is a delivery problem, not proof of generation failure. Do not create a duplicate paid job while the original remains pending.
+
+When exact scene order is essential and the selected mode does not expose a guaranteed timeline contract, submit one image-to-video job per scene, preserving the scene index in the batch record. Wait for the complete batch, present the results in scene order, and concatenate only the completed intended jobs. Do not infer chronology from upload order.
+
+Disable model-generated audio when narration copy, a selected voice, or subtitles must remain independently editable. Discover the exact voice identifier and type before speech generation. A change to spoken wording invalidates the prior narration and every assembled master that contains it, but does not require regenerating approved visual clips.
 
 ## 6. Reuse completed work
 
@@ -51,6 +59,10 @@ When creating an approved variant, use Higgsfield's completed job or asset ident
 ## 7. Finish and deliver
 
 If Higgsfield exposes a sandbox or FFmpeg execution path, use it for exact captions, spelling corrections, end cards, trims, and simple audio replacement. Verify the final output, not only the command status. Preserve the unmodified generated result unless replacement was explicitly requested.
+
+For spoken captions, use the available subtitle workflow to run Whisper or another approved transcription backend against the final audio or assembled video. Supply authored narration only to correct the transcribed words while retaining audio-derived timing. For a vertical social ad, use the workflow's platform-safe social style unless the user selects another supported look. If a bundled font path fails, rerun the burn with a verified installed font path; do not estimate subtitle timings or hand-roll a replacement caption burner.
+
+After assembly, inspect media metadata and the delivered artifact: duration, 9:16 or 16:9 dimensions, video codec, audio stream, exact narration, captions, end-card text, and accessibility. Confirm the provider upload before sharing the final URL.
 
 Return the actual resulting media in the host's supported presentation or provide the provider-supported direct artifact. Do not say “you should see it” without evidence that the media was attached or displayed. If only a job ID is available, state that plainly and continue status tracking when requested.
 
