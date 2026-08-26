@@ -1,0 +1,11 @@
+interface:
+  display_name: Find LinkedIn Conversation Opportunities
+  short_description: Find relevant posts and draft useful replies
+  default_prompt: Use $find-linkedin-conversation-opportunities to find LinkedIn posts where my offering can add genuine value and draft non-spammy replies with direct post links.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
