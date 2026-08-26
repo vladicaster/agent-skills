@@ -9,6 +9,7 @@ Each subdirectory is independently installable. You do not need to install the c
 | Skill | Status | Purpose |
 | --- | --- | --- |
 | [Develop Go-to-Market Strategy](develop-go-to-market-strategy/) | Available | Develops, audits, refines, diagnoses, launch-plans, and reconciles evidence-based GTM strategies from product inputs and market results. |
+| [Find LinkedIn Conversation Opportunities](find-linkedin-conversation-opportunities/) | Available | Finds current posts with evidence-based offering fit, captures direct links, and drafts useful-first replies without spammy self-promotion. |
 | [Develop Product Requirements](develop-product-requirements/) | Available | Creates and manages hierarchical, traceable PRDs with stable requirements and many-to-many GitHub issue and PR relationships. |
 | [Prepare Product for Engineering](prepare-product-for-engineering/) | Available | Optionally orchestrates GTM and PRD work—or consumes approved artifacts—then governs readiness and engineering handoff. |
 
