@@ -20,6 +20,7 @@ agent-skills/
 ├── product/
 │   ├── README.md
 │   ├── develop-go-to-market-strategy/
+│   ├── find-linkedin-conversation-opportunities/
 │   ├── develop-product-requirements/
 │   └── prepare-product-for-engineering/
 └── README.md
@@ -45,6 +46,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
+| [Find LinkedIn Conversation Opportunities](product/find-linkedin-conversation-opportunities/) | Product | Finds current LinkedIn posts with evidence-based offering fit, captures direct post links, and drafts useful-first replies that avoid spammy self-promotion. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
 | [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Product | Optionally orchestrates GTM and PRD work—or consumes approved artifacts—then governs readiness and engineering handoff. |
 
@@ -123,6 +125,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 | Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
 | Prepare Product for Engineering | Optional | Can use a local or document-based planning package |
 | Develop Go-to-Market Strategy | No | Output destination is selected separately |
+| Find LinkedIn Conversation Opportunities | No | LinkedIn access is conditional; drafts can use user-supplied post text and links |
 
 Before repository operations, confirm the GitHub identity and authorization method, source and destination repositories, repository ownership and visibility when relevant, required permissions, actual default branch, and required issue or pull-request capabilities. If a prerequisite is missing, the skill should stop the affected operation and state the exact setup action needed.
 
