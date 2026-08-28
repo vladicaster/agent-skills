@@ -14,8 +14,9 @@ Use this skill to:
 - preflight live model capabilities, workspace balance, and expected credit cost;
 - track provider jobs without duplicate submissions;
 - generate strict timelines as ordered per-scene clips when a provider cannot guarantee multi-reference chronology;
+- paginate voice catalogs, audition subjective voice choices, and preserve exact voice identifiers;
 - review physical interactions, identity, geography, audio, spelling, and platform fit;
-- keep exact narration independently replaceable and repair transcription-timed captions, end cards, and typography deterministically.
+- keep exact narration independently replaceable, reconcile narration and visual duration without unnecessary regeneration, and repair transcription-timed captions, end cards, and typography deterministically.
 
 The skill is useful for hero videos, Reels, Shorts, product stories, local-business ads, and other compact multi-scene productions. It is not a general nonlinear editor or a promise that a generative model will produce final typography accurately.
 
@@ -82,9 +83,11 @@ Preserve the job ID, settings, reference map, prompt revision, cost, and status.
 
 ### 6. Assemble, review, repair, and adapt
 
-When narration must be exact or editable, generate silent visual clips and create the selected voice separately. A copy revision creates a new narration asset and rebuilt master, not automatically new visual generations. When the approved contract includes subtitles, derive them from transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Captions are optional and are not implied by the presence of narration. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
+When narration must be exact or editable, generate silent visual clips and create the selected voice separately. Search paginated catalogs to resolve the exact voice identifier. A voice name identifies a catalog entry but does not prove that its tone is right; when tone is subjective, use a separately priced and approved short audition before the full read. A copy or voice revision creates a new narration asset and rebuilt master, not automatically new visual generations, and rejected audio never enters later assembly.
 
-The production is complete only after confirming the final duration, dimensions, streams, exact copy, subtitle and end-card layout, upload or save result, and accessibility of the delivered revision.
+Measure the final narration against the visual runtime. Prefer modest visual retiming and a brief final-frame hold over paid regeneration when motion remains natural. When the approved contract includes subtitles, derive them from fresh transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Use word timestamps for caption boundaries inside larger transcription segments. Captions are optional and are not implied by the presence of narration. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
+
+The production is complete only after confirming the final duration, dimensions, frame rate, codecs and streams, exact copy, subtitle and end-card layout, upload or save result, accessibility of the delivered revision, and a direct download path when the host provides one.
 
 ## Higgsfield and Seedance support
 
