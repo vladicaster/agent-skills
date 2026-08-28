@@ -26,7 +26,7 @@ Voice catalogs may be paginated. When the user requests a named voice, continue 
 
 Before submission, summarize model, mode, duration, resolution, aspect ratio, audio choice, reference set, quoted cost, and remaining balance. If Higgsfield offers paid credits and an unlimited path, surface both with their relevant tradeoffs. Obtain explicit approval before a chargeable generation unless the current request already authorized that exact run and cost envelope.
 
-For a batch, estimate every chargeable item and show the total. For example, three equal-cost scene clips require three cost units; a one-clip estimate is not the batch estimate. Include separately generated narration or other paid assets when they are known before authorization.
+For a batch, estimate every chargeable item and show the total. For example, three equal-cost scene clips require three cost units; a one-clip estimate is not the batch estimate. Include separately generated narration, music, or other paid assets when they are known before authorization. Confirm through the live catalog that the selected model and tool support the requested audio type; a text-to-speech endpoint is not a substitute for a music generator.
 
 Price voice auditions independently from full narration. A request to hear a sample authorizes only that sample after its live cost is known; approval of a full video does not automatically cover additional auditions or replacement voices.
 
@@ -64,7 +64,9 @@ When creating an approved variant, use Higgsfield's completed job or asset ident
 
 ## 7. Finish and deliver
 
-If Higgsfield exposes a sandbox or FFmpeg execution path, use it for exact captions, spelling corrections, end cards, trims, and simple audio replacement. Verify the final output, not only the command status. Preserve the unmodified generated result unless replacement was explicitly requested.
+If Higgsfield exposes a sandbox or FFmpeg execution path, use it for exact captions, spelling corrections, end cards, trims, and simple audio replacement or background-music mixing. Verify the final output, not only the command status. Preserve the unmodified generated or narrated master unless replacement was explicitly requested.
+
+When music is undecided, present a music-only audition before creating a full candidate mix. Preserve the provider job or reusable asset identifier, provenance, cost, and approval state. Treat cue approval and prominence approval separately. Reuse the approved visual-and-narration master for soundtrack-only variants, and keep each mix as a distinct revision.
 
 Measure the completed narration and visual runtimes before assembly. When narration is slightly longer, prefer modest deterministic visual retiming and a final-frame hold over paid visual regeneration if motion remains natural. Record the retiming factor and verify the resulting motion. If the gap is too large or retiming weakens the scene, revise the script or seek approval for new visuals instead of hiding the mismatch.
 
