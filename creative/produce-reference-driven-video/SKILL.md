@@ -38,7 +38,7 @@ Assign each asset one or more named roles: identity, wardrobe, location, prop, s
 
 Treat a storyboard, contact sheet, or multi-panel concept board as a planning artifact. Do not upload it as the scene reference when a model needs a standalone start frame, end frame, or identity image. Before paid video generation, create or extract one independently usable keyframe per scene and verify that every keyframe is natively composed at the target aspect ratio. A tall canvas containing stacked landscape panels is not a set of 9:16 references.
 
-When chronology matters, record an ordered scene manifest with a stable scene number, intended duration, reference roles, prompt, and transition responsibility. If the selected model cannot guarantee that multiple uploaded references control a strict timeline, generate one controlled clip per scene and concatenate the completed clips deterministically in manifest order. Do not rely on filename order, upload order, or a composite board to communicate chronology.
+When chronology matters, record an ordered scene manifest with a stable scene number, intended duration, reference roles, prompt, and transition responsibility. Preserve that scene index through submission, status polling, result display, review, and concatenation. If the selected model cannot guarantee that multiple uploaded references control a strict timeline, generate one controlled clip per scene and concatenate the completed clips deterministically in manifest order. Do not rely on filename order, upload order, or a composite board to communicate chronology.
 
 Record continuity invariants for recurring people, wardrobe, storefront geometry, interior layout, lighting progression, props, logos, and permitted sign text. Separate exact requirements from flexible attributes. Use the patterns in [references/prompt-patterns.md](references/prompt-patterns.md).
 
@@ -58,13 +58,19 @@ If Higgsfield is selected or available, follow [references/higgsfield-seedance.m
 
 Before a chargeable submission, show the selected model/settings and expected cost. Obtain explicit approval unless the user's current request already clearly authorizes that exact generation within a known budget. Never purchase credits, change a subscription, or choose a paid path over an available unlimited path without authorization.
 
+Treat voice auditions, full narration, and replacement narration as separate chargeable generations. Preflight and authorize each requested item at its actual scope; approval for the video or an earlier voice does not silently authorize later auditions or replacements.
+
 Uploading media, spending credits, publishing, and sharing externally are separate permission boundaries.
 
 ## Generate and track without losing state
 
 Translate the beat sheet into the provider's supported reference and prompt structure. Include positive action, continuity constraints, camera behavior, audio direction, and high-value exclusions. Do not ask the model to render exact captions, URLs, product names, or end-card copy when deterministic finishing is available.
 
-When exact narration, a selected voice, subtitles, or later copy revision matters, generate the visual clips without embedded narration and create the voice track separately. Resolve the provider's exact voice identifier and voice type through live discovery or user selection; never invent or silently substitute a voice. If spoken copy changes, regenerate the narration and rebuild every downstream master that contains it.
+When exact narration, a selected voice, subtitles, or later copy revision matters, generate the visual clips without embedded narration and create the voice track separately. Resolve the provider's exact voice identifier and voice type through live discovery or user selection; paginate the catalog until the requested voice is found or the catalog is exhausted. Never infer absence from the first page, invent an identifier, or silently substitute a voice.
+
+A matching voice name proves catalog identity, not creative suitability. When tone is subjective or the user is uncertain, offer a short, low-cost audition using representative copy before generating the full narration. Preserve its exact identifier and settings if approved. Mark rejected or superseded narration assets as unusable for future assembly. A copy or voice change invalidates every downstream master containing the older narration, but normally reuses approved visual clips.
+
+After narration completes, measure its actual duration before assembly. If it exceeds the visual runtime, first evaluate a visually acceptable deterministic repair such as modest uniform retiming and a brief final-frame hold. Regenerate paid visuals only when retiming would damage motion, causality, or quality. Rebuild captions and every downstream master from the final approved narration revision.
 
 After submission:
 
@@ -95,13 +101,13 @@ Prefer the least expensive repair that fixes the actual defect. Never spend addi
 
 ## Finish exact text deterministically
 
-When the approved production contract requires narration-driven subtitles, invoke an available dedicated subtitle workflow. Derive timings from transcription of the final audio or assembled video. Authored narration may correct recognized wording, brand names, numbers, and punctuation, but it must not supply estimated timestamps. Keep captions short, phone-legible, and inside platform safe zones; reserve a separate visual region for an overlapping end card. If the preferred caption font is unavailable, use a verified compatible fallback and rerun only the deterministic burn step. Do not add captions merely because narration exists.
+When the approved production contract requires narration-driven subtitles, invoke an available dedicated subtitle workflow. Derive timings from transcription of the final approved audio or assembled video. Authored narration may correct recognized wording, brand names, numbers, and punctuation, but it must not supply estimated timestamps. Use word-level timestamps when a sentence boundary or phone-legible line break falls inside a larger transcription segment. Keep captions short, phone-legible, and inside platform safe zones; reserve a separate visual region for an overlapping end card. If the preferred caption font is unavailable, use a verified compatible fallback and rerun only the deterministic burn step. Do not add captions merely because narration exists.
 
 Use `scripts/finish_video.py` to build an FFmpeg command for an optional end card or captions whose timings were already established by a valid external source. It is not a transcription or subtitle-timing tool. Run it first with `--dry-run`, verify exact spelling and timing, then execute only when the local files and FFmpeg are available and the requested write is authorized.
 
 Keep exact product names, URLs, calls to action, and captions out of model-rendered scenery. Generated signs may be blank, generic, or non-readable unless readable environmental text is itself essential and will be reviewed.
 
-After deterministic assembly, verify the final file rather than only the command exit status. Confirm duration, dimensions, aspect ratio, frame rate, video and audio streams, exact narration and overlay copy, caption timing and safe zones, successful upload or save confirmation, and that the delivered artifact opens and corresponds to the reviewed revision.
+After deterministic assembly, verify the final file rather than only the command exit status. Confirm duration, dimensions, aspect ratio, frame rate, video and audio codecs/streams, exact narration and overlay copy, caption timing and safe zones, successful upload or save confirmation, and that the delivered artifact opens and corresponds to the reviewed revision. Present the final revision in a supported player and provide a direct download path when the host exposes one; do not confuse a generation result with the later assembled master.
 
 ## Respect boundaries
 
