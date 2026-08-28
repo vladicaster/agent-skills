@@ -15,8 +15,9 @@ Use this skill to:
 - track provider jobs without duplicate submissions;
 - generate strict timelines as ordered per-scene clips when a provider cannot guarantee multi-reference chronology;
 - paginate voice catalogs, audition subjective voice choices, and preserve exact voice identifiers;
+- audition music separately, approve cue and prominence independently, and preserve soundtrack revision lineage;
 - review physical interactions, identity, geography, audio, spelling, and platform fit;
-- keep exact narration independently replaceable, reconcile narration and visual duration without unnecessary regeneration, and repair transcription-timed captions, end cards, and typography deterministically.
+- keep exact narration independently replaceable, reconcile narration and visual duration without unnecessary regeneration, and repair transcription-timed captions, end cards, typography, and background-music mixes deterministically.
 
 The skill is useful for hero videos, Reels, Shorts, product stories, local-business ads, and other compact multi-scene productions. It is not a general nonlinear editor or a promise that a generative model will produce final typography accurately.
 
@@ -42,7 +43,7 @@ Do not use it as the primary workflow for a faceless narrator-led documentary, a
 | Generate | Live provider preflight, approved submission, job record, and accessible result |
 | Adapt | Native recomposition for a new ratio, duration, or platform |
 | Review | Classified defects and the least expensive valid repair path |
-| Finish | Deterministic captions, end card, overlays, or simple timing repair |
+| Finish | Deterministic captions, end card, overlays, background music, or simple timing repair |
 
 ## Workflow
 
@@ -55,7 +56,7 @@ flowchart TD
     E --> F{Paid generation authorized?}
     F -->|No| G[Return production package]
     F -->|Yes or no charge| H[Generate and track ordered scenes]
-    H --> I[Assemble audio, optional captions, and end card]
+    H --> I[Audition and assemble approved audio]
     I --> J[Verify and deliver artifact]
 ```
 
@@ -85,7 +86,9 @@ Preserve the job ID, settings, reference map, prompt revision, cost, and status.
 
 When narration must be exact or editable, generate silent visual clips and create the selected voice separately. Search paginated catalogs to resolve the exact voice identifier. A voice name identifies a catalog entry but does not prove that its tone is right; when tone is subjective, use a separately priced and approved short audition before the full read. A copy or voice revision creates a new narration asset and rebuilt master, not automatically new visual generations, and rejected audio never enters later assembly.
 
-Measure the final narration against the visual runtime. Prefer modest visual retiming and a brief final-frame hold over paid regeneration when motion remains natural. When the approved contract includes subtitles, derive them from fresh transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Use word timestamps for caption boundaries inside larger transcription segments. Captions are optional and are not implied by the presence of narration. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography and end cards deterministically. Recompose vertical and landscape versions natively instead of cropping.
+Measure the final narration against the visual runtime. Prefer modest visual retiming and a brief final-frame hold over paid regeneration when motion remains natural. When music is requested, offer materially distinct tonal directions, audition an undecided cue by itself, and approve cue identity separately from prominence. Preserve the approved narrated master, record music provenance and licensing state, then create separately named mixes with duration matching, intentional fades, narration-aware ducking, and limiting. Descriptive levels such as subtle, balanced, and prominent are creative targets calibrated to the current assets, not fixed gain constants.
+
+When the approved contract includes subtitles, derive them from fresh transcription of the final audio or video, using authored copy only to correct words while retaining audio-based timestamps. Use word timestamps for caption boundaries inside larger transcription segments. Captions are optional and are not implied by the presence of narration. Review story causality, geography, continuity, physical contact, doors and hinges, audio, pronunciation, exact copy, safe zones, and output format. Regenerate only when the visual story is broken. Repair typography, end cards, and replaceable audio deterministically. Recompose vertical and landscape versions natively instead of cropping.
 
 The production is complete only after confirming the final duration, dimensions, frame rate, codecs and streams, exact copy, subtitle and end-card layout, upload or save result, accessibility of the delivered revision, and a direct download path when the host provides one.
 
@@ -102,6 +105,8 @@ Installing this skill does not install or connect Higgsfield. Provider access, c
 - [`references/higgsfield-seedance.md`](references/higgsfield-seedance.md) defines the Higgsfield/Seedance execution adapter.
 - [`scripts/finish_video.py`](scripts/finish_video.py) builds or executes a deterministic FFmpeg caption/end-card command.
 - [`scripts/test_finish_video.py`](scripts/test_finish_video.py) tests parsing, escaping, command construction, and required-work validation.
+- [`scripts/mix_background_music.py`](scripts/mix_background_music.py) builds or executes a source-preserving FFmpeg mix with cue-specific gain, fades, narration ducking, and limiting.
+- [`scripts/test_mix_background_music.py`](scripts/test_mix_background_music.py) tests source preservation, gain and fade construction, ducking, limiting, and invalid inputs.
 
 ## Deterministic finishing utility
 
@@ -118,6 +123,17 @@ python creative/produce-reference-driven-video/scripts/finish_video.py \
 
 Remove `--dry-run` to execute. FFmpeg and the input file must be available. The utility re-encodes video with H.264 and copies the existing audio stream. It accepts caption windows only when their timings already come from a valid external source; it does not transcribe speech. Use an available dedicated subtitle workflow for narration-driven captions so timings come from the final audio or video. The utility does not verify brand approval, licensed font availability, or platform upload behavior.
 
+For an approved, duration-matched music cue, dry-run a new candidate mix without overwriting the narrated master:
+
+```bash
+python creative/produce-reference-driven-video/scripts/mix_background_music.py \
+  approved-master.mp4 approved-cue.m4a candidate-mix.mp4 \
+  --duration 18.4 --music-gain 0.3 --fade-in 1.2 --fade-out 1.5 \
+  --dry-run
+```
+
+Remove `--dry-run` only after checking the paths and cue-specific settings. The helper copies the video stream, encodes a new AAC mix, ducks music beneath the existing narration, and limits the combined output. It does not choose a musical direction, define universal prominence levels, prove speech intelligibility or loudness compliance, verify cue duration, or grant music licensing.
+
 ## Approval and permission boundaries
 
 Concept work, reference planning, read-only review, and dry-run command construction do not authorize:
@@ -127,6 +143,7 @@ Concept work, reference planning, read-only review, and dry-run command construc
 - replacing source media;
 - publishing or sharing externally;
 - licensing a likeness, voice, font, image, or music track;
+- generating or licensing a new music cue, even when earlier video or voice spending was approved;
 - writing production artifacts to GitHub or a connected document.
 
 Each consequential action requires explicit authorization and the relevant connector, account, or filesystem permission. Exact provider status and cost must come from live evidence. Never embed credentials, private URLs, account identifiers, job IDs, or customer assets in reusable examples.
@@ -140,9 +157,11 @@ python scripts/validate_repository.py
 python -m unittest discover -s creative/produce-reference-driven-video/scripts -p 'test_*.py'
 python creative/produce-reference-driven-video/scripts/finish_video.py \
   sample.mp4 finished.mp4 --caption '0,2,Exact text' --dry-run
+python creative/produce-reference-driven-video/scripts/mix_background_music.py \
+  sample.mp4 cue.m4a mixed.mp4 --duration 10 --music-gain 0.25 --dry-run
 ```
 
-The repository validator checks structure, frontmatter, catalog links, Python syntax, and escaped-newline mistakes. Unit tests check the deterministic command builder. A dry run checks argument handling and shows the exact FFmpeg command. These checks do not prove that provider claims are current, generated motion is plausible, audio timing is correct, or the creative work is effective.
+The repository validator checks structure, frontmatter, catalog links, Python syntax, and escaped-newline mistakes. Unit tests check the deterministic command builders. A dry run checks argument handling and shows the exact FFmpeg command. These checks do not prove that provider claims are current, generated motion is plausible, speech remains intelligible, the music is licensed, loudness is compliant, audio timing is correct, or the creative work is effective.
 
 ## Installation
 
@@ -219,5 +238,6 @@ For Codex or Claude Code, pull the source checkout and then replace copied insta
 - Deterministic typography still requires human spelling, safe-area, font-fallback, and brand review; subtitle timing requires a transcription-capable workflow.
 - Vertical and landscape adaptations may require separate paid generations.
 - Legal, likeness, music, trademark, and platform-policy review remain human responsibilities.
+- Music audition and deterministic mixing do not provide a music catalog, a licensing service, or mastering certification.
 - The skill does not publish content or purchase credits.
 - GitHub is unnecessary unless the user requests repository-backed storage or delivery.
