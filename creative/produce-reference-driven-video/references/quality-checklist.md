@@ -30,7 +30,11 @@ Record each item as **passed**, **failed**, **manual**, or **not run**. A genera
 ## Audio
 
 - Exact voice identity came from a verified provider voice identifier and type.
+- Named-voice discovery exhausted pagination or found the exact requested entry; absence was not inferred from the first page.
+- Subjective voice tone was approved from a preview or an explicitly authorized short audition when needed.
 - The assembled master contains the latest approved narration revision.
+- Rejected and superseded narration assets are excluded from assembly.
+- Narration and visual runtimes were measured before assembly; any retiming factor or final-frame hold remains visually acceptable.
 - Dialogue matches the visible speaker and intended language.
 - Brand names, domains, initials, and numbers are pronounced as intended.
 - Ambience and music do not mask speech or create an unintended tonal shift.
@@ -39,6 +43,8 @@ Record each item as **passed**, **failed**, **manual**, or **not run**. A genera
 ## Typography and finishing
 
 - Caption timing comes from transcription of the final audio or assembled video; authored text corrects wording without inventing timestamps.
+- Word-level timestamps support any caption boundary introduced inside a larger transcription segment.
+- A voice or copy change triggered fresh transcription and a rebuilt captioned master.
 - Product name, URL, call to action, and end-card spelling are exact.
 - Generated scenery does not contain misleading or malformed readable text.
 - Caption contrast, line length, margins, and duration are legible on a phone.
@@ -55,6 +61,7 @@ Record each item as **passed**, **failed**, **manual**, or **not run**. A genera
 - Reels/Shorts interface-safe zones do not cover essential action or text.
 - The delivered file or media link opens and corresponds to the reviewed version.
 - The final save or upload was confirmed before the artifact was presented as complete.
+- The presented player and direct download path, when available, point to the assembled master rather than a source clip or superseded revision.
 - Job status and generation cost are recorded from provider evidence.
 
 ## Repair decision
