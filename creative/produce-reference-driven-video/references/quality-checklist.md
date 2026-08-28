@@ -38,6 +38,14 @@ Record each item as **passed**, **failed**, **manual**, or **not run**. A genera
 - Dialogue matches the visible speaker and intended language.
 - Brand names, domains, initials, and numbers are pronounced as intended.
 - Ambience and music do not mask speech or create an unintended tonal shift.
+- The selected music cue was approved independently from its mix prominence when either decision was subjective.
+- A music-only audition was provided when the user was comparing undecided musical directions.
+- Music identity, duration, provenance, licensing state, cost, and approval state are recorded.
+- The music tool was verified to support music rather than speech only.
+- Soundtrack-only revisions reuse the approved visual-and-narration master and preserve it unmodified.
+- Candidate mixes have distinct revision names and rejected or superseded mixes cannot be mistaken for the selected master.
+- Music entrance and exit fades are intentional, narration-aware ducking remains natural, and speech stays intelligible.
+- The final mix has been checked for clipping and reasonable headroom; command success alone was not treated as proof of mix quality.
 - No accidental narration, duplicated words, or abrupt audio cutoff is present.
 
 ## Typography and finishing
@@ -61,7 +69,7 @@ Record each item as **passed**, **failed**, **manual**, or **not run**. A genera
 - Reels/Shorts interface-safe zones do not cover essential action or text.
 - The delivered file or media link opens and corresponds to the reviewed version.
 - The final save or upload was confirmed before the artifact was presented as complete.
-- The presented player and direct download path, when available, point to the assembled master rather than a source clip or superseded revision.
+- The presented player and direct download path, when available, point to the assembled master rather than a source clip, music-only audition, or superseded revision.
 - Job status and generation cost are recorded from provider evidence.
 
 ## Repair decision
