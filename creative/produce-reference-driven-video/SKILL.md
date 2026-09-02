@@ -38,6 +38,10 @@ Assign each asset one or more named roles: identity, wardrobe, location, prop, s
 
 Treat a storyboard, contact sheet, or multi-panel concept board as a planning artifact. Do not upload it as the scene reference when a model needs a standalone start frame, end frame, or identity image. Before paid video generation, create or extract one independently usable keyframe per scene and verify that every keyframe is natively composed at the target aspect ratio. A tall canvas containing stacked landscape panels is not a set of 9:16 references.
 
+After generating or extracting the standalone scene reference images, present the complete ordered set with each image's scene role and any known continuity concerns, then stop for the user's explicit creative approval. This is a mandatory gate before any video-generation submission, including a free or already budget-authorized run. A prior request to "do it," approval of the concept, or approval to spend credits does not approve reference images that the user has not yet seen. If the user requests a reference-image change, revise the affected image, present the updated ordered set, and obtain approval again before generating video. A material revision invalidates approval for every affected scene.
+
+This creative gate does not replace any approval required to spend credits generating the reference images themselves. Reference-image generation and video generation are separate actions with separate applicable cost approvals.
+
 When chronology matters, record an ordered scene manifest with a stable scene number, intended duration, reference roles, prompt, and transition responsibility. Preserve that scene index through submission, status polling, result display, review, and concatenation. If the selected model cannot guarantee that multiple uploaded references control a strict timeline, generate one controlled clip per scene and concatenate the completed clips deterministically in manifest order. Do not rely on filename order, upload order, or a composite board to communicate chronology.
 
 Record continuity invariants for recurring people, wardrobe, storefront geometry, interior layout, lighting progression, props, logos, and permitted sign text. Separate exact requirements from flexible attributes. Use the patterns in [references/prompt-patterns.md](references/prompt-patterns.md).
@@ -57,6 +61,8 @@ Use live provider evidence when generation is requested. Verify the selected acc
 If Higgsfield is selected or available, follow [references/higgsfield-seedance.md](references/higgsfield-seedance.md). For another provider, preserve the same preflight, reference-role, approval, job-tracking, and delivery contracts.
 
 Before a chargeable submission, show the selected model/settings and expected cost. Obtain explicit approval unless the user's current request already clearly authorizes that exact generation within a known budget. Never purchase credits, change a subscription, or choose a paid path over an available unlimited path without authorization.
+
+Cost approval never waives the mandatory creative approval of the completed standalone reference-image set. Confirm both gates before submitting video generation.
 
 Treat voice auditions, full narration, replacement narration, and generated music cues as separate chargeable generations. Preflight and authorize each requested item at its actual scope; approval for the video or an earlier audio asset does not silently authorize later auditions or replacements. Confirm that a selected audio tool actually supports music; never substitute a speech-only generator for a music request.
 

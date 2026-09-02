@@ -51,13 +51,15 @@ Do not use it as the primary workflow for a faceless narrator-led documentary, a
 flowchart TD
     A[Objective and delivery contract] --> B[Causal beat sheet]
     B --> C[Reference-role and continuity contracts]
-    C --> D[Native keyframes and scene manifest]
-    D --> E[Live provider and full-batch cost preflight]
-    E --> F{Paid generation authorized?}
-    F -->|No| G[Return production package]
-    F -->|Yes or no charge| H[Generate and track ordered scenes]
-    H --> I[Audition and assemble approved audio]
-    I --> J[Verify and deliver artifact]
+    C --> D[Generate standalone scene references]
+    D --> E{Reference images approved?}
+    E -->|Revise| D
+    E -->|Approved| F[Video provider and full-batch cost preflight]
+    F --> G{Paid video generation authorized?}
+    G -->|No| H[Return production package]
+    G -->|Yes or no charge| I[Generate and track ordered scenes]
+    I --> J[Audition and assemble approved audio]
+    J --> K[Verify and deliver artifact]
 ```
 
 ### 1. Establish the contract
@@ -74,15 +76,21 @@ Every image, video, and audio asset receives a declared role such as identity, l
 
 A storyboard or contact sheet remains a planning artifact. Each generated scene receives its own independently usable reference composed at the delivery ratio. For strict chronology, preserve an ordered scene manifest and generate separate clips when the provider cannot guarantee multi-reference sequencing.
 
-### 4. Preflight and approve generation
+### 4. Approve the standalone reference images
 
-Model availability and price change. Query the selected provider for the current workspace, model catalog, accepted settings, reference constraints, balance, and cost. Quote the complete batch, not only a representative clip. Show the proposed run before a chargeable submission and obtain approval unless the user's current request already authorized that exact run within a known budget.
+After creating or extracting the complete standalone scene-reference set, present it in manifest order with each image's role and known continuity concerns, then stop. Video generation cannot begin until the user explicitly approves the references they have seen. Concept approval, a general instruction to make the video, and cost approval do not waive this creative gate. If any image changes, present the updated ordered set and obtain approval again for every affected scene.
 
-### 5. Submit once and track the real job
+This gate is separate from any spending approval needed to generate the reference images. Reference-image generation and video generation remain distinct actions.
+
+### 5. Preflight and approve video generation
+
+Model availability and price change. Query the selected provider for the current workspace, model catalog, accepted settings, reference constraints, balance, and cost. Quote the complete batch, not only a representative clip. Show the proposed run before a chargeable submission and obtain approval unless the user's current request already authorized that exact run within a known budget. Cost approval never substitutes for approval of the completed reference-image set.
+
+### 6. Submit once and track the real job
 
 Preserve the job ID, settings, reference map, prompt revision, cost, and status. Do not start another paid job because a preview is delayed. Distinguish generation from media delivery and return the actual artifact when available.
 
-### 6. Assemble, review, repair, and adapt
+### 7. Assemble, review, repair, and adapt
 
 When narration must be exact or editable, generate silent visual clips and create the selected voice separately. Search paginated catalogs to resolve the exact voice identifier. A voice name identifies a catalog entry but does not prove that its tone is right; when tone is subjective, use a separately priced and approved short audition before the full read. A copy or voice revision creates a new narration asset and rebuilt master, not automatically new visual generations, and rejected audio never enters later assembly.
 
@@ -139,6 +147,7 @@ Remove `--dry-run` only after checking the paths and cue-specific settings. The 
 Concept work, reference planning, read-only review, and dry-run command construction do not authorize:
 
 - uploading private media to a provider;
+- submitting video generation before the user has explicitly approved the completed standalone scene-reference set;
 - spending generation credits or changing a subscription;
 - replacing source media;
 - publishing or sharing externally;
