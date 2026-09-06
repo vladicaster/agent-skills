@@ -36,6 +36,8 @@ Commands evaluate time using a server clock in the same transaction or consisten
 
 ## Recovery and audit
 
+For an Ably transport, use [ably-setup.md](ably-setup.md) for server-issued exact-channel capabilities, server-only keys, token renewal/revocation, audience epochs, and outbox claims. Removing a D1 membership does not itself invalidate a previously issued provider token. Coordinate revocation/epoch changes with in-flight and pending publication; never rely on a cooperative client disconnect for privacy enforcement.
+
 Recovery should distinguish transient infrastructure failure, invalid content, exhausted retry/budget, incompatible schema, and operator cancellation. Preserve correlation identifiers without logging secrets. Audit records should answer who attempted what, against which revision, when, and with what outcome.
 
 Rate-limit joins, guesses, votes, messages, generation starts, and other abuse-prone commands. Define retention and deletion behavior for chat, evidence, model prompts/responses, and player identifiers.

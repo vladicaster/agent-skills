@@ -11,6 +11,8 @@ Read this when a game needs continuous movement, physics, or simulation between 
 
 Do not select by genre alone. A graphical strategy game can be event-driven; a two-player physics game can require a demanding continuous loop. Ably or another shared delivery service may supply fan-out and presence, but does not execute authoritative simulation or solve room ownership. Keep it optional and separately approved.
 
+When Ably is selected, read [ably-setup.md](ably-setup.md) for authenticated browser delivery, server REST publishing, and publish recovery. Sustained transport verification applies to every interactive game; the execution checks below are additional simulation requirements. The guide's HTTPS discrete-command examples are not a high-frequency movement adapter or tick scheduler.
+
 Before committing to Sites-native continuous execution, record sources, dates, target configuration, and test evidence for:
 
 - inbound WebSocket handling and any external WSS connectivity needed by the chosen profile
