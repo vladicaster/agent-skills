@@ -11,8 +11,8 @@ Migration preserves behavior at the command/projection boundary. It is not a lin
 | Authentication | ChatGPT-authenticated subject | OIDC claims principal |
 | Membership/permissions | D1-backed application records | SQL-backed application records/policies |
 | Optimistic concurrency | Conditional D1 update | Row version/revision checked transaction |
-| Polling | Revision-based HTTP GET | Same HTTP contract |
-| Realtime notification | Later WebSocket adapter | SignalR hub notifying authorized groups |
+| Initial/recovery state | HTTP or WebSocket snapshot | HTTP or SignalR resynchronization |
+| Realtime session | Authenticated Sites WebSocket | SignalR hub with authorized groups |
 | Relational storage | D1 | PostgreSQL or Azure SQL |
 | Large artifacts | R2 | Blob Storage |
 | Generated content | Bounded model call behind server code | OpenAI API behind application service |
@@ -29,7 +29,7 @@ OIDC identity does not replace session membership. SignalR group membership does
 5. Run both implementations against normalized contract tests.
 6. Shadow or replay sanitized recorded commands when authorized.
 7. Cut over only after recovery, observability, rollback, and data migration are approved.
-8. Add SignalR as a transport adapter after command parity; do not combine it with gameplay-rule changes.
+8. Replace the Sites WebSocket adapter with SignalR after command parity; do not combine transport migration with gameplay-rule changes.
 
 ## Compatibility rules
 

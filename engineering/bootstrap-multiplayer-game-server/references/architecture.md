@@ -25,7 +25,7 @@ The client may render, predict cosmetically, and request actions. Only the appli
 | Projection | Public, member, player-private, host, and administrative views |
 | Persistence | Sessions, snapshots, accepted events, idempotency receipts, audit |
 | Generation | Jobs, checkpoints, schemas, validation, budgets, fallbacks |
-| Transport | Polling endpoints initially; realtime notifications later |
+| Transport | Authenticated WebSocket sessions plus initial/recovery resynchronization |
 
 Keep these as modules in one deployable application unless evidence requires separation.
 
@@ -33,9 +33,15 @@ Keep these as modules in one deployable application unless evidence requires sep
 
 - Use a server clock abstraction. Store instants in UTC and durations explicitly.
 - Treat deadlines as data, not timers held only in process memory.
-- Re-evaluate overdue transitions on commands, polling, scheduled work, and recovery.
+- Re-evaluate overdue transitions on commands, connection activity, scheduled work, and recovery.
 - Presence is advisory. Authorization and game progress must not depend on a fragile “online” flag.
 - Record last-seen time and connection leases separately from membership.
+
+## Realtime delivery
+
+For interactive Sites games, use WebSockets without periodic polling. On connection, authenticate the subject, resolve membership server-side, and bind the connection only as a delivery channel. Require the client to provide its last known revision during reconnect; reply with missed authorized updates when safely available or a fresh viewer-scoped projection otherwise.
+
+Maintain a snapshot/resynchronization operation for initial load and recovery. It may use HTTP or the WebSocket protocol, but must not become a periodic polling loop. Treat disconnects, duplicate delivery, out-of-order messages, backpressure, and server-instance changes as normal operating conditions.
 
 ## Persistence choices
 

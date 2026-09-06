@@ -40,7 +40,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
-| [Bootstrap Multiplayer Game Server](engineering/bootstrap-multiplayer-game-server/) | Engineering | Designs, scaffolds, or migrates server-authoritative foundations for session-based multiplayer games, with bounded AI generation and a TypeScript-to-C# portability contract. |
+| [Bootstrap Multiplayer Game Server](engineering/bootstrap-multiplayer-game-server/) | Engineering | Designs, scaffolds, or migrates WebSocket-capable server-authoritative foundations for session-based multiplayer games, with bounded AI generation and a TypeScript-to-C# portability contract. |
 | [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
 | [Produce Reference-Driven Video](creative/produce-reference-driven-video/) | Creative | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos, with a first-class Higgsfield and Seedance adapter. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |

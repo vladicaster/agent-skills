@@ -17,7 +17,7 @@ Do not use it merely to add networking to an ordinary single-player game, answer
 | Mode | Starting point | Outcome |
 | --- | --- | --- |
 | **Design** | Game concept, PRD, or architecture question | Read-only architecture, contracts, persistence, risks, tests, and implementation phases |
-| **Prototype** | Approved concept and optional repository | Sites-compatible React/TypeScript foundation with D1/R2/auth integration seams |
+| **Prototype** | Approved concept and optional repository | Sites-compatible React/TypeScript and WebSocket foundation with D1/R2/auth integration seams |
 | **Migration** | Existing TypeScript prototype | ASP.NET Core mapping and implementation that preserves command, state, and projection behavior |
 
 Design does not require GitHub. Prototype and Migration can work in an existing authorized repository and stop for explicit approval before modifying files.
@@ -41,9 +41,9 @@ The agent identifies the session shape, player limits, hidden information, host 
 
 ### Prototype
 
-After approval, the agent adapts the included contract assets to the game. React receives viewer-safe projections and submits commands. Sites server code authenticates and authorizes the player, evaluates the server clock, validates the expected revision, applies deterministic transitions, persists results, and returns a new projection. D1 stores relational state and history; R2 is reserved for justified large immutable artifacts.
+After approval, the agent adapts the included contract assets to the game. React receives viewer-safe projections and submits commands over an authenticated WebSocket. Sites server code authenticates and authorizes the player, evaluates the server clock, validates the expected revision, applies deterministic transitions, persists results, and pushes a new projection. D1 stores relational state and history; R2 is reserved for justified large immutable artifacts.
 
-Polling is the initial transport. SignalR or WebSockets can later notify clients of a new revision without changing command semantics or moving authority to a connection.
+Interactive Sites prototypes use WebSockets without periodic polling. An HTTP snapshot or equivalent resynchronization endpoint supports initial loading and reconnect recovery; it is not polled. Slower turn-based games may use polling only when the user deliberately selects that tradeoff. A later move to SignalR preserves command semantics and never makes a connection authoritative.
 
 ### Migration
 
@@ -58,7 +58,7 @@ The agent freezes portable JSON fixtures, maps TypeScript concepts to C#, implem
 | Commands | Authenticated actor, idempotency key, expected revision, atomic result, stable errors |
 | Privacy | Allowlisted public, member, player-private, host, and administrative projections |
 | Persistence | Sessions, memberships, snapshots, accepted events, receipts, checkpoints, and audit |
-| Transport | Revision polling first; realtime remains an interchangeable authorized adapter |
+| Transport | Authenticated WebSocket updates, revision-aware reconnect/resynchronization, and an optional non-polled HTTP snapshot |
 | AI generation | Strict schemas, checkpoints, semantic validation, bounded repair, budgets, and fallbacks |
 | Solo play | Explicit alternatives for quorum, votes, corroboration, role diversity, and trading |
 | Migration | Language-neutral contract fixtures and observable TypeScript/C# parity |
@@ -79,7 +79,7 @@ Repository approval does not authorize publishing, deployment, infrastructure pr
 | `references/game-state-contract.md` | State, commands, revisions, idempotency, projections, and version evolution |
 | `references/ai-generation-pipeline.md` | Structured generation, checkpoints, retries, budgets, fallback, and solvability |
 | `references/security-and-concurrency.md` | Trust boundaries, authorization, races, leaks, recovery, and auditing |
-| `references/sites-stack.md` | React/TypeScript, Sites server code, D1, R2, auth, polling, and realtime seam |
+| `references/sites-stack.md` | React/TypeScript, Sites server code, WebSockets, reconnect/resynchronization, D1, R2, and auth |
 | `references/aspnet-portability.md` | ASP.NET Core, SignalR, SQL, Blob, OIDC, and behavioral migration |
 | `references/validation-scenarios.md` | Eight realistic behavioral scenarios and focused checks |
 | `assets/foundation-template/` | Adaptable TypeScript contracts, projector, commands, and D1-compatible schema |
@@ -136,7 +136,7 @@ GitHub authentication, filesystem access, hosting, model credentials, database a
 
 - The skill establishes a foundation; it does not build a complete game or generate an entire campaign library.
 - Default stacks are recommendations, not requirements that override existing repository evidence.
-- Polling may be insufficient for measured low-latency or high-fan-out needs.
+- WebSocket support does not remove the need for reconnect, backpressure, authorization, and multi-instance delivery design.
 - Generic solvability checks cannot prove every game design is enjoyable or logically complete.
 - Portability fixtures reduce migration risk but do not replace load, security, recovery, and production cutover testing.
 - Installed copies are snapshots and do not automatically receive source updates.

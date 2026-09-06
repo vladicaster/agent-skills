@@ -32,7 +32,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
    - persistence and recovery plan
    - AI pipeline, checkpoints, validation, budgets, and fallbacks when applicable
    - solo-safe rule adaptations
-   - polling contract and optional realtime upgrade seam
+   - realtime connection, reconnect, and resynchronization contract
    - security, concurrency, leak-prevention, and compatibility tests
    - exact files and implementation phases
    - assumptions, risks, deferred scale triggers, and validation plan
@@ -44,7 +44,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
 2. Start with the contracts in `assets/foundation-template/`, adapting them to the concept rather than copying unused structures.
 3. Put authorization, validation, clocks, revision checks, idempotency, projections, and transitions behind the server boundary.
 4. Persist enough canonical state, accepted commands/events, generation checkpoints, and audit data to recover or explain a session. Do not claim event sourcing unless events can actually rebuild state and the project accepts that operational cost.
-5. Keep polling and realtime delivery as replaceable transports over the same commands and projections.
+5. For interactive Sites games, use authenticated WebSockets without periodic polling. Keep initial loading and reconnect recovery behind a snapshot/resynchronization contract, and keep transport separate from commands and projections. Use polling only when the user explicitly selects it for a slower turn-based experience.
 6. Make solo behavior explicit for every rule involving quorum, voting, corroboration, role diversity, trading, or host intervention.
 7. Validate applicable scenarios and review the diff for private-state leaks, client authority, nondeterministic transitions, unbounded model work, destructive migrations, secrets, and unrelated infrastructure.
    Run `scripts/validate_foundation.py` when the included template or its derived contracts are changed.
@@ -62,10 +62,10 @@ Use these as defaults only when user constraints and repository evidence do not 
 
 | Stage | Default |
 | --- | --- |
-| Sites prototype | React/TypeScript, Sites server code, D1, R2, ChatGPT authentication |
+| Sites prototype | React/TypeScript, Sites server code, WebSockets, D1, R2, ChatGPT authentication |
 | Mature implementation | ASP.NET Core/C#, SignalR, PostgreSQL or Azure SQL, Blob Storage, OpenAI API, OIDC authentication |
 
-Start with a modular monolith and polling unless measured requirements justify more. Add realtime transport, caching, queues, sharding, or service decomposition only for a stated need and with an operational tradeoff.
+Start with a modular monolith. Prefer WebSockets for interactive multiplayer in Sites and keep polling optional for slower turn-based games. Add caching, queues, sharding, or service decomposition only for a stated need and with an operational tradeoff.
 
 ## Completion criteria
 
