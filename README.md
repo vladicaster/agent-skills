@@ -14,6 +14,7 @@ agent-skills/
 │   └── produce-reference-driven-video/
 ├── engineering/
 │   ├── README.md
+│   ├── bootstrap-multiplayer-game-server/
 │   ├── develop-c4-architecture/
 │   ├── github-issue-to-draft-pr/
 │   └── manage-coding-agent-harness/
@@ -39,6 +40,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 
 | Skill | Category | Purpose |
 | --- | --- | --- |
+| [Bootstrap Multiplayer Game Server](engineering/bootstrap-multiplayer-game-server/) | Engineering | Designs, scaffolds, or migrates WebSocket-capable server-authoritative foundations for session-based multiplayer games, with bounded AI generation and a TypeScript-to-C# portability contract. |
 | [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
 | [Produce Reference-Driven Video](creative/produce-reference-driven-video/) | Creative | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos, with a first-class Higgsfield and Seedance adapter. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
@@ -60,6 +62,7 @@ flowchart TD
     C["Develop Product Requirements<br/>Define PRDs and delivery scope"]
     D["Prepare Product for Engineering<br/>Govern and verify handoff"]
     E["Develop C4 Architecture<br/>Model systems and decisions"]
+    H["Bootstrap Multiplayer Game Server<br/>Establish authoritative game foundation"]
     F["Manage Coding-Agent Harness<br/>Establish standards and guidance"]
     G["GitHub Issue to Draft PR<br/>Implement approved increments"]
 
@@ -70,6 +73,9 @@ flowchart TD
     C -.->|Reuse approved PRD| D
     C -.->|Optional architecture input| E
     D -.->|Approved handoff evidence| E
+    C -.->|Session-game foundation| H
+    E -.->|Approved architecture| H
+    H -.->|Repository guidance| F
     C -->|Direct path| F
     D --> F
     E -.->|Approved architecture artifacts| F
@@ -85,6 +91,7 @@ flowchart TD
 | Product definition | [Develop Product Requirements](product/develop-product-requirements/) | Product hierarchy, PRDs, requirements, acceptance criteria, and issue-decomposition plans. |
 | Optional pre-engineering governance | [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Runs missing GTM or PRD work, reuses approved artifacts, and produces evidence, readiness, and controlled-handoff records. |
 | Optional architecture modeling | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Produces evidence-backed current or proposed C4 models, decision records, and explicit unknowns. |
+| Multiplayer foundation | [Bootstrap Multiplayer Game Server](engineering/bootstrap-multiplayer-game-server/) | Defines or scaffolds authoritative sessions, commands, projections, persistence, bounded generation, and migration-compatible contracts. |
 | Engineering readiness | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Stack decisions, architecture guidance, standards, repository instructions, and validation requirements. |
 | Incremental delivery | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Approved issue, feature branch, implementation, validation, and linked draft pull request. |
 | Launch and learning | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) and [Develop Product Requirements](product/develop-product-requirements/) | Launch experiments and evidence translated into strategy or requirement changes. |

@@ -1,0 +1,13 @@
+interface:
+  display_name: "Bootstrap Multiplayer Game Server"
+  short_description: "Build a safe multiplayer game foundation"
+  default_prompt: "Use $bootstrap-multiplayer-game-server to design a production-minded multiplayer foundation for this game concept."
+  icon_small: "assets/icon.svg"
+  icon_large: "assets/icon.svg"
+policy:
+  products:
+    - "chatgpt"
+    - "codex"
+    - "api"
+    - "atlas"
+  allow_implicit_invocation: true
