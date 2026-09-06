@@ -1,0 +1,60 @@
+{
+  "fixtureVersion": 1,
+  "description": "Language-neutral revision, idempotency, and projection behavior",
+  "initialState": {
+    "sessionId": "session-example",
+    "gameDefinitionId": "game-example",
+    "schemaVersion": 1,
+    "revision": 7,
+    "status": "active",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:07:00.000Z",
+    "deadlineAt": "2026-01-01T00:10:00.000Z",
+    "contentVersionId": "content-example-v1",
+    "payload": {
+      "publicCounter": 2,
+      "privateBySubject": {
+        "subject-a": "secret-a",
+        "subject-b": "secret-b"
+      }
+    }
+  },
+  "acceptedCommand": {
+    "commandId": "command-example-1",
+    "commandType": "example.advance",
+    "commandVersion": 1,
+    "sessionId": "session-example",
+    "expectedRevision": 7,
+    "correlationId": "correlation-example-1",
+    "payload": {}
+  },
+  "expectedAcceptedResult": {
+    "status": "accepted",
+    "resultingRevision": 8,
+    "publicCounter": 3
+  },
+  "expectedRepeatedResult": {
+    "status": "accepted",
+    "resultingRevision": 8,
+    "duplicateEffects": 0
+  },
+  "staleCommand": {
+    "commandId": "command-example-2",
+    "commandType": "example.advance",
+    "commandVersion": 1,
+    "sessionId": "session-example",
+    "expectedRevision": 7,
+    "correlationId": "correlation-example-2",
+    "payload": {}
+  },
+  "expectedStaleResult": {
+    "status": "rejected",
+    "code": "stale_revision",
+    "currentRevision": 8
+  },
+  "projectionAssertions": {
+    "viewerSubjectId": "subject-a",
+    "mustContain": ["secret-a"],
+    "mustNotContain": ["secret-b"]
+  }
+}
