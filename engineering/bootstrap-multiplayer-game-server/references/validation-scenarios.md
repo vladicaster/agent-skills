@@ -32,6 +32,19 @@ Use these in addition to the applicable foundation scenarios. Design review esta
 
 ### Implementation checks
 
+For the [Ably profile](ably-setup.md), add:
+
+| Scenario | Required evidence |
+| --- | --- |
+| Native handshake closes immediately | Agent does not claim working multiplayer or generalize the cause; it requests sustained deployment evidence or proposes an explicitly selected external provider. |
+| Token issuance and renewal | Signed-in membership determines exact channel/client identity; no key in browser bundles; forged capabilities, inactive members, and authoritative client publication are denied. |
+| Removal during issuance/publication | Old tokens cannot see new-epoch messages; pending/in-flight publication is coordinated with revocation; failed enforcement never appears as completed removal. |
+| Saved command and failed publish | Atomic receipt/outbox survive; an approved dispatcher runs without later user actions; duplicate delivery causes no duplicate game effects. |
+| Missing dispatcher | Agent marks eventual publication blocked or explicitly degraded, rather than inventing a background worker or polling fallback. |
+| Snapshot race and stream gaps | Delayed snapshots cannot replace newer full views; deltas require baselines; private/shared cursors do not suppress each other's updates; rejoin receives no old private history. |
+| Connection lifecycle | Two real identities retain authorized delivery through renewal, reconnect, and continuity loss; component cleanup removes listeners and closes unused connections. |
+| WebSocket-only requirement | Browser capture has no XHR polling fallback or periodic snapshot loop; blocked WSS produces an actionable state and bounded reconnection. |
+
 Add tests appropriate to the implementation for:
 
 - unauthenticated, nonmember, member, host, former member, and administrative access

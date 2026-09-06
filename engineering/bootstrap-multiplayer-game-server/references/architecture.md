@@ -41,6 +41,8 @@ Keep these as modules in one deployable application unless evidence requires sep
 
 For interactive Sites games, use WebSockets without periodic polling. On connection, authenticate the subject, resolve membership server-side, and bind the connection only as a delivery channel. Require the client to provide its last known revision during reconnect; reply with missed authorized updates when safely available or a fresh viewer-scoped projection otherwise.
 
+Verify sustained deployed delivery for every multiplayer game before choosing a native socket endpoint. With the selected [Ably profile](ably-setup.md), commands use Sites HTTPS handlers and browsers subscribe directly to Ably; Sites publishes safe events via REST. An atomic outbox plus a verified dispatcher bridges durable commits and delivery failures. Distinguish canonical revision from per-view stream cursors where private activity cannot be exposed.
+
 Maintain a snapshot/resynchronization operation for initial load and recovery. It may use HTTP or the WebSocket protocol, but must not become a periodic polling loop. Treat disconnects, duplicate delivery, out-of-order messages, backpressure, and server-instance changes as normal operating conditions.
 
 For continuous graphical simulation, separate rendering, transport, authoritative ticks, and durable checkpoint cadence. Use [realtime-simulation.md](realtime-simulation.md) for the conditional Sites-native or external-simulator profile, runtime evidence, sequenced inputs, ownership/fencing, and recovery loss bounds. Prefer the modular baseline where supported, but do not defer a required execution boundary merely because the game has few players.

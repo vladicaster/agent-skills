@@ -12,7 +12,7 @@ Migration preserves behavior at the command/projection boundary. It is not a lin
 | Membership/permissions | D1-backed application records | SQL-backed application records/policies |
 | Optimistic concurrency | Conditional D1 update | Row version/revision checked transaction |
 | Initial/recovery state | HTTP or WebSocket snapshot | HTTP or SignalR resynchronization |
-| Realtime session | Authenticated Sites WebSocket | SignalR hub with authorized groups |
+| Realtime session | Verified native WebSocket or selected Ably delivery with Sites HTTPS commands | SignalR hub with authorized groups or retained Ably adapter |
 | Continuous simulation, when selected | Verified room owner and time-step runtime, or external simulator | Dedicated room execution service with bounded scheduling; SignalR remains delivery only |
 | Continuous input/recovery | Sequenced controls, tick snapshots, fenced checkpoints | Equivalent input ordering, owner epochs, checkpoint/replay and durability semantics |
 | Relational storage | D1 | PostgreSQL or Azure SQL |
@@ -37,7 +37,7 @@ Before migrating continuous behavior, freeze fixtures covering ticks, input sequ
 5. Run both implementations against normalized contract tests.
 6. Shadow or replay sanitized recorded commands when authorized.
 7. Cut over only after recovery, observability, rollback, and data migration are approved.
-8. Replace the Sites WebSocket adapter with SignalR after command parity; do not combine transport migration with gameplay-rule changes.
+8. If selected, replace the native/Ably delivery adapter with SignalR after command parity; do not combine transport migration with gameplay-rule changes. Preserve HTTP command semantics, publish-recovery guarantees, viewer cursors, and authorization across adapter changes. Ably setup is described in [ably-setup.md](ably-setup.md).
 
 ## Compatibility rules
 

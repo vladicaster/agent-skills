@@ -41,9 +41,11 @@ The agent identifies the session shape, player limits, hidden information, host 
 
 ### Prototype
 
-After approval, the agent adapts the included contract assets to the game. React receives viewer-safe projections and submits commands over an authenticated WebSocket. Sites server code authenticates and authorizes the player, evaluates the server clock, validates the expected revision, applies deterministic transitions, persists results, and pushes a new projection. D1 stores relational state and history; R2 is reserved for justified large immutable artifacts.
+After approval, the agent adapts the included contract assets to the game. React receives viewer-safe projections and submits commands over the selected authenticated transport. Sites server code authenticates and authorizes the player, evaluates the server clock, validates the expected revision, applies deterministic transitions, persists results, and publishes a new projection. D1 stores relational state and history; R2 is reserved for justified large immutable artifacts.
 
 Interactive Sites prototypes use WebSockets without periodic polling. An HTTP snapshot or equivalent resynchronization endpoint supports initial loading and reconnect recovery; it is not polled. Slower turn-based games may use polling only when the user deliberately selects that tradeoff. A later move to SignalR preserves command semantics and never makes a connection authoritative.
+
+Native socket hosting must pass sustained deployment tests for every multiplayer game; a handshake alone does not qualify. The optional [Ably setup guide](references/ably-setup.md) covers browser-to-Ably connections, Sites HTTPS commands, server REST publication, scoped credentials, private channels, publish recovery, and troubleshooting. It includes TypeScript integration examples with explicit application seams, not a deployed adapter. Ably delivery does not require Sites to keep a socket alive, and it does not run a continuous simulation. Provisioning and deployment remain separately authorized.
 
 ### Migration
 
@@ -96,6 +98,7 @@ Repository approval does not authorize publishing, deployment, infrastructure pr
 | `references/ai-generation-pipeline.md` | Structured generation, checkpoints, retries, budgets, fallback, and solvability |
 | `references/security-and-concurrency.md` | Trust boundaries, authorization, races, leaks, recovery, and auditing |
 | `references/sites-stack.md` | React/TypeScript, Sites server code, WebSockets, reconnect/resynchronization, D1, R2, and auth |
+| `references/ably-setup.md` | Complete optional Ably setup guide, TypeScript examples, tokens/channels, outbox recovery, and rollout checks |
 | `references/aspnet-portability.md` | ASP.NET Core, SignalR, SQL, Blob, OIDC, and behavioral migration |
 | `references/realtime-simulation.md` | Runtime profile selection, simulation contracts, ownership, overload, checkpoints, and recovery |
 | `references/validation-scenarios.md` | Foundation and continuous-simulation behavioral scenarios and focused checks |

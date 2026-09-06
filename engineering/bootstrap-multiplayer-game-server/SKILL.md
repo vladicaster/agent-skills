@@ -25,6 +25,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
 2. For repository-backed work, verify access and read all applicable instructions before proposing changes. Inspect the existing state model, server boundary, authentication, persistence, tests, deployment constraints, and generated-content flow.
 3. Read [architecture.md](references/architecture.md) and [game-state-contract.md](references/game-state-contract.md). Read [ai-generation-pipeline.md](references/ai-generation-pipeline.md) when models generate content. Read [security-and-concurrency.md](references/security-and-concurrency.md) for any implementation or migration.
 4. Use [sites-stack.md](references/sites-stack.md) for a Sites prototype. Use [aspnet-portability.md](references/aspnet-portability.md) for Migration or a mature C# design.
+   For every interactive multiplayer deployment, verify sustained authenticated delivery, renewal, reconnect, and instance changes before relying on native sockets. A successful handshake is insufficient. When Ably is selected, read [ably-setup.md](references/ably-setup.md) for Sites HTTPS commands, direct browser-to-Ably WebSockets, scoped tokens, and durable publish recovery. Keep provider selection explicit; do not provision a service silently.
    For real-time graphical simulation, read [realtime-simulation.md](references/realtime-simulation.md). Select Sites-native lightweight rooms only with evidence for the required runtime and coordination capabilities; otherwise propose Sites with an external authoritative simulator. Small player counts and WebSocket support alone are not sufficient evidence.
 5. Read [validation-scenarios.md](references/validation-scenarios.md) and select the scenarios applicable to the concept.
 6. Propose:
@@ -47,6 +48,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
 3. Put authorization, validation, clocks, revision checks, idempotency, projections, and transitions behind the server boundary.
 4. Persist enough canonical state, accepted commands/events, generation checkpoints, and audit data to recover or explain a session. Do not claim event sourcing unless events can actually rebuild state and the project accepts that operational cost.
 5. For interactive Sites games, use authenticated WebSockets without periodic polling. Keep initial loading and reconnect recovery behind a snapshot/resynchronization contract, and keep transport separate from commands and projections. Use polling only when the user explicitly selects it for a slower turn-based experience.
+   WebSockets may terminate at a verified native endpoint or an approved provider such as Ably. With Ably, send commands to Sites over HTTPS and publish server-owned updates via REST; action requests and bounded recovery snapshots are not periodic polling. Verify a supported outbox dispatcher before claiming eventual live delivery.
    Continuous simulation additionally requires the approved runtime profile and sequenced-input contract; do not implement a guessed background loop or silently add Ably, an external server, or polling when runtime evidence is missing.
 6. Make solo behavior explicit for every rule involving quorum, voting, corroboration, role diversity, trading, or host intervention.
 7. Validate applicable scenarios and review the diff for private-state leaks, client authority, nondeterministic transitions, unbounded model work, destructive migrations, secrets, and unrelated infrastructure.
@@ -65,7 +67,7 @@ Use these as defaults only when user constraints and repository evidence do not 
 
 | Stage | Default |
 | --- | --- |
-| Sites prototype | React/TypeScript, Sites server code, WebSockets, D1, R2, ChatGPT authentication |
+| Sites prototype | React/TypeScript, Sites server code, verified WebSocket delivery (native or selected provider), D1, R2, ChatGPT authentication |
 | Mature implementation | ASP.NET Core/C#, SignalR, PostgreSQL or Azure SQL, Blob Storage, OpenAI API, OIDC authentication |
 
 Start with a modular monolith. Prefer WebSockets for interactive multiplayer in Sites and keep polling optional for slower turn-based games. Add caching, queues, sharding, or service decomposition only for a stated need and with an operational tradeoff.
