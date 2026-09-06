@@ -13,12 +13,20 @@ Migration preserves behavior at the command/projection boundary. It is not a lin
 | Optimistic concurrency | Conditional D1 update | Row version/revision checked transaction |
 | Initial/recovery state | HTTP or WebSocket snapshot | HTTP or SignalR resynchronization |
 | Realtime session | Authenticated Sites WebSocket | SignalR hub with authorized groups |
+| Continuous simulation, when selected | Verified room owner and time-step runtime, or external simulator | Dedicated room execution service with bounded scheduling; SignalR remains delivery only |
+| Continuous input/recovery | Sequenced controls, tick snapshots, fenced checkpoints | Equivalent input ordering, owner epochs, checkpoint/replay and durability semantics |
 | Relational storage | D1 | PostgreSQL or Azure SQL |
 | Large artifacts | R2 | Blob Storage |
 | Generated content | Bounded model call behind server code | OpenAI API behind application service |
 | Background generation | Durable job/checkpoints available to Sites | Hosted service or approved durable worker |
 
 OIDC identity does not replace session membership. SignalR group membership does not replace command authorization. Blob URLs do not replace artifact authorization.
+
+## External simulator with Sites frontend
+
+This is an optional prototype profile, not a requirement to migrate the entire application. Keep Sites rendering/UI while an approved ASP.NET Core service owns simulation. Verify authentication handoff and external WSS connectivity in the target environment. Hub connections feed the room owner; do not start competing game loops per connection or assume a hosted service runs exactly once across replicas. Define room routing, fencing, load limits, shutdown checkpoints, and recovery using [realtime-simulation.md](realtime-simulation.md).
+
+Before migrating continuous behavior, freeze fixtures covering ticks, input sequences/epochs, late/duplicate controls, RNG state, numeric precision, snapshots/delta baselines, durable receipts, and checkpoint recovery. Compare authoritative outcomes across TypeScript and C#; rendering FPS and transport throughput are separate measurements. A SignalR adapter or managed backplane alone does not prove simulation capacity.
 
 ## Migration sequence
 

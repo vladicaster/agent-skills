@@ -10,7 +10,13 @@ Use this adapter only for Prototype mode or when the user explicitly chooses Sit
 - R2 stores large immutable generated artifacts or media when justified.
 - ChatGPT authentication supplies the authenticated subject; game membership and host permissions remain application data.
 
-Do not move authoritative rules into React merely for responsiveness. Optional client prediction must be cosmetic and reconciled with the returned revision.
+Do not move authoritative rules into React merely for responsiveness. Optional client prediction is speculative presentation, reconciled with authoritative revisions or simulation snapshots; it never commits gameplay outcomes.
+
+## Real-time simulation profile
+
+For continuous simulation, use [realtime-simulation.md](realtime-simulation.md) to choose Sites-native lightweight rooms or a Sites frontend connected to an approved external authoritative simulator. Verify the actual Sites runtime's WebSocket handling, execution lifetime, timer behavior, room routing/ownership, recovery, and multi-instance delivery before claiming native simulation reliability. WebSocket support alone does not establish a durable background game loop, even for two players.
+
+In the external profile, Sites renders the game and may retain session/lobby APIs; the external server owns simulation truth. Define the trusted authentication handoff, audience/session scope, token expiry, revocation, and WSS origin policy. Do not assume an external server can directly trust browser-supplied ChatGPT identity or access D1. Give each state category one writer and use an approved authenticated service boundary where storage remains in Sites. Ably is optional delivery infrastructure, not the simulator.
 
 ## WebSocket-first protocol
 
@@ -34,7 +40,7 @@ Do not use periodic polling alongside a healthy WebSocket. A small HTTP surface 
 - On reconnect, send the last applied revision and deduplicate message/command IDs.
 - If missed updates are unavailable or incompatible, send a fresh authorized snapshot.
 - Bound outbound queues and define slow-client behavior; never let one connection block canonical transitions.
-- Design multi-instance fan-out only when deployment evidence requires it, while keeping persistence authoritative.
+- Verify routing and delivery across the actual deployment before relying on in-memory connection lists. Use a shared fan-out mechanism only when needed and approved; it does not replace authoritative room ownership or persistence.
 
 ## D1 practices
 
@@ -43,6 +49,7 @@ Do not use periodic polling alongside a healthy WebSocket. A small HTTP surface 
 - Store timestamps as normalized UTC strings or integer epochs consistently.
 - Keep migrations additive where possible and record state schema separately from database migration version.
 - Verify the actual D1 transaction and migration capabilities available in the target Sites environment before relying on them.
+- For continuous simulation, separate live owner state from durable checkpoints and receipts. Declare recovery loss bounds and critical-action durability; do not assume every tick must be written to D1. Follow the ownership/fencing and recovery contract in [realtime-simulation.md](realtime-simulation.md).
 
 ## SignalR portability
 

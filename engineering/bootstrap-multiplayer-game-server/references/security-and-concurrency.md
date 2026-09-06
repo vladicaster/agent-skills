@@ -8,7 +8,7 @@ Check permissions at the command boundary and again where sensitive records are 
 
 ## Concurrency contract
 
-Use optimistic concurrency for the initial design:
+Use optimistic concurrency for discrete commands in the initial design:
 
 - Clients submit `expectedRevision`.
 - The persistence update succeeds only when the stored revision matches.
@@ -17,6 +17,8 @@ Use optimistic concurrency for the initial design:
 - A repeated idempotency key returns the original completed result or an in-progress status.
 
 Serialize commands per hot session through database concurrency or a narrow application lock if needed. Do not rely on one-process memory locks when multiple instances can handle the same session.
+
+For continuous controls, use [realtime-simulation.md](realtime-simulation.md): bounded per-player sequence processing and single-owner tick application, with fencing across failover. Keep revision protection and durable receipts for discrete actions. A socket, player host, or pub/sub channel cannot grant room authority; validate controls and membership at application time, not only at connection time.
 
 ## Private-state protection
 
