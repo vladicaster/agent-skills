@@ -18,7 +18,7 @@ Use opaque stable identifiers. Do not derive authority from display names, array
 
 ## Command envelope
 
-Every mutating request should carry:
+Every discrete mutating command should carry:
 
 - `commandId` or idempotency key
 - command type and version
@@ -41,6 +41,8 @@ Processing order:
 9. Return a viewer-scoped projection and the new revision.
 
 Define stable error categories such as `unauthenticated`, `forbidden`, `not_member`, `invalid_command`, `stale_revision`, `duplicate_in_progress`, `phase_closed`, `budget_exhausted`, and `session_unavailable`. Do not expose private state in error details.
+
+Continuous controls use the separate sequenced-input contract in [realtime-simulation.md](realtime-simulation.md), not a global expected revision per movement sample. Server-owned time steps are also authoritative transitions, not client commands. Preserve this discrete command contract and define how the room owner orders both paths. Distinguish simulation tick/snapshot sequence from durable revision; the included template implements only the discrete-command starting point.
 
 ## State and event evolution
 

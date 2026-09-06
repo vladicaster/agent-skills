@@ -25,6 +25,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
 2. For repository-backed work, verify access and read all applicable instructions before proposing changes. Inspect the existing state model, server boundary, authentication, persistence, tests, deployment constraints, and generated-content flow.
 3. Read [architecture.md](references/architecture.md) and [game-state-contract.md](references/game-state-contract.md). Read [ai-generation-pipeline.md](references/ai-generation-pipeline.md) when models generate content. Read [security-and-concurrency.md](references/security-and-concurrency.md) for any implementation or migration.
 4. Use [sites-stack.md](references/sites-stack.md) for a Sites prototype. Use [aspnet-portability.md](references/aspnet-portability.md) for Migration or a mature C# design.
+   For real-time graphical simulation, read [realtime-simulation.md](references/realtime-simulation.md). Select Sites-native lightweight rooms only with evidence for the required runtime and coordination capabilities; otherwise propose Sites with an external authoritative simulator. Small player counts and WebSocket support alone are not sufficient evidence.
 5. Read [validation-scenarios.md](references/validation-scenarios.md) and select the scenarios applicable to the concept.
 6. Propose:
    - system boundary and trust model
@@ -33,6 +34,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
    - AI pipeline, checkpoints, validation, budgets, and fallbacks when applicable
    - solo-safe rule adaptations
    - realtime connection, reconnect, and resynchronization contract
+   - for continuous simulation: room ownership, runtime evidence, tick/input/snapshot contract, performance targets, checkpoint loss bounds, and recovery policy
    - security, concurrency, leak-prevention, and compatibility tests
    - exact files and implementation phases
    - assumptions, risks, deferred scale triggers, and validation plan
@@ -45,6 +47,7 @@ If the request is ambiguous, prefer Design. Do not interpret “multiplayer” a
 3. Put authorization, validation, clocks, revision checks, idempotency, projections, and transitions behind the server boundary.
 4. Persist enough canonical state, accepted commands/events, generation checkpoints, and audit data to recover or explain a session. Do not claim event sourcing unless events can actually rebuild state and the project accepts that operational cost.
 5. For interactive Sites games, use authenticated WebSockets without periodic polling. Keep initial loading and reconnect recovery behind a snapshot/resynchronization contract, and keep transport separate from commands and projections. Use polling only when the user explicitly selects it for a slower turn-based experience.
+   Continuous simulation additionally requires the approved runtime profile and sequenced-input contract; do not implement a guessed background loop or silently add Ably, an external server, or polling when runtime evidence is missing.
 6. Make solo behavior explicit for every rule involving quorum, voting, corroboration, role diversity, trading, or host intervention.
 7. Validate applicable scenarios and review the diff for private-state leaks, client authority, nondeterministic transitions, unbounded model work, destructive migrations, secrets, and unrelated infrastructure.
    Run `scripts/validate_foundation.py` when the included template or its derived contracts are changed.
@@ -69,4 +72,4 @@ Start with a modular monolith. Prefer WebSockets for interactive multiplayer in 
 
 ## Completion criteria
 
-Work is complete only when canonical state and projections are separated, every mutation is a server-validated command, stale and duplicate commands have defined results, clocks are server-owned, private state is viewer-scoped, persistence can recover an interrupted session, AI work is bounded and checkpointed, solo rules cannot deadlock, contract versions can evolve, and applicable validation is reported honestly as **passed**, **failed**, **blocked**, **manual**, or **not run**.
+Work is complete only when canonical state and projections are separated, mutations arise only from server-validated commands/inputs or deterministic server-owned time steps, stale and duplicate requests have defined results, clocks are server-owned, private state is viewer-scoped, persistence can recover an interrupted session within its declared durability contract, AI work is bounded and checkpointed, solo rules cannot deadlock, contract versions can evolve, and applicable validation is reported honestly as **passed**, **failed**, **blocked**, **manual**, or **not run**. For continuous simulation, also report room-ownership and runtime evidence, measured capacity, and remaining unverified guarantees; a design is not proof of deployed reliability.

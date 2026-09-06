@@ -49,6 +49,21 @@ Interactive Sites prototypes use WebSockets without periodic polling. An HTTP sn
 
 The agent freezes portable JSON fixtures, maps TypeScript concepts to C#, implements equivalent state transitions and SQL guarantees, compares normalized outcomes, and separates transport upgrades from gameplay changes. Migration cannot silently change game behavior.
 
+## Real-time graphical simulation
+
+The skill supports planning a graphical multiplayer foundation, not just text or turn-based games. It separates browser rendering from network updates, authoritative simulation ticks, and durable checkpoints. An animated map need not run a continuous server loop; physics or continuous movement may require one.
+
+| Profile | Selection rule |
+| --- | --- |
+| Sites-native lightweight rooms | Use only when the target runtime's execution lifetime, room ownership/routing, timers, delivery, recovery, and measured load support the game's requirements. |
+| Sites frontend + external authoritative simulator | Propose when continuous execution or latency requirements cannot be established in Sites; an approved ASP.NET Core service can own the simulation while Sites retains the UI. |
+
+WebSocket support or small player counts alone do not prove native simulation reliability. The agent records runtime evidence and marks essential unknowns blocked/deferred instead of inventing guarantees. Ably remains optional message delivery infrastructure, not gameplay authority or a simulation engine. Neither profile permits silent provisioning or a polling fallback.
+
+Continuous controls get sequenced inputs, acknowledgments, server ticks, viewer-safe snapshots/deltas, and optional prediction/reconciliation. Discrete actions retain revision protection and durable idempotent receipts. Checkpoints declare acceptable recovery loss; database writes are not required for every frame or tick. AI generates validated content outside the simulation loop.
+
+See [the real-time simulation reference](references/realtime-simulation.md) for ownership/fencing, runtime verification, overload, recovery, and portability contracts. The existing template is a discrete-command starting point, not an implemented continuous simulator.
+
 ## Areas addressed
 
 | Area | Foundation behavior |
@@ -59,6 +74,7 @@ The agent freezes portable JSON fixtures, maps TypeScript concepts to C#, implem
 | Privacy | Allowlisted public, member, player-private, host, and administrative projections |
 | Persistence | Sessions, memberships, snapshots, accepted events, receipts, checkpoints, and audit |
 | Transport | Authenticated WebSocket updates, revision-aware reconnect/resynchronization, and an optional non-polled HTTP snapshot |
+| Continuous simulation | Conditional runtime profiles, single-owner ticks, sequenced controls, snapshots/deltas, and bounded checkpoint recovery |
 | AI generation | Strict schemas, checkpoints, semantic validation, bounded repair, budgets, and fallbacks |
 | Solo play | Explicit alternatives for quorum, votes, corroboration, role diversity, and trading |
 | Migration | Language-neutral contract fixtures and observable TypeScript/C# parity |
@@ -81,7 +97,8 @@ Repository approval does not authorize publishing, deployment, infrastructure pr
 | `references/security-and-concurrency.md` | Trust boundaries, authorization, races, leaks, recovery, and auditing |
 | `references/sites-stack.md` | React/TypeScript, Sites server code, WebSockets, reconnect/resynchronization, D1, R2, and auth |
 | `references/aspnet-portability.md` | ASP.NET Core, SignalR, SQL, Blob, OIDC, and behavioral migration |
-| `references/validation-scenarios.md` | Eight realistic behavioral scenarios and focused checks |
+| `references/realtime-simulation.md` | Runtime profile selection, simulation contracts, ownership, overload, checkpoints, and recovery |
+| `references/validation-scenarios.md` | Foundation and continuous-simulation behavioral scenarios and focused checks |
 | `assets/foundation-template/` | Adaptable TypeScript contracts, projector, commands, and D1-compatible schema |
 | `scripts/validate_foundation.py` | Offline SQL and portability-fixture validation |
 
@@ -137,6 +154,7 @@ GitHub authentication, filesystem access, hosting, model credentials, database a
 - The skill establishes a foundation; it does not build a complete game or generate an entire campaign library.
 - Default stacks are recommendations, not requirements that override existing repository evidence.
 - WebSocket support does not remove the need for reconnect, backpressure, authorization, and multi-instance delivery design.
+- Continuous simulation requires verified execution and ownership guarantees; this package neither supplies a game engine nor certifies Sites/SignalR capacity.
 - Generic solvability checks cannot prove every game design is enjoyable or logically complete.
 - Portability fixtures reduce migration risk but do not replace load, security, recovery, and production cutover testing.
 - Installed copies are snapshots and do not automatically receive source updates.

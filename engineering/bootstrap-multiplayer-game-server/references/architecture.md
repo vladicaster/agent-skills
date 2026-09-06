@@ -43,6 +43,8 @@ For interactive Sites games, use WebSockets without periodic polling. On connect
 
 Maintain a snapshot/resynchronization operation for initial load and recovery. It may use HTTP or the WebSocket protocol, but must not become a periodic polling loop. Treat disconnects, duplicate delivery, out-of-order messages, backpressure, and server-instance changes as normal operating conditions.
 
+For continuous graphical simulation, separate rendering, transport, authoritative ticks, and durable checkpoint cadence. Use [realtime-simulation.md](realtime-simulation.md) for the conditional Sites-native or external-simulator profile, runtime evidence, sequenced inputs, ownership/fencing, and recovery loss bounds. Prefer the modular baseline where supported, but do not defer a required execution boundary merely because the game has few players.
+
 ## Persistence choices
 
 Snapshots plus an append-only accepted-event/audit trail are a pragmatic default. Events need not be the sole source of truth. State which records are authoritative, which support recovery, and which exist only for explanation or analytics.
