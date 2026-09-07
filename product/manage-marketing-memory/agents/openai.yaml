@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Marketing Memory"
+  short_description: "Build and maintain a GitHub marketing memory"
+  default_prompt: "Use $manage-marketing-memory to create or update my growth-os marketing memory in the selected GitHub repository."

@@ -22,6 +22,7 @@ agent-skills/
 │   ├── README.md
 │   ├── develop-go-to-market-strategy/
 │   ├── develop-product-requirements/
+│   ├── manage-marketing-memory/
 │   └── prepare-product-for-engineering/
 └── README.md
 ```
@@ -48,6 +49,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
+| [Manage Marketing Memory](product/manage-marketing-memory/) | Product | Creates and maintains a GitHub growth-os for customer evidence, messaging, experiments, results and agent corrections. |
 | [Prepare Product for Engineering](product/prepare-product-for-engineering/) | Product | Optionally orchestrates GTM and PRD work—or consumes approved artifacts—then governs readiness and engineering handoff. |
 
 
@@ -117,6 +119,8 @@ A skill may also contain platform-specific metadata. For example, `agents/openai
 
 See each skill's README for exact prerequisites, installation commands, invocation syntax, and platform notes.
 
+Marketing learning can be maintained independently with [Manage Marketing Memory](product/manage-marketing-memory/). It preserves evidence and approved strategy outputs across sessions; it is an optional companion to GTM, not a required product-development stage.
+
 ## GitHub and repository prerequisites
 
 Not every skill requires GitHub. Some can return documents or portable artifacts without any repository, while delivery workflows require an authenticated GitHub identity and an existing destination repository.
@@ -130,6 +134,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 | Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
 | Prepare Product for Engineering | Optional | Can use a local or document-based planning package |
 | Develop Go-to-Market Strategy | No | Output destination is selected separately |
+| Manage Marketing Memory | For GitHub delivery | Existing or separately authorized new repository; portable/read-only work can proceed without GitHub |
 
 Before repository operations, confirm the GitHub identity and authorization method, source and destination repositories, repository ownership and visibility when relevant, required permissions, actual default branch, and required issue or pull-request capabilities. If a prerequisite is missing, the skill should stop the affected operation and state the exact setup action needed.
 
