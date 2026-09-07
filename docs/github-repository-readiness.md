@@ -13,6 +13,8 @@ Installing a skill does not create a GitHub account, authorize a connector, crea
 | Prepare Product for Engineering | Conditional | A local or document-based planning package is valid; GitHub repository creation or use is separately authorized |
 | Develop Go-to-Market Strategy | Not inherently required | Outputs may be returned as documents or saved to an approved destination, including an optional repository |
 
+Manage Marketing Memory requires GitHub for repository delivery and accepts an existing or separately authorized new repository. Its read-only and portable modes do not require GitHub; runtime readiness checks are included in its independently installable SKILL.md.
+
 ## First-run readiness check
 
 Before a GitHub read or write, determine the smallest applicable set of prerequisites:
