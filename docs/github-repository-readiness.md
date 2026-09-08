@@ -7,6 +7,7 @@ Installing a skill does not create a GitHub account, authorize a connector, crea
 | Skill | GitHub requirement | Repository requirement |
 | --- | --- | --- |
 | GitHub Issue to Draft PR | Required | An existing accessible destination repository with issues and pull requests enabled |
+| Scaffold Personal Dashboard Site | Conditional for repository-backed delivery | Local projects and Claude Artifacts need no GitHub repository; verify selected host capabilities separately |
 | Develop Creative Worlds | Conditional | Conversational and portable worldbuilding need no repository; repository-backed memorialization may use an existing repository or separately authorized new repository |
 | Manage Coding-Agent Harness | Conditional | Existing-repository modes need repository access; Bootstrap can produce a portable package without GitHub |
 | Develop Product Requirements | Conditional | PRD authoring and issue planning can run without GitHub; approved issue creation needs confirmed destination repositories |

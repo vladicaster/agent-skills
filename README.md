@@ -17,7 +17,8 @@ agent-skills/
 │   ├── bootstrap-multiplayer-game-server/
 │   ├── develop-c4-architecture/
 │   ├── github-issue-to-draft-pr/
-│   └── manage-coding-agent-harness/
+│   ├── manage-coding-agent-harness/
+│   └── scaffold-personal-dashboard-site/
 ├── product/
 │   ├── README.md
 │   ├── develop-go-to-market-strategy/
@@ -47,6 +48,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and plan, pauses for approval, and only then creates the branch and implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
+| [Scaffold Personal Dashboard Site](engineering/scaffold-personal-dashboard-site/) | Engineering | Designs, scaffolds, or extends modular personal dashboards for GPT Sites, Claude Code, and Claude Artifacts while verifying source feasibility and preserving publication boundaries. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
 | [Manage Marketing Memory](product/manage-marketing-memory/) | Product | Creates and maintains a GitHub growth-os for customer evidence, messaging, experiments, results and agent corrections. |
@@ -131,6 +133,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 | Produce Reference-Driven Video | No | No repository required unless production artifacts are stored or delivered through one |
 | GitHub Issue to Draft PR | Yes | Existing destination repository required |
 | Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
+| Scaffold Personal Dashboard Site | Only for repository-backed Scaffold or Extend work | No repository required for Blueprint or Claude Artifacts; Claude Code uses local project files; publication requires the selected host and authorization |
 | Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
 | Prepare Product for Engineering | Optional | Can use a local or document-based planning package |
 | Develop Go-to-Market Strategy | No | Output destination is selected separately |
