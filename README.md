@@ -39,7 +39,6 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Creative](creative/) | Fictional-world design, narrative systems, media production, canon management, continuity, and transmedia-development workflows. |
 | [Engineering](engineering/) | Software-delivery, repository-governance, coding-agent, testing, architecture, and spec-driven-development workflows. |
 | [Product](product/) | Product strategy, market selection, positioning, commercialization, launch, adoption, and evidence-based decision workflows. |
-
 | [Productivity](productivity/) | Personal organization, daily workspaces, and tools for managing information and tasks. |
 
 ## Available skills
