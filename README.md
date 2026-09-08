@@ -17,14 +17,16 @@ agent-skills/
 │   ├── bootstrap-multiplayer-game-server/
 │   ├── develop-c4-architecture/
 │   ├── github-issue-to-draft-pr/
-│   ├── manage-coding-agent-harness/
-│   └── scaffold-personal-dashboard-site/
+│   └── manage-coding-agent-harness/
 ├── product/
 │   ├── README.md
 │   ├── develop-go-to-market-strategy/
 │   ├── develop-product-requirements/
 │   ├── manage-marketing-memory/
 │   └── prepare-product-for-engineering/
+├── productivity/
+│   ├── README.md
+│   └── scaffold-personal-dashboard-site/
 └── README.md
 ```
 
@@ -38,6 +40,8 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Engineering](engineering/) | Software-delivery, repository-governance, coding-agent, testing, architecture, and spec-driven-development workflows. |
 | [Product](product/) | Product strategy, market selection, positioning, commercialization, launch, adoption, and evidence-based decision workflows. |
 
+| [Productivity](productivity/) | Personal organization, daily workspaces, and tools for managing information and tasks. |
+
 ## Available skills
 
 | Skill | Category | Purpose |
@@ -48,7 +52,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and plan, pauses for approval, and only then creates the branch and implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
-| [Scaffold Personal Dashboard Site](engineering/scaffold-personal-dashboard-site/) | Engineering | Designs, scaffolds, or extends modular personal dashboards for GPT Sites, Claude Code, and Claude Artifacts while verifying source feasibility and preserving publication boundaries. |
+| [Scaffold Personal Dashboard Site](productivity/scaffold-personal-dashboard-site/) | Productivity | Designs, scaffolds, or extends modular personal dashboards for GPT Sites, Claude Code, and Claude Artifacts while verifying source feasibility and preserving publication boundaries. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
 | [Manage Marketing Memory](product/manage-marketing-memory/) | Product | Creates and maintains a GitHub growth-os for customer evidence, messaging, experiments, results and agent corrections. |
