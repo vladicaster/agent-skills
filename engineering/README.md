@@ -12,6 +12,7 @@ Each subdirectory is an independently installable skill. You do not need to inst
 | [Develop C4 Architecture](develop-c4-architecture/) | Available | Brainstorms, discovers, audits, refines, and validates evidence-backed C4 architecture models and diagrams. |
 | [GitHub Issue to Draft PR](github-issue-to-draft-pr/) | Available | Creates a scoped issue and plan, waits for explicit approval, then creates the feature branch, implements, validates, commits, pushes, and opens a linked draft pull request. |
 | [Manage Coding-Agent Harness](manage-coding-agent-harness/) | Available | Bootstraps, creates, audits, updates, repairs, validates, explains, and reconciles technology-neutral coding-agent harnesses from a repository or greenfield PRD. |
+| [Scaffold Personal Dashboard Site](scaffold-personal-dashboard-site/) | Available | Designs, scaffolds, or extends a modular personal dashboard for ChatGPT Sites with verified source paths, failure isolation, and controlled publication. |
 
 ## Planned areas
 
