@@ -1,6 +1,6 @@
 ---
 name: scaffold-personal-dashboard-site
-description: Design, scaffold, or extend a modular personal dashboard for ChatGPT Sites. Use for personal command centers, daily briefs, or configurable dashboard workspaces; do not use for generic websites, enterprise BI systems, or static reports.
+description: Design, scaffold, or extend a modular personal dashboard for GPT Sites, Claude Code, or Claude Artifacts. Use for personal command centers, daily briefs, or configurable dashboard workspaces; do not use for generic websites, enterprise BI systems, or static reports.
 ---
 
 # Scaffold Personal Dashboard Site
@@ -9,15 +9,27 @@ Create the smallest useful personal dashboard foundation, then leave clear seams
 
 Preserve this boundary:
 
-> A configured module may display or act on a source only through a verified path available to the deployed Site. A ChatGPT connector is not automatically a Site runtime API.
+> A configured module may display or act on a source only through a verified path available to the selected runtime. An authoring-session connector is not automatically a runtime integration.
 
 ## Select the mode
 
 - **Blueprint:** Produce a read-only dashboard concept, module map, source-feasibility assessment, and implementation plan.
-- **Scaffold:** Create a new dashboard Site using the current installed Sites building workflow.
+- **Scaffold:** Create a new dashboard using the selected delivery target.
 - **Extend:** Add or revise modules in an existing dashboard while preserving its established architecture, design, and working behavior.
 
 If the user asks to create, build, or scaffold the dashboard, select Scaffold. If they provide an existing Site or repository, select Extend. Otherwise prefer Blueprint when implementation intent is unclear.
+
+## Select the delivery target
+
+Read [delivery-targets.md](references/delivery-targets.md) before implementation. Keep the existing skill ID for installation compatibility; “site” includes standalone web dashboards.
+
+- **GPT Sites:** Use the installed Sites building and hosting workflows.
+- **Claude Code:** Build a standalone repository application, run its local preview and checks, and deploy through the selected host only when authorized. Sites is not required.
+- **Claude Artifacts:** Produce a self-contained interactive artifact in Claude chat, with capability-verified integrations and storage. Sites and GitHub are not required.
+
+Honor the requested target. Infer it from an existing project or the active host only when clear; otherwise ask which target the user wants. Do not interpret “Claude Code” as a hosting provider. When a requested host is unavailable, finish portable source/instructions and mark native preview/publication not run; do not silently switch targets.
+
+For repository-backed work, verify authenticated identity, repository existence, owner, visibility, permissions, default branch, and required write capabilities before GitHub writes. Follow applicable repository instructions. Repository creation needs authorization; absence of GitHub must not block an Artifact or local-only result.
 
 ## Discover the useful first version
 
@@ -36,16 +48,16 @@ Avoid a generic module checklist when the user's purpose already implies a coher
 
 ## Classify every requested source
 
-For Scaffold or Extend, read [source-integrations.md](references/source-integrations.md). Classify each source as local/static, Sites storage, public HTTP, authenticated runtime API, or blocked. Verify the actual runtime path before promising live data.
+For Scaffold or Extend, read [source-integrations.md](references/source-integrations.md). Classify each source as local/static, platform storage, public HTTP, authenticated runtime API, verified Artifact MCP, or blocked. Verify the actual runtime path before promising live data.
 
-Treat authentication, authorization, configuration, and data access as separate facts. Never imply that installing this skill, connecting an app to ChatGPT, or viewing data in the current conversation makes that data available to deployed Site code.
+Treat authentication, authorization, configuration, and data access as separate facts. Never imply that installing this skill, connecting an app to ChatGPT, or viewing data in the current conversation makes that data available to dashboard runtime code.
 
 When a source is not ready, either:
 
 - scaffold a clearly labeled disconnected/configuration-required state when that still provides a useful result; or
 - return **Blocked** with the exact capability, connection, or user choice needed.
 
-Never place credentials, tokens, private source payloads, or personal identifiers in client code, committed files, examples, screenshots, or generated documentation.
+Never embed credentials, tokens, or private source payloads in source, examples, or shared artifacts. Private dashboard data may be rendered only to its authorized viewer; never bake it into publicly readable code or sample data.
 
 ## Blueprint workflow
 
@@ -61,7 +73,7 @@ Never place credentials, tokens, private source payloads, or personal identifier
 1. Inspect applicable repository instructions and the existing Site when present. Preserve its package manager, lockfile, architecture, hosting configuration, and design conventions.
 2. Read [dashboard-foundation.md](references/dashboard-foundation.md) and select the relevant scenarios from [validation-scenarios.md](references/validation-scenarios.md).
 3. Present a compact scope when a material product, privacy, or source-feasibility decision is unresolved. Do not add a separate approval gate for ordinary visual choices.
-4. Use the current installed Sites building skill for project initialization, implementation, preview, build, and platform-specific decisions. For a new project, tell that workflow to save without deploying unless publication is already explicit and authorized.
+4. Follow the selected delivery path in [delivery-targets.md](references/delivery-targets.md). Invoke Sites only for GPT Sites. Keep ordinary scaffolding moving under existing authorization; publication requires explicit intent and a known audience.
 5. Implement the dashboard as a modular working surface:
    - make the primary information or control visible in the first viewport
    - separate the shared shell, module registry, display components, source adapters, configuration, and secrets
@@ -71,9 +83,9 @@ Never place credentials, tokens, private source payloads, or personal identifier
    - show source status and last successful refresh when they help the owner judge trustworthiness
    - support mobile and desktop layouts, keyboard use, readable text, and meaningful focus states
 6. Use realistic generic sample data only when live data is unavailable and examples are needed to understand the starter. Label it clearly and keep it easy to replace.
-7. Show the first meaningful preview using the Sites workflow, then complete the approved scope.
+7. Show the first meaningful preview using the selected host workflow, then complete the approved scope.
 8. Exercise the selected validation scenarios. Report checks as **passed**, **failed**, **blocked**, **manual**, or **not run**.
-9. If publication is requested and authorized, use the current installed Sites hosting skill. Otherwise stop with the completed preview or source and explain that publishing remains a separate action.
+9. If publication is requested and authorized, use the selected target’s hosting or sharing workflow. Otherwise stop with the completed preview or source and explain that publishing remains a separate action.
 
 ## Module selection rules
 
@@ -84,7 +96,7 @@ Email, calendar, tasks, GitHub, Notion, YouTube, RSS, weather, jobs, bookmarks, 
 - Keep account, view, repository, channel, feed, or equivalent source selection configurable when the provider supports it.
 - Separate read actions from writes. A read connection never authorizes sending, editing, deleting, purchasing, scheduling, or otherwise mutating external state.
 - Do not provision accounts, enable APIs, incur paid usage, or create repositories without separate authorization.
-- Use browser storage only for device-local preferences or explicitly local data. Use supported server-side storage for durable or shared state.
+- Use browser storage only for device-local preferences or explicitly local data. Use verified platform or server-side storage for durable state, and verify the audience before enabling shared storage.
 
 ## Approval and execution boundaries
 
@@ -96,4 +108,4 @@ Treat an explicit request such as “publish,” “deploy,” or “make it ava
 
 Blueprint is complete when it identifies the first useful version, module/source contracts, feasibility, privacy, approvals, validation, and deferred work.
 
-Scaffold or Extend is complete when the dashboard opens on a useful working surface; requested modules have verified live paths or honest disconnected states; module failures remain isolated; refresh and freshness are understandable; responsive and keyboard behavior are usable; secrets and private data are protected; applicable scenarios are reported honestly; and publication either completed through the Sites hosting workflow or remains clearly unperformed.
+Scaffold or Extend is complete when the dashboard opens on a useful working surface; requested modules have verified live paths or honest disconnected states; module failures remain isolated; refresh and freshness are understandable; responsive and keyboard behavior are usable; secrets and private data are protected; applicable scenarios are reported honestly; and publication either completed through the selected hosting or sharing workflow or remains clearly unperformed.

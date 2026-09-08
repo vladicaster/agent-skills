@@ -7,9 +7,10 @@ Read this reference before implementing any live or authenticated dashboard sour
 | Source class | Evidence required | Typical handling |
 | --- | --- | --- |
 | Local/static | Data is intentionally bundled or entered locally | Keep examples generic and label sample data |
-| Sites storage | The current Sites runtime supports the required persistence and access pattern | Use the Sites storage guidance and server boundary |
+| Platform storage | The current target runtime supports the required persistence and access pattern | Use the Platform storage guidance and server boundary |
 | Public HTTP | The deployed runtime can reach the endpoint and its terms permit the use | Validate response, caching, rate limits, and attribution |
-| Authenticated runtime API | A supported server-side credential or OAuth flow exists for the deployed Site | Keep secrets server-side and scope permissions narrowly |
+| Authenticated runtime API | A supported server-side credential or OAuth flow exists for the dashboard runtime | Keep secrets server-side and scope permissions narrowly |
+| Verified Artifact MCP | Artifact runtime tools, user authorization, and plan/admin access have been verified | Use the host-mediated connection; never export author credentials |
 | Blocked | No verified safe runtime path exists | Explain the exact missing capability; do not fake live data |
 
 A connector available to the agent during the conversation is evidence that the agent may be able to read that service for the current task. It is not evidence that generated Site code can reuse the connector, credential, or session.

@@ -1,6 +1,6 @@
 # Validation scenarios
 
-Select the scenarios that match the dashboard. Report each as **passed**, **failed**, **blocked**, **manual**, or **not run**. Structural checks do not prove that a live provider, authentication flow, or deployed Site works.
+Select the scenarios that match the dashboard. Report each as **passed**, **failed**, **blocked**, **manual**, or **not run**. Structural checks do not prove that a live provider, authentication flow, or dashboard runtime works.
 
 ## Required foundation scenarios
 
@@ -55,7 +55,7 @@ Select the scenarios that match the dashboard. Report each as **passed**, **fail
 ## Publication boundary
 
 - Request a scaffold without asking to publish and confirm no deployment occurs.
-- Request publication with a clear target and confirm the Sites hosting workflow is used.
+- Request publication with a clear target and confirm the selected hosting or sharing workflow is used.
 - Confirm sample or private data is not exposed in the published build.
 
 ## Forward-test prompts
@@ -68,3 +68,20 @@ Use realistic prompts such as:
 4. “Build the dashboard and show me a preview, but do not publish it yet.”
 
 Forward testing should use temporary or non-production data. Do not authorize live mutations, paid services, or publication merely to exercise the skill.
+
+## Cross-platform scenarios
+
+| Prompt or condition | Expected outcome |
+| --- | --- |
+| “Use Claude Code; create a local bookmarks dashboard, no deployment.” | Standalone project, run/build commands, local preview; no Sites dependency or hosting call |
+| “Create this as a Claude Artifact with focus items.” | Native self-contained artifact; no repository prerequisite |
+| Artifact runtime MCP missing, chat connector present | No assumed credential transfer; disconnected module while other modules work |
+| Artifact personal persistence unavailable before publication | Honest transient preview; storage verification deferred without auto-publishing |
+| Private Artifact requested on a public-only publishing path | Preserve privacy; explain mismatch and resolve audience/target before publishing |
+| “Publish this Claude Code app” with no provider | Complete reviewable build, then resolve deployment destination |
+| Second viewer opens connected Artifact | Viewer-specific authorization and data scope; no author token or private snapshot leakage |
+| Artifact request outside a Claude-enabled host | Portable source and import prompt; native execution explicitly not run |
+| Existing GPT Site | Continue using Sites tools and preserve project identity |
+| Move Artifact to Claude Code | Revalidate runtime adapters/storage; preserve module intent without exporting credentials |
+
+For each target, exercise a successful module alongside a failed one and verify stale timestamps and unaffected controls. Record actual host runs separately from instruction walkthroughs.

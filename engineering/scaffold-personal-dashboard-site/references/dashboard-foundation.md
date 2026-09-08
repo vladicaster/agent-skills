@@ -1,6 +1,6 @@
 # Dashboard foundation
 
-Use this reference for Scaffold and Extend, and for a Blueprint that needs implementation-level boundaries. Adapt the concepts to the current Sites starter and target repository; do not force these names into an established codebase.
+Use this reference for Scaffold and Extend, and for a Blueprint that needs implementation-level boundaries. Adapt the concepts to the selected target starter and target repository; do not force these names into an established codebase.
 
 ## Shared shell
 
@@ -49,7 +49,7 @@ Keep safe display preferences separate from source secrets and server-owned conf
 
 Examples of safe user-selectable configuration include module order, collapsed state, timezone, selected repository, selected calendar, feed URL, channel ID, or result limit. Whether a value is safe for client storage depends on its sensitivity and the target runtime.
 
-Never expose access tokens, refresh tokens, client secrets, provider credentials, private API payloads, or administrative identifiers to browser code. Use the supported Sites runtime configuration and server boundary.
+Never expose access tokens, refresh tokens, client secrets, or provider credentials through browser code; deliver private display data only to authorized viewers. Use the supported target runtime configuration and server boundary.
 
 ## First viewport
 

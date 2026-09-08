@@ -1,6 +1,6 @@
 interface:
-  display_name: "Scaffold Personal Dashboard Site"
-  short_description: "Build a modular personal dashboard for Sites"
+  display_name: "Scaffold Personal Dashboard"
+  short_description: "Build dashboards for GPT Sites and Claude"
   default_prompt: "Use $scaffold-personal-dashboard-site to create a focused personal dashboard from these goals and data sources."
 policy:
   products:

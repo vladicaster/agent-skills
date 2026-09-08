@@ -1,6 +1,6 @@
 # Scaffold Personal Dashboard Site
 
-A reusable Agent Skill for designing, scaffolding, or extending a modular personal dashboard for ChatGPT Sites. It creates an opinionated working foundation that can become a daily brief, personal command center, creator hub, job-search workspace, or another focused personal tool without cloning one person's implementation.
+A reusable Agent Skill for designing, scaffolding, or extending a modular personal dashboard for GPT Sites, Claude Code, or Claude Artifacts. It creates an opinionated working foundation that can become a daily brief, personal command center, creator hub, job-search workspace, or another focused personal tool without cloning one person's implementation.
 
 The skill concentrates on the decisions that make dashboards useful and reliable: what belongs in the first viewport, how modules compose, whether a data source is actually available to deployed Site code, what happens when one source fails, and when publication is authorized.
 
@@ -8,7 +8,7 @@ The skill concentrates on the decisions that make dashboards useful and reliable
 
 Use the skill when someone asks to:
 
-- scaffold a personal dashboard or command center for Sites
+- scaffold a personal dashboard or command center for GPT Sites or Claude
 - create a daily brief from selected modules
 - build a configurable dashboard that can grow over time
 - add a modular source to an existing personal dashboard
@@ -21,7 +21,7 @@ Do not use it for an ordinary marketing website, a static report, an enterprise 
 | Mode | Starting point | Outcome |
 | --- | --- | --- |
 | **Blueprint** | Goal, module ideas, or an early concept | Read-only module map, source feasibility, shared-shell design, risks, and implementation plan |
-| **Scaffold** | A request for a new dashboard | A working Sites dashboard foundation with requested modules and honest source states |
+| **Scaffold** | A request for a new dashboard | A working dashboard foundation for the selected target with requested modules and honest source states |
 | **Extend** | An existing dashboard Site or repository | A focused module or foundation change that preserves established behavior and design |
 
 When implementation intent is unclear, Blueprint is the safe default. A direct request to create or build selects Scaffold; an existing implementation selects Extend.
@@ -34,10 +34,10 @@ flowchart TD
     B --> C["Classify source feasibility"]
     C --> D{"Implementation requested?"}
     D -->|"No"| E["Deliver blueprint"]
-    D -->|"Yes"| F["Build and preview with Sites"]
+    D -->|"Yes"| F["Build and preview for selected target"]
     F --> G{"Publication authorized?"}
     G -->|"No"| H["Hand off preview or source"]
-    G -->|"Yes"| I["Publish through Sites hosting"]
+    G -->|"Yes"| I["Publish through selected host"]
 ```
 
 ### Discover the first version
@@ -54,13 +54,13 @@ This distinction is essential: a ChatGPT connector available during a conversati
 
 ### Build the working surface
 
-For Scaffold and Extend, the skill uses the current installed Sites building workflow for initialization, implementation, preview, build, and platform decisions. The dashboard opens on its working surface rather than a marketing hero.
+For Scaffold and Extend, the skill selects a delivery target first. GPT Sites uses the installed Sites workflow; Claude Code creates a standalone repository app; Claude Artifacts creates an interactive artifact in Claude chat. The dashboard opens on its working surface rather than a marketing hero.
 
 The shared shell handles identity, navigation, layout, configuration access, refresh coordination, source health, and consistent interaction behavior. Individual modules own provider-specific fetching, presentation, and local states. A failed source cannot erase successful modules.
 
 ### Preview and publish
 
-The skill shows a meaningful preview and exercises relevant validation scenarios. Scaffolding alone does not silently authorize publication. When publishing is explicitly requested and the target is clear, the skill uses the current Sites hosting workflow instead of duplicating deployment mechanics.
+The skill shows a meaningful preview and exercises relevant validation scenarios. Scaffolding alone does not silently authorize publication. When publishing is explicitly requested and the target is clear, the skill uses the selected hosting or sharing workflow instead of duplicating deployment mechanics.
 
 ## Dashboard foundation
 
@@ -97,7 +97,7 @@ Blueprint is read-only. Scaffold and Extend authorize only the requested workspa
 - paid services or metered model/API usage
 - writes to third-party systems
 - destructive migrations
-- Sites publication or deployment
+- Publication or deployment
 
 An explicit request to publish or deploy can authorize the named Sites target. Otherwise the skill stops with the completed preview or source and asks before hosting. It never treats silence as approval.
 
@@ -109,9 +109,10 @@ An explicit request to publish or deploy can authorize the named Sites target. O
 | `references/dashboard-foundation.md` | Shared shell, module contracts, refresh, configuration, first viewport, and evolution seams |
 | `references/source-integrations.md` | Runtime feasibility, authentication, account selection, failures, privacy, and mutations |
 | `references/validation-scenarios.md` | Foundation, source, resilience, accessibility, and publication scenarios |
+| `references/delivery-targets.md` | Target-specific execution, prerequisites, publication, and portability |
 | `agents/openai.yaml` | OpenAI-facing name, description, invocation example, and automatic-selection policy |
 
-The skill deliberately contains no full generated Sites project. It uses the current Sites starter so framework and hosting behavior do not become a stale copied dependency. Dashboard-specific structure is generated from the maintained contracts in this skill.
+The skill contains no full generated application. It uses the selected platform’s current starter or native artifact format. Dashboard-specific structure is generated from the maintained contracts in this skill.
 
 ## Validation
 
@@ -140,7 +141,7 @@ https://github.com/vladicaster/agent-skills/tree/main/engineering/scaffold-perso
 
 Install it through a supported Skills or plugin workflow for reusable availability, then invoke it with `@scaffold-personal-dashboard-site`.
 
-The current Sites building skill is required for Scaffold and Extend. The Sites hosting skill is additionally required for publication. Connections, credentials, and runtime permissions are configured separately.
+Sites skills are required only for the GPT Sites delivery target. Connections, credentials, and runtime permissions are configured separately.
 
 ### Codex
 
@@ -148,7 +149,7 @@ The current Sites building skill is required for Scaffold and Extend. The Sites 
 - Project: `.agents/skills/scaffold-personal-dashboard-site/`
 - Invocation: `$scaffold-personal-dashboard-site`
 
-Codex can produce a Blueprint without Sites tooling. Scaffold, preview, and hosting require a target environment with the relevant Sites capabilities.
+Codex can produce a Blueprint or standalone repository implementation without Sites tooling. Native previews and publication require the selected target’s capabilities.
 
 ### Claude Code
 
@@ -156,7 +157,23 @@ Codex can produce a Blueprint without Sites tooling. Scaffold, preview, and host
 - Project: `.claude/skills/scaffold-personal-dashboard-site/`
 - Invocation: `/scaffold-personal-dashboard-site`
 
-Claude Code can use the contracts to create a portable dashboard plan or repository implementation, but ChatGPT Sites-specific preview and publication require the Sites-enabled host.
+Claude Code builds and previews a standalone dashboard using the project’s framework and commands. It does not require GPT Sites; deployment uses an explicitly selected provider.
+
+### Claude chat and Artifacts
+
+Load the complete skill through the current supported custom-skill workflow, or supply SKILL.md and its referenced files in the conversation. A GitHub URL alone does not prove that Claude loaded every file. Request: “Use scaffold-personal-dashboard-site to create a Claude Artifact dashboard with bookmarks and focus items. Preview only.”
+
+Artifacts do not require a Git repository. Check the current plan, enabled capabilities, native integration APIs, and audience before promising persistence or sharing. If this host cannot execute Artifacts, deliver source and a Claude handoff prompt and report native execution as not run.
+
+## Delivery targets
+
+| Target | Output | Preview and publication |
+| --- | --- | --- |
+| GPT Sites | Sites project using the current supported starter | Sites preview and authorized hosting |
+| Claude Code | Standalone app with module adapters and documented run/build commands | Local app preview; authorized provider deployment |
+| Claude Artifacts | Self-contained HTML/React artifact with target-supported modules | Native artifact preview; authorized plan-appropriate sharing |
+
+See [delivery-targets.md](references/delivery-targets.md) for capability checks, storage boundaries, handoff instructions, and current official documentation. The skill ID remains unchanged for compatibility. Source contracts are portable; authentication, storage, and hosting adapters require revalidation when moving targets.
 
 ## Limitations
 
