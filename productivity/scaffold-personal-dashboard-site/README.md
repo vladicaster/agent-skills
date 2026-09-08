@@ -136,7 +136,7 @@ Use the complete skill-directory URL for the current task:
 
 ```text
 Use the scaffold-personal-dashboard-site skill from this directory:
-https://github.com/vladicaster/agent-skills/tree/main/engineering/scaffold-personal-dashboard-site
+https://github.com/vladicaster/agent-skills/tree/main/productivity/scaffold-personal-dashboard-site
 ```
 
 Install it through a supported Skills or plugin workflow for reusable availability, then invoke it with `@scaffold-personal-dashboard-site`.
@@ -184,11 +184,15 @@ See [delivery-targets.md](references/delivery-targets.md) for capability checks,
 - It does not publish or expose private data without the applicable authorization.
 - Installed copies are snapshots and do not automatically receive source updates.
 
+## Relocation
+
+This skill moved from `engineering/scaffold-personal-dashboard-site/` to `productivity/scaffold-personal-dashboard-site/`. The skill name and invocation stay the same. Update bookmarks and source paths; explicitly update copied installations and repoint symbolic links to the new directory. Older pinned commits still contain the historical location. No duplicate skill remains under Engineering.
+
 ## Updating this skill
 
 Installed copies do not automatically follow `main`.
 
-- **ChatGPT Work:** Ask ChatGPT to update the installed skill from `https://github.com/vladicaster/agent-skills/tree/main/engineering/scaffold-personal-dashboard-site`, review meaningful workflow or permission changes, and replace the complete directory.
+- **ChatGPT Work:** Ask ChatGPT to update the installed skill from `https://github.com/vladicaster/agent-skills/tree/main/productivity/scaffold-personal-dashboard-site`, review meaningful workflow or permission changes, and replace the complete directory.
 - **Codex or Claude Code, symbolic link:** Pull the source checkout deliberately.
 - **Codex or Claude Code, copied directory:** Pull the source, compare local customizations, and copy the complete skill again.
 - **Pinned installation:** Use a Git tag when reproducibility matters and upgrade deliberately.
