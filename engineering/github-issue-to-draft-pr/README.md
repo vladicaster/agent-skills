@@ -6,13 +6,18 @@ A reusable agent skill for a gated GitHub issue-to-draft-pull-request workflow.
 
 The skill separates delivery into two explicit phases:
 
-1. Create a well-scoped GitHub issue and an issue-numbered feature branch.
-2. Stop and wait for human approval.
-3. After approval, implement the issue, run relevant checks, review the diff, commit, push, and open a linked draft pull request.
+1. Create a well-scoped GitHub issue and propose an implementation plan and branch name.
+2. Stop and wait for human approval without creating the branch.
+3. After approval, create the branch, implement the issue, run relevant checks, review the diff, commit, push, and open a linked draft pull request.
+
+## Approval boundary
+
+Issue creation is the only Phase 1 repository mutation. Creating a branch and making implementation changes both require an explicit **approve** response. An **edit** response updates the issue or plan and returns to the same gate; **cancel** ends the workflow without leaving a workflow-created branch.
 
 ## Key guardrails
 
 - Never commits directly to the repository's default branch.
+- Never creates a feature branch before explicit approval.
 - Never starts implementation before explicit approval.
 - Keeps implementation within the approved issue scope.
 - Reports checks honestly as passed, failed, or not run.
