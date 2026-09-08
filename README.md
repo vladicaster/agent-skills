@@ -45,7 +45,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
 | [Produce Reference-Driven Video](creative/produce-reference-driven-video/) | Creative | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos, with a first-class Higgsfield and Seedance adapter. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
-| [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and feature branch, pauses for approval, and then implements the approved work as a linked draft pull request. |
+| [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and plan, pauses for approval, and only then creates the branch and implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
@@ -95,7 +95,7 @@ flowchart TD
 | Optional architecture modeling | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Produces evidence-backed current or proposed C4 models, decision records, and explicit unknowns. |
 | Multiplayer foundation | [Bootstrap Multiplayer Game Server](engineering/bootstrap-multiplayer-game-server/) | Defines or scaffolds authoritative sessions, commands, projections, persistence, bounded generation, and migration-compatible contracts. |
 | Engineering readiness | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Stack decisions, architecture guidance, standards, repository instructions, and validation requirements. |
-| Incremental delivery | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Approved issue, feature branch, implementation, validation, and linked draft pull request. |
+| Incremental delivery | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Issue and plan approval followed by branch creation, implementation, validation, and a linked draft pull request. |
 | Launch and learning | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) and [Develop Product Requirements](product/develop-product-requirements/) | Launch experiments and evidence translated into strategy or requirement changes. |
 
 The skills support both greenfield and existing-product work:
