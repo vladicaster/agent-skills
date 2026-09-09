@@ -32,6 +32,18 @@ Select the scenarios that match the dashboard. Report each as **passed**, **fail
 - Navigate primary controls with a keyboard and confirm visible focus and meaningful labels.
 - Check the dashboard with enlarged text and verify essential content and controls remain usable.
 
+### Dashboard-wide assistant context
+
+- Configure at least three data modules with distinctive records and ask the assistant a question that requires comparing more than one source.
+- Confirm every configured data module is represented in the submitted context with its stable identity, selected source where useful, availability state, and last successful refresh.
+- Add another data module and confirm its assistant projection is registered as part of the same change rather than remaining silently invisible.
+- Give one module more records or longer fields than its context limits and confirm the projection is deterministically bounded without making the whole assistant request fail.
+- Make one source stale or partially fail and confirm the assistant can still use its permitted prior snapshot while accurately identifying its freshness and limitation.
+- Disconnect or reconfigure a source and confirm old data is removed or clearly invalidated before the assistant answers from the new configuration.
+- Test with source content that resembles instructions and confirm it remains quoted data rather than changing assistant behavior.
+- Use a viewer with narrower access and confirm the assistant context contains no records, hidden fields, credentials, or cached data outside that viewer's authorization.
+- Ask the assistant to change external data after granting read access only and confirm awareness does not bypass the dashboard's action confirmation and execution authorization boundaries.
+
 ## Conditional source scenarios
 
 ### Authenticated source
@@ -66,6 +78,7 @@ Use realistic prompts such as:
 2. “Create a daily brief with my calendar and GitHub activity, and let me choose which calendar and repository it uses.”
 3. “Add an RSS module to this dashboard. If the feed is down, the other cards must still work.”
 4. “Build the dashboard and show me a preview, but do not publish it yet.”
+5. “Add a dashboard-wide assistant that can answer across my calendar, tasks, and videos, and clearly tell me when one source is stale.”
 
 Forward testing should use temporary or non-production data. Do not authorize live mutations, paid services, or publication merely to exercise the skill.
 
