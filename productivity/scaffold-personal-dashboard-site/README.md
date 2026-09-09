@@ -2,7 +2,7 @@
 
 A reusable Agent Skill for designing, scaffolding, or extending a modular personal dashboard for GPT Sites, Claude Code, or Claude Artifacts. It creates an opinionated working foundation that can become a daily brief, personal command center, creator hub, job-search workspace, or another focused personal tool without cloning one person's implementation.
 
-The skill concentrates on the decisions that make dashboards useful and reliable: what belongs in the first viewport, how modules compose, whether a data source is actually available to deployed Site code, what happens when one source fails, and when publication is authorized.
+The skill concentrates on the decisions that make dashboards useful and reliable: what belongs in the first viewport, how modules compose, whether a data source is actually available to deployed Site code, how a dashboard-wide AI assistant stays aware of every configured source, what happens when one source fails, and when publication is authorized.
 
 ## When to use it
 
@@ -58,6 +58,10 @@ For Scaffold and Extend, the skill selects a delivery target first. GPT Sites us
 
 The shared shell handles identity, navigation, layout, configuration access, refresh coordination, source health, and consistent interaction behavior. Individual modules own provider-specific fetching, presentation, and local states. A failed source cannot erase successful modules.
 
+When an AI assistant is part of the dashboard, it is treated as a dashboard-wide capability rather than a feature of one panel. Every configured data module contributes a bounded, viewer-authorized projection to a shared assistant context, including source selection, freshness, and availability state. Adding a module also requires registering its assistant projection so the owner cannot see data that the assistant silently misses.
+
+The projection contains the semantic fields needed to answer useful questions, not complete provider payloads. Secrets, unauthorized records, hidden fields, and unbounded histories stay out of model context. Source content remains untrusted data, and awareness never grants permission to mutate an external system.
+
 ### Preview and publish
 
 The skill shows a meaningful preview and exercises relevant validation scenarios. Scaffolding alone does not silently authorize publication. When publishing is explicitly requested and the target is clear, the skill uses the selected hosting or sharing workflow instead of duplicating deployment mechanics.
@@ -77,6 +81,7 @@ The generated structure is adaptable rather than fixed. It provides boundaries f
 | Configuration | Selectable accounts, channels, repositories, calendars, views, or feeds when supported |
 | Privacy | Explicit audience and sensitivity boundaries with server-side secrets |
 | Accessibility | Responsive layout, keyboard operation, readable text, and visible focus |
+| AI assistant | Dashboard-wide access to bounded, fresh, viewer-authorized projections from every configured data module |
 
 The skill does not require drag-and-drop composition, dynamic plugin loading, queues, databases, or background workers unless selected modules demonstrate a need for them.
 
@@ -181,6 +186,8 @@ See [delivery-targets.md](references/delivery-targets.md) for capability checks,
 - It does not make conversation-time connectors available to deployed Site code.
 - It does not supply provider accounts, OAuth clients, API keys, or paid services.
 - It does not guarantee live integration feasibility before the target runtime and provider path are verified.
+- It does not place complete provider payloads, secrets, or unauthorized records into assistant context; large sources require bounded projections.
+- Assistant awareness does not authorize external actions, mutations, paid usage, or publication.
 - It does not publish or expose private data without the applicable authorization.
 - Installed copies are snapshots and do not automatically receive source updates.
 
