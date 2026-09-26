@@ -26,6 +26,7 @@ agent-skills/
 │   └── prepare-product-for-engineering/
 ├── productivity/
 │   ├── README.md
+│   ├── maintain-knowledge-graph/
 │   └── scaffold-personal-dashboard-site/
 └── README.md
 ```
@@ -51,6 +52,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and plan, pauses for approval, and only then creates the branch and implements the approved work as a linked draft pull request. |
 | [Manage Coding-Agent Harness](engineering/manage-coding-agent-harness/) | Engineering | Creates and manages technology-neutral coding-agent harnesses for existing repositories or greenfield projects described by a PRD. |
+| [Maintain Knowledge Graph](productivity/maintain-knowledge-graph/) | Productivity | Creates and maintains portable classified graphs, privacy-gated storage, public/private exports and offline viewers across Claude, ChatGPT/Codex and capable assistants. |
 | [Scaffold Personal Dashboard Site](productivity/scaffold-personal-dashboard-site/) | Productivity | Designs, scaffolds, or extends modular personal dashboards for GPT Sites, Claude Code, and Claude Artifacts while verifying source feasibility and preserving publication boundaries. |
 | [Develop Go-to-Market Strategy](product/develop-go-to-market-strategy/) | Product | Develops evidence-based segmentation, positioning, offers, motions, channels, launch plans, experiments, and measurable GTM priorities. |
 | [Develop Product Requirements](product/develop-product-requirements/) | Product | Develops hierarchical, traceable PRDs and approved issue-decomposition plans across products, subproducts, repositories, and GitHub delivery work. |
@@ -126,6 +128,8 @@ See each skill's README for exact prerequisites, installation commands, invocati
 
 Marketing learning can be maintained independently with [Manage Marketing Memory](product/manage-marketing-memory/). It preserves evidence and approved strategy outputs across sessions; it is an optional companion to GTM, not a required product-development stage.
 
+Maintain Knowledge Graph is an optional personal-information workflow, not a required product-delivery stage. Other skills may consume a user-approved export without sharing or publishing its private master.
+
 ## GitHub and repository prerequisites
 
 Not every skill requires GitHub. Some can return documents or portable artifacts without any repository, while delivery workflows require an authenticated GitHub identity and an existing destination repository.
@@ -136,6 +140,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 | Produce Reference-Driven Video | No | No repository required unless production artifacts are stored or delivered through one |
 | GitHub Issue to Draft PR | Yes | Existing destination repository required |
 | Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
+| Maintain Knowledge Graph | Only for repository-backed storage | No repository required for local or portable graph work; verify the chosen destination and audience before saving |
 | Scaffold Personal Dashboard Site | Only for repository-backed Scaffold or Extend work | No repository required for Blueprint or Claude Artifacts; Claude Code uses local project files; publication requires the selected host and authorization |
 | Develop Product Requirements | Only when creating approved issues | No repository required to author a PRD or issue plan |
 | Prepare Product for Engineering | Optional | Can use a local or document-based planning package |
