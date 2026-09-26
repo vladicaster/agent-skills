@@ -1,0 +1,6 @@
+interface:
+  display_name: "Maintain Knowledge Graph"
+  short_description: "Build portable graphs with privacy-aware storage"
+  default_prompt: "Use $maintain-knowledge-graph to create or update my graph, review entity and field visibility, and prepare it for my chosen storage location."
+policy:
+  allow_implicit_invocation: true

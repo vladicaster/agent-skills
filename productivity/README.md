@@ -8,6 +8,7 @@ Each skill directory is independently installable.
 
 | Skill | Status | Purpose |
 | --- | --- | --- |
+| [Maintain Knowledge Graph](maintain-knowledge-graph/) | Available | Establishes and updates classified graphs, checks chosen public/private storage, and produces portable JSON and offline viewers. |
 | [Scaffold Personal Dashboard Site](scaffold-personal-dashboard-site/) | Available | Creates modular personal dashboards for GPT Sites, Claude Code, and Claude Artifacts with configurable sources and resilient module behavior. |
 
 ## Category boundaries
