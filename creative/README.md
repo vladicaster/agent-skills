@@ -10,6 +10,9 @@ Each subdirectory is independently installable. You do not need to install the c
 | --- | --- | --- |
 | [Develop Creative Worlds](develop-creative-worlds/) | Available | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
 | [Produce Reference-Driven Video](produce-reference-driven-video/) | Available | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos. |
+| [Produce Visual Timelapse](produce-visual-timelapse/) | Available | Builds persistent temporal worlds, dated milestones, camera choreography, and synchronized time overlays. |
+
+Produce Visual Timelapse optionally uses Produce Reference-Driven Video for generation and finishing. Research and deterministic rendering can run independently.
 
 ## Creative skill conventions
 
