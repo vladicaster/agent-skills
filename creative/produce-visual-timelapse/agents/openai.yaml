@@ -1,0 +1,4 @@
+interface:
+  display_name: "Produce Visual Timelapse"
+  short_description: "Create coherent 3D histories and visual transformations"
+  default_prompt: "Use $produce-visual-timelapse to create a 3D historical evolution video with a synchronized timeline."
