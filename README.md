@@ -11,7 +11,8 @@ agent-skills/
 ├── creative/
 │   ├── README.md
 │   ├── develop-creative-worlds/
-│   └── produce-reference-driven-video/
+│   ├── produce-reference-driven-video/
+│   └── produce-visual-timelapse/
 ├── engineering/
 │   ├── README.md
 │   ├── bootstrap-multiplayer-game-server/
@@ -48,6 +49,7 @@ Each leaf directory is a self-contained skill. Install only the skill directorie
 | --- | --- | --- |
 | [Bootstrap Multiplayer Game Server](engineering/bootstrap-multiplayer-game-server/) | Engineering | Designs, scaffolds, or migrates WebSocket-capable server-authoritative foundations for session-based multiplayer games, with bounded AI generation and a TypeScript-to-C# portability contract. |
 | [Develop Creative Worlds](creative/develop-creative-worlds/) | Creative | Creates, memorializes, governs, audits, and revises coherent fictional worlds, living world bibles, and optional world repositories. |
+| [Produce Visual Timelapse](creative/produce-visual-timelapse/) | Creative | Produces coherent temporal worlds, dated milestones, aerial camera choreography, and synchronized time overlays. |
 | [Produce Reference-Driven Video](creative/produce-reference-driven-video/) | Creative | Plans, generates, adapts, reviews, and deterministically finishes short reference-driven AI videos, with a first-class Higgsfield and Seedance adapter. |
 | [Develop C4 Architecture](engineering/develop-c4-architecture/) | Engineering | Develops and validates evidence-backed C4 models from ideas, requirements, repositories, existing diagrams, and proposed changes. |
 | [GitHub Issue to Draft PR](engineering/github-issue-to-draft-pr/) | Engineering | Creates a GitHub issue and plan, pauses for approval, and only then creates the branch and implements the approved work as a linked draft pull request. |
@@ -114,6 +116,8 @@ The skills support both greenfield and existing-product work:
 - Each approved issue can move independently through implementation and draft-PR review.
 - Launch results, delivery discoveries, and customer feedback can trigger GTM changes, PRD changes, or additional delivery work.
 
+Visual timelapse is an independent creative workflow. It conditionally uses Produce Reference-Driven Video for provider generation and finishing; it does not add a required product-delivery stage.
+
 ## Compatibility
 
 Skills use a `SKILL.md` entry point and follow the open Agent Skills structure whenever practical.
@@ -137,6 +141,7 @@ Not every skill requires GitHub. Some can return documents or portable artifacts
 | Skill | GitHub needed? | Repository needed? |
 | --- | --- | --- |
 | Develop Creative Worlds | Only for repository-backed memorialization or maintenance | No repository required for conversational or document-based worldbuilding; an existing or separately authorized new repository may be used |
+| Produce Visual Timelapse | Only for repository delivery | No repository required for research, planning, or rendering |
 | Produce Reference-Driven Video | No | No repository required unless production artifacts are stored or delivered through one |
 | GitHub Issue to Draft PR | Yes | Existing destination repository required |
 | Manage Coding-Agent Harness | Only for repository-backed modes | No repository required for greenfield Bootstrap |
